@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>管理学教学 AI 助教</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="logo">MgmtTutor AI</div>
+      <div class="header-info">
+        <span class="tag">企业管理</span>
+        <span class="tag">工商管理</span>
+        <span class="tag tag-secondary">案例教学</span>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <!-- 左侧：教学设置 -->
+      <aside class="sidebar">
+        <h2>教学模式</h2>
+        <ul class="mode-list">
+          <li>
+            <label>
+              <input type="radio" name="mode" value="case" checked />
+              案例解析
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="mode" value="socratic" />
+              提问式引导
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="mode" value="quiz" />
+              测验模式
+            </label>
+          </li>
+        </ul>
+
+        <h2>课程方向</h2>
+        <select id="courseType">
+          <option value="general">综合管理学</option>
+          <option value="strategy">战略管理</option>
+          <option value="ob">组织行为学</option>
+          <option value="marketing">市场营销</option>
+          <option value="hr">人力资源管理</option>
+          <option value="operations">运营管理</option>
+        </select>
+
+        <h2>教学难度</h2>
+        <select id="level">
+          <option value="intro">大一 / 入门</option>
+          <option value="intermediate">大二–大三</option>
+          <option value="advanced">高年级 / 研究生</option>
+        </select>
+
+        <section class="tips">
+          <h2>建议用法</h2>
+          <ol>
+            <li>在中间区域粘贴一个企业管理/工商管理案例。</li>
+            <li>选择课程方向、教学模式和难度。</li>
+            <li>点击“基于该案例开始教学”，随后与 AI 继续对话。</li>
+          </ol>
+        </section>
+      </aside>
+
+      <!-- 中间：案例 + 对话 -->
+      <section class="chat-panel">
+        <div class="case-input">
+          <h2>输入教学案例</h2>
+          <textarea
+            id="caseText"
+            rows="5"
+            placeholder="例如：某科技创业公司在快速扩张过程中出现部门间冲突、关键人才流失、客户投诉增加，创始团队意见不合……"
+          ></textarea>
+          <button id="startLessonBtn">基于该案例开始教学</button>
+        </div>
+
+        <div id="chatWindow" class="chat-window">
+          <!-- AI 和学生的对话会出现在这里 -->
+        </div>
+
+        <form id="chatForm" class="chat-input">
+          <input
+            id="userInput"
+            type="text"
+            placeholder="向 AI 助教提问，例如：这家公司冲突的根源是什么？"
+            autocomplete="off"
+          />
+          <button type="submit">发送</button>
+        </form>
+      </section>
+
+      <!-- 右侧：课堂笔记 -->
+      <aside class="notes-panel">
+        <h2>课堂笔记（AI 自动整理）</h2>
+        <div id="notesContent" class="notes-content">
+          这里会自动生成本次案例的要点、小结和作业建议。
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
