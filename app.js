@@ -1,5 +1,6 @@
 // TODO：部署完后端后，把这里换成你的真实 API 地址
-const API_URL = "https://mgmt-ai-tutor.onrender.com";
+const API_URL = "https://mgmt-ai-tutor.onrender.com/api/chat";
+
 
 const chatWindow = document.getElementById("chatWindow");
 const notesContent = document.getElementById("notesContent");
