@@ -1,0 +1,12 @@
+[
+  {
+    "date": "2026-04-02",
+    "generated_at": "2026-04-02T16:36:30.938106+00:00",
+    "stats": {
+      "total": 20,
+      "embodied": 10,
+      "llm_agent": 10
+    },
+    "file": "data/papers/2026-04-02.json"
+  }
+]

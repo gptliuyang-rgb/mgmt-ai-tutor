@@ -1,0 +1,2 @@
+# Stdlib-only pipeline by default.
+# Optional: add requests/transformers and adapt script if needed.

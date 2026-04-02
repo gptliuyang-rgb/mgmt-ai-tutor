@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+    <id>http://arxiv.org/abs/2604.00001v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>World-Model Guided Policy Learning Variant 1</title>
+    <summary>We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.</summary>
+    <author><name>Alice Chen</name></author>
+    <author><name>Bo Wang</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00001v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00001v1" rel="related"/>
+    <category term="cs.RO"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00002v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>Tool-Using LLM Agents with Verifiable Reasoning Variant 2</title>
+    <summary>We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.</summary>
+    <author><name>David Li</name></author>
+    <author><name>Emma Zhou</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00002v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00002v1" rel="related"/>
+    <category term="cs.LG"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00003v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>World-Model Guided Policy Learning Variant 3</title>
+    <summary>We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.</summary>
+    <author><name>Alice Chen</name></author>
+    <author><name>Bo Wang</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00003v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00003v1" rel="related"/>
+    <category term="cs.RO"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00004v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>Tool-Using LLM Agents with Verifiable Reasoning Variant 4</title>
+    <summary>We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.</summary>
+    <author><name>David Li</name></author>
+    <author><name>Emma Zhou</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00004v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00004v1" rel="related"/>
+    <category term="cs.LG"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00005v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>World-Model Guided Policy Learning Variant 5</title>
+    <summary>We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.</summary>
+    <author><name>Alice Chen</name></author>
+    <author><name>Bo Wang</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00005v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00005v1" rel="related"/>
+    <category term="cs.RO"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00006v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>Tool-Using LLM Agents with Verifiable Reasoning Variant 6</title>
+    <summary>We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.</summary>
+    <author><name>David Li</name></author>
+    <author><name>Emma Zhou</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00006v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00006v1" rel="related"/>
+    <category term="cs.LG"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00007v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>World-Model Guided Policy Learning Variant 7</title>
+    <summary>We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.</summary>
+    <author><name>Alice Chen</name></author>
+    <author><name>Bo Wang</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00007v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00007v1" rel="related"/>
+    <category term="cs.RO"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00008v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>Tool-Using LLM Agents with Verifiable Reasoning Variant 8</title>
+    <summary>We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.</summary>
+    <author><name>David Li</name></author>
+    <author><name>Emma Zhou</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00008v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00008v1" rel="related"/>
+    <category term="cs.LG"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00009v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>World-Model Guided Policy Learning Variant 9</title>
+    <summary>We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.</summary>
+    <author><name>Alice Chen</name></author>
+    <author><name>Bo Wang</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00009v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00009v1" rel="related"/>
+    <category term="cs.RO"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00010v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>Tool-Using LLM Agents with Verifiable Reasoning Variant 10</title>
+    <summary>We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.</summary>
+    <author><name>David Li</name></author>
+    <author><name>Emma Zhou</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00010v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00010v1" rel="related"/>
+    <category term="cs.LG"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00011v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>World-Model Guided Policy Learning Variant 11</title>
+    <summary>We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.</summary>
+    <author><name>Alice Chen</name></author>
+    <author><name>Bo Wang</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00011v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00011v1" rel="related"/>
+    <category term="cs.RO"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00012v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>Tool-Using LLM Agents with Verifiable Reasoning Variant 12</title>
+    <summary>We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.</summary>
+    <author><name>David Li</name></author>
+    <author><name>Emma Zhou</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00012v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00012v1" rel="related"/>
+    <category term="cs.LG"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00013v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>World-Model Guided Policy Learning Variant 13</title>
+    <summary>We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.</summary>
+    <author><name>Alice Chen</name></author>
+    <author><name>Bo Wang</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00013v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00013v1" rel="related"/>
+    <category term="cs.RO"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00014v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>Tool-Using LLM Agents with Verifiable Reasoning Variant 14</title>
+    <summary>We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.</summary>
+    <author><name>David Li</name></author>
+    <author><name>Emma Zhou</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00014v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00014v1" rel="related"/>
+    <category term="cs.LG"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00015v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>World-Model Guided Policy Learning Variant 15</title>
+    <summary>We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.</summary>
+    <author><name>Alice Chen</name></author>
+    <author><name>Bo Wang</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00015v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00015v1" rel="related"/>
+    <category term="cs.RO"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00016v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>Tool-Using LLM Agents with Verifiable Reasoning Variant 16</title>
+    <summary>We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.</summary>
+    <author><name>David Li</name></author>
+    <author><name>Emma Zhou</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00016v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00016v1" rel="related"/>
+    <category term="cs.LG"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00017v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>World-Model Guided Policy Learning Variant 17</title>
+    <summary>We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.</summary>
+    <author><name>Alice Chen</name></author>
+    <author><name>Bo Wang</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00017v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00017v1" rel="related"/>
+    <category term="cs.RO"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00018v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>Tool-Using LLM Agents with Verifiable Reasoning Variant 18</title>
+    <summary>We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.</summary>
+    <author><name>David Li</name></author>
+    <author><name>Emma Zhou</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00018v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00018v1" rel="related"/>
+    <category term="cs.LG"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00019v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>World-Model Guided Policy Learning Variant 19</title>
+    <summary>We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.</summary>
+    <author><name>Alice Chen</name></author>
+    <author><name>Bo Wang</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00019v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00019v1" rel="related"/>
+    <category term="cs.RO"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00020v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>Tool-Using LLM Agents with Verifiable Reasoning Variant 20</title>
+    <summary>We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.</summary>
+    <author><name>David Li</name></author>
+    <author><name>Emma Zhou</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00020v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00020v1" rel="related"/>
+    <category term="cs.LG"/>
+    <category term="cs.AI"/>
+  </entry>
+</feed>
