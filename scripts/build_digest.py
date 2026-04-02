@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build daily Arxiv AI digest data and static pages (stdlib-only)."""
+"""Build daily Arxiv AI digest data and static pages (stdlib-first)."""
 
 from __future__ import annotations
 
@@ -22,7 +22,10 @@ PAPERS_DIR = DATA_DIR / "papers"
 
 ARXIV_API = "https://export.arxiv.org/api/query"
 ARXIV_QUERY = "cat:cs.AI+OR+cat:cs.LG+OR+cat:cs.RO+OR+cat:cs.HC"
-NS = {"atom": "http://www.w3.org/2005/Atom"}
+NS = {
+    "atom": "http://www.w3.org/2005/Atom",
+    "arxiv": "http://arxiv.org/schemas/atom",
+}
 
 MODULES = {
     "embodied": {
@@ -63,6 +66,16 @@ def http_get(url: str, params: dict | None = None, timeout: int = 35) -> str:
         return resp.read().decode("utf-8", errors="ignore")
 
 
+def http_post_json(url: str, payload: dict, headers: dict | None = None, timeout: int = 35) -> dict | list:
+    merged_headers = {"Content-Type": "application/json"}
+    if headers:
+        merged_headers.update(headers)
+    req = Request(url, data=json.dumps(payload).encode("utf-8"), headers=merged_headers, method="POST")
+    with urlopen(req, timeout=timeout) as resp:
+        raw = resp.read().decode("utf-8", errors="ignore")
+    return json.loads(raw)
+
+
 def short_summary(text: str, limit: int = 420) -> str:
     clean = " ".join(text.split())
     return clean if len(clean) <= limit else clean[: limit - 1].rstrip() + "…"
@@ -74,6 +87,23 @@ def naive_summarize(text: str, prefix: str) -> str:
     return f"{prefix}：{short_summary(selected, 260)}"
 
 
+def hf_summarize(text: str, token: str) -> str | None:
+    endpoint = "https://api-inference.huggingface.co/models/google/flan-t5-small"
+    prompt = "Summarize the core method in 2 concise Chinese sentences:\n" + short_summary(text, 1400)
+    try:
+        resp = http_post_json(
+            endpoint,
+            {"inputs": prompt, "parameters": {"max_new_tokens": 96, "temperature": 0.1}},
+            headers={"Authorization": f"Bearer {token}"},
+            timeout=40,
+        )
+        if isinstance(resp, list) and resp and isinstance(resp[0], dict) and resp[0].get("generated_text"):
+            return short_summary(resp[0]["generated_text"], 280)
+    except Exception:
+        return None
+    return None
+
+
 def generate_model_summary(text: str, cache: Dict[str, str]) -> Dict[str, str]:
     key = str(hash(text))
     if key in cache:
@@ -82,13 +112,11 @@ def generate_model_summary(text: str, cache: Dict[str, str]) -> Dict[str, str]:
     method = naive_summarize(text, "方法总结")
     conclusion = naive_summarize(text, "结论总结")
 
-    # Optional HF inference API (free tier) if token is provided.
     hf_token = os.getenv("HF_API_TOKEN")
     if hf_token:
-        try:
-            method = method + "（可配置 HF_API_TOKEN 获取更高质量摘要）"
-        except Exception:
-            pass
+        generated = hf_summarize(text, hf_token)
+        if generated:
+            method = f"方法总结：{generated}"
 
     payload = {"method": method, "conclusion": conclusion}
     cache[key] = json.dumps(payload, ensure_ascii=False)
@@ -122,7 +150,16 @@ def parse_entries(xml_text: str) -> List[dict]:
         summary = entry.findtext("atom:summary", default="", namespaces=NS)
         published = entry.findtext("atom:published", default="", namespaces=NS)
         updated = entry.findtext("atom:updated", default="", namespaces=NS)
-        authors = [a.findtext("atom:name", default="", namespaces=NS) for a in entry.findall("atom:author", NS)]
+
+        authors, affiliations = [], []
+        for author in entry.findall("atom:author", NS):
+            name = author.findtext("atom:name", default="", namespaces=NS)
+            if name:
+                authors.append(name)
+            aff = author.findtext("arxiv:affiliation", default="", namespaces=NS)
+            if aff:
+                affiliations.append(aff)
+
         categories = [c.attrib.get("term", "") for c in entry.findall("atom:category", NS)]
 
         pdf = f"{entry_id}.pdf"
@@ -139,6 +176,7 @@ def parse_entries(xml_text: str) -> List[dict]:
                 "published": published,
                 "updated": updated,
                 "authors": [a for a in authors if a],
+                "affiliations": [a for a in affiliations if a],
                 "categories": [c for c in categories if c],
                 "pdf": pdf,
             }
@@ -179,7 +217,7 @@ def build_digest(max_results: int) -> Dict[str, object]:
                 paper_id=arxiv_id,
                 title=" ".join(row["title"].split()),
                 authors=row["authors"],
-                affiliations=[],
+                affiliations=row["affiliations"],
                 summary=" ".join(row["summary"].split()),
                 summary_sentence=naive_summarize(row["summary"], "摘要首句").replace("摘要首句：", ""),
                 method_summary=sums["method"],

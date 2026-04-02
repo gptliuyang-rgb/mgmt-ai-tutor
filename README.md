@@ -1,4 +1,4 @@
-# Arxiv Daily Digest
+# Arxiv Daily Digest (ainewspaper)
 
 一个免费的 Arxiv AI 论文日报站点：
 
@@ -8,8 +8,8 @@
 ## 已实现功能
 
 - 每日自动抓取 Arxiv 分类：`cs.AI`、`cs.LG`、`cs.RO`、`cs.HC`
-- 生成字段：标题、作者、摘要、发布时间、PDF 链接、主要图片（含 fallback）
-- 自动摘要：方法总结 + 结论总结（优先 `t5-small`，失败时自动降级到轻量规则摘要）
+- 生成字段：标题、作者、作者单位（Arxiv 元数据可用时）、摘要、发布时间、PDF 链接、主要图片（含 fallback）
+- 自动摘要：方法总结 + 结论总结（默认轻量规则；可选 `HF_API_TOKEN` 调 HuggingFace 免费推理）
 - 静态站点：
   - 首页按日期浏览
   - 两个模块分栏展示
@@ -18,31 +18,34 @@
   - 点赞（本地存储）
   - 收藏（本地存储）
   - 评论系统：Giscus（GitHub 登录）
-- 自动化：GitHub Actions 每天 UTC 00:00 运行并提交新数据
+- 自动化：
+  - `daily-digest.yml`：每天 UTC 00:00 更新数据
+  - `deploy-pages.yml`：推送到 `main` 自动部署 GitHub Pages
 
 ## 本地运行
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
 python scripts/build_digest.py --max-results 20
 python -m http.server 8000
 ```
 
 打开 <http://localhost:8000>。
 
-## GitHub Pages 部署
+## GitHub Pages 发布流程（仓库名：`ainewspaper`）
 
-1. 推送仓库到 GitHub。
-2. 在仓库 `Settings -> Pages`，选择 `Deploy from branch`，分支选择 `main`（或当前分支）根目录。
-3. 确保 Actions 工作流正常运行（首次可手动触发 `workflow_dispatch`）。
+1. 在 GitHub 创建公开仓库 `ainewspaper`。
+2. 推送本项目代码到该仓库的 `main` 分支。
+3. 在仓库 `Settings -> Pages` 中确认 Source 为 **GitHub Actions**。
+4. 在 `Actions` 页面运行 `Deploy static site to GitHub Pages`（或 push 后自动运行）。
+5. 发布后访问：
+   - 项目站点：`https://<你的用户名>.github.io/ainewspaper/`
+   - 若仓库名是 `<你的用户名>.github.io`，则域名是：`https://<你的用户名>.github.io/`
 
 ## 配置 Giscus
 
 在 `app.js` 中替换下列占位符：
 
-- `<YOUR_GITHUB_NAME>/<YOUR_REPO>`
+- `<YOUR_GITHUB_NAME>/ainewspaper`
 - `<YOUR_REPO_ID>`
 - `<YOUR_CATEGORY_ID>`
 

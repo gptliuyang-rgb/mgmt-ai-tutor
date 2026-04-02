@@ -2,6 +2,8 @@ const DATA_INDEX_URL = "./data/index.json";
 const LATEST_URL = "./data/latest.json";
 
 const byId = (id) => document.getElementById(id);
+let loadedDigest = null;
+let loadedHistory = [];
 
 function safeDate(iso) {
   return new Date(iso).toLocaleString("zh-CN", { hour12: false });
@@ -19,18 +21,24 @@ function setStore(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
+function applyFilter(papers) {
+  const filterEl = byId("moduleFilter");
+  const filter = filterEl ? filterEl.value : "all";
+  return papers.filter((p) => (filter === "all" ? true : p.module === filter));
+}
+
 async function loadIndexPage() {
   const meta = byId("meta");
   if (!meta) return;
 
   const [indexRes, latestRes] = await Promise.all([fetch(DATA_INDEX_URL), fetch(LATEST_URL)]);
-  const index = await indexRes.json();
+  loadedHistory = await indexRes.json();
   const latest = await latestRes.json();
 
   meta.textContent = `最近更新：${safeDate(latest.generated_at)} | 共 ${latest.stats.total} 篇`;
 
   const dateSelect = byId("dateSelect");
-  index.forEach((entry) => {
+  loadedHistory.forEach((entry) => {
     const opt = document.createElement("option");
     opt.value = entry.file;
     opt.textContent = `${entry.date} (${entry.stats.total} 篇)`;
@@ -38,13 +46,21 @@ async function loadIndexPage() {
   });
 
   const renderByFile = async (file) => {
-    const digest = await fetch(`./${file}`).then((r) => r.json());
-    renderPaperLists(digest.papers);
+    loadedDigest = await fetch(`./${file}`).then((r) => r.json());
+    renderPaperLists(applyFilter(loadedDigest.papers));
   };
 
-  await renderByFile(index[0].file);
+  if (loadedHistory.length > 0) {
+    await renderByFile(loadedHistory[0].file);
+  } else {
+    loadedDigest = latest;
+    renderPaperLists(applyFilter(loadedDigest.papers));
+  }
+
   dateSelect.addEventListener("change", (e) => renderByFile(e.target.value));
-  byId("moduleFilter").addEventListener("change", () => renderPaperLists(latest.papers, true));
+  byId("moduleFilter").addEventListener("change", () => {
+    if (loadedDigest) renderPaperLists(applyFilter(loadedDigest.papers));
+  });
 }
 
 function makeCard(paper) {
@@ -91,18 +107,13 @@ function makeCard(paper) {
   return node;
 }
 
-function renderPaperLists(papers, filterFromLatest = false) {
-  const filter = byId("moduleFilter").value;
-  const targetPapers = filterFromLatest
-    ? papers.filter((p) => (filter === "all" ? true : p.module === filter))
-    : papers;
-
+function renderPaperLists(papers) {
   const embodied = byId("embodiedList");
   const llm = byId("llmList");
   embodied.innerHTML = "";
   llm.innerHTML = "";
 
-  targetPapers.forEach((p) => {
+  papers.forEach((p) => {
     const card = makeCard(p);
     if (p.module === "embodied") embodied.appendChild(card);
     else llm.appendChild(card);
@@ -114,8 +125,19 @@ async function loadDetailPage() {
   if (!detailRoot) return;
 
   const paperId = new URLSearchParams(location.search).get("id");
-  const latest = await fetch(LATEST_URL).then((r) => r.json());
-  const paper = latest.papers.find((p) => p.paper_id === paperId) || latest.papers[0];
+  const index = await fetch(DATA_INDEX_URL).then((r) => r.json());
+
+  let paper = null;
+  for (const item of index) {
+    const digest = await fetch(`./${item.file}`).then((r) => r.json());
+    paper = digest.papers.find((p) => p.paper_id === paperId);
+    if (paper) break;
+  }
+
+  if (!paper) {
+    const latest = await fetch(LATEST_URL).then((r) => r.json());
+    paper = latest.papers[0];
+  }
 
   detailRoot.innerHTML = `
     <h1>${paper.title}</h1>
@@ -129,15 +151,15 @@ async function loadDetailPage() {
     <p><a href="${paper.pdf_url}" target="_blank" rel="noopener">查看原文 PDF</a></p>
   `;
 
-  injectGiscus(paperId || paper.paper_id, paper.title);
+  injectGiscus(paperId || paper.paper_id);
 }
 
-function injectGiscus(term, title) {
+function injectGiscus(term) {
   const root = byId("giscus");
   if (!root) return;
 
   const cfg = {
-    repo: "<YOUR_GITHUB_NAME>/<YOUR_REPO>",
+    repo: "<YOUR_GITHUB_NAME>/ainewspaper",
     repoId: "<YOUR_REPO_ID>",
     category: "General",
     categoryId: "<YOUR_CATEGORY_ID>",
