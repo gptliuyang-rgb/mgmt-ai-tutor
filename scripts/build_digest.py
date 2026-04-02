@@ -157,8 +157,44 @@ def build_svg_placeholder(arxiv_id: str, title: str) -> str:
     return f"data/images/{arxiv_id}.svg"
 
 
+def extract_fig1_candidate(arxiv_id: str) -> str | None:
+    html_url = f"https://arxiv.org/html/{arxiv_id}"
+    try:
+        html = http_get(html_url, timeout=20)
+    except Exception:
+        return None
+
+    def first_img(block: str) -> str | None:
+        m = re.search(r'<img[^>]+src="([^"]+)"', block)
+        if m:
+            return urljoin(html_url, m.group(1))
+        return None
+
+    # Prefer figure id containing F1 / Fig1 style ids
+    for fig in re.findall(r'<figure[^>]*id="([^"]+)"[^>]*>(.*?)</figure>', html, flags=re.S):
+        fig_id, body = fig
+        if re.search(r'(^|[._-])F?1($|[._-])', fig_id, flags=re.I):
+            src = first_img(body)
+            if src:
+                return normalize_to_https(src)
+
+    # Fallback: first figure image in article HTML
+    first_figure = re.search(r'<figure[^>]*>(.*?)</figure>', html, flags=re.S)
+    if first_figure:
+        src = first_img(first_figure.group(1))
+        if src:
+            return normalize_to_https(src)
+
+    return None
+
+
 def extract_image_candidates(abs_url: str, arxiv_id: str) -> List[str]:
     candidates = []
+
+    fig1 = extract_fig1_candidate(arxiv_id)
+    if fig1:
+        candidates.append(fig1)
+
     try:
         html = http_get(abs_url, timeout=15)
         og = re.search(r'<meta\s+property="og:image"\s+content="([^"]+)"', html)
@@ -170,7 +206,6 @@ def extract_image_candidates(abs_url: str, arxiv_id: str) -> List[str]:
     except Exception:
         pass
 
-    candidates.append(f"https://arxiv.org/html/{arxiv_id}")
     dedup = []
     for item in candidates:
         item = normalize_to_https(item)
@@ -185,15 +220,15 @@ def persist_image_asset(arxiv_id: str, title: str, abs_url: str) -> str:
     for url in extract_image_candidates(abs_url, arxiv_id):
         try:
             body, ctype = http_get_bytes(url, timeout=20)
-            if "image/" not in ctype:
+            if "image/" not in ctype and not url.lower().endswith((".png", ".jpg", ".jpeg", ".webp", ".svg")):
                 continue
 
             ext = "jpg"
-            if "png" in ctype:
+            if "png" in ctype or url.lower().endswith('.png'):
                 ext = "png"
-            elif "svg" in ctype:
+            elif "svg" in ctype or url.lower().endswith('.svg'):
                 ext = "svg"
-            elif "webp" in ctype:
+            elif "webp" in ctype or url.lower().endswith('.webp'):
                 ext = "webp"
 
             out = IMAGES_DIR / f"{arxiv_id}.{ext}"
