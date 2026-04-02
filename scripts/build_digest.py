@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from html import escape, unescape
 from pathlib import Path
 from typing import Dict, List
-from urllib.parse import quote, urlencode, urljoin
+from urllib.parse import urlencode, urljoin
 from urllib.request import Request, urlopen
 from xml.etree import ElementTree as ET
 
@@ -142,6 +142,24 @@ def normalize_to_https(url: str) -> str:
     return url
 
 
+def is_generic_arxiv_image(url: str, body: bytes | None = None) -> bool:
+    lowered = url.lower()
+    generic_hints = [
+        "arxiv-logo",
+        "/static/browse/",
+        "paper-image",
+        "arxiv_200x100",
+    ]
+    if any(h in lowered for h in generic_hints):
+        return True
+
+    if body:
+        head = body[:2048].lower()
+        if b"arxiv" in head and b"logo" in head:
+            return True
+    return False
+
+
 def build_svg_placeholder(arxiv_id: str, title: str) -> str:
     IMAGES_DIR.mkdir(parents=True, exist_ok=True)
     path = IMAGES_DIR / f"{arxiv_id}.svg"
@@ -158,32 +176,46 @@ def build_svg_placeholder(arxiv_id: str, title: str) -> str:
 
 
 def extract_fig1_candidate(arxiv_id: str) -> str | None:
-    html_url = f"https://arxiv.org/html/{arxiv_id}"
-    try:
-        html = http_get(html_url, timeout=20)
-    except Exception:
-        return None
+    html_urls = [
+        f"https://arxiv.org/html/{arxiv_id}",
+        f"https://ar5iv.org/html/{arxiv_id}",
+    ]
 
-    def first_img(block: str) -> str | None:
-        m = re.search(r'<img[^>]+src="([^"]+)"', block)
-        if m:
-            return urljoin(html_url, m.group(1))
-        return None
+    def find_img(block: str, base_url: str) -> str | None:
+        m = re.search(r"<img[^>]+src=['\"]([^'\"]+)['\"]", block, flags=re.I)
+        if not m:
+            return None
+        return normalize_to_https(urljoin(base_url, unescape(m.group(1))))
 
-    # Prefer figure id containing F1 / Fig1 style ids
-    for fig in re.findall(r'<figure[^>]*id="([^"]+)"[^>]*>(.*?)</figure>', html, flags=re.S):
-        fig_id, body = fig
-        if re.search(r'(^|[._-])F?1($|[._-])', fig_id, flags=re.I):
-            src = first_img(body)
-            if src:
-                return normalize_to_https(src)
+    for html_url in html_urls:
+        try:
+            html = http_get(html_url, timeout=20)
+        except Exception:
+            continue
 
-    # Fallback: first figure image in article HTML
-    first_figure = re.search(r'<figure[^>]*>(.*?)</figure>', html, flags=re.S)
-    if first_figure:
-        src = first_img(first_figure.group(1))
-        if src:
-            return normalize_to_https(src)
+        figure_blocks = re.findall(r"<figure\b[^>]*>(.*?)</figure>", html, flags=re.S | re.I)
+        if not figure_blocks:
+            continue
+
+        # 1) Strong preference: caption explicitly says Figure/Fig. 1
+        for body in figure_blocks:
+            if re.search(r"(figure|fig\.)\s*1\b", body, flags=re.I):
+                src = find_img(body, html_url)
+                if src and not is_generic_arxiv_image(src):
+                    return src
+
+        # 2) Fallback: figure id/class names containing F1 / fig1 / figure-1
+        for full in re.findall(r"<figure\b[^>]*>.*?</figure>", html, flags=re.S | re.I):
+            if re.search(r"(id|class)=['\"][^'\"]*(fig(?:ure)?[-_. ]?1|f1)[^'\"]*['\"]", full, flags=re.I):
+                src = find_img(full, html_url)
+                if src and not is_generic_arxiv_image(src):
+                    return src
+
+        # 3) Last resort: first non-generic figure image
+        for body in figure_blocks:
+            src = find_img(body, html_url)
+            if src and not is_generic_arxiv_image(src):
+                return src
 
     return None
 
@@ -220,6 +252,8 @@ def persist_image_asset(arxiv_id: str, title: str, abs_url: str) -> str:
     for url in extract_image_candidates(abs_url, arxiv_id):
         try:
             body, ctype = http_get_bytes(url, timeout=20)
+            if is_generic_arxiv_image(url, body):
+                continue
             if "image/" not in ctype and not url.lower().endswith((".png", ".jpg", ".jpeg", ".webp", ".svg")):
                 continue
 
