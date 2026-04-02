@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-04-02T16:04:36.482719+00:00",
+  "generated_at": "2026-04-02T16:19:12.767460+00:00",
   "date": "2026-04-02",
   "stats": {
-    "total": 2,
-    "embodied": 1,
-    "llm_agent": 1
+    "total": 20,
+    "embodied": 10,
+    "llm_agent": 10
   },
   "papers": [
     {
       "paper_id": "2604.00001v1",
-      "title": "World-Model Guided Policy Learning for Embodied Navigation",
+      "title": "World-Model Guided Policy Learning Variant 1",
       "authors": [
         "Alice Chen",
         "Bo Wang"
       ],
       "affiliations": [],
-      "summary": "We present a world-model guided policy framework for embodied navigation. The method combines latent imagination and online correction to improve long-horizon control stability.",
-      "summary_sentence": "We present a world-model guided policy framework for embodied navigation. The method combines latent imagination and online correction to improve long-horizon control stability.",
-      "method_summary": "方法总结：We present a world-model guided policy framework for embodied navigation. The method combines latent imagination and online correction to improve long-horizon control stability.",
-      "conclusion_summary": "结论总结：We present a world-model guided policy framework for embodied navigation. The method combines latent imagination and online correction to improve long-horizon control stability.",
+      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
       "published_at": "2026-04-01T00:00:00Z",
       "updated_at": "2026-04-01T00:00:00Z",
       "categories": [
@@ -33,16 +33,16 @@
     },
     {
       "paper_id": "2604.00002v1",
-      "title": "Tool-Using LLM Agents with Verifiable Reasoning",
+      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 2",
       "authors": [
         "David Li",
         "Emma Zhou"
       ],
       "affiliations": [],
-      "summary": "We introduce an LLM agent architecture with explicit tool planning and verifiable reasoning traces. Experiments show gains on coding, retrieval and decision benchmarks.",
-      "summary_sentence": "We introduce an LLM agent architecture with explicit tool planning and verifiable reasoning traces. Experiments show gains on coding, retrieval and decision benchmarks.",
-      "method_summary": "方法总结：We introduce an LLM agent architecture with explicit tool planning and verifiable reasoning traces. Experiments show gains on coding, retrieval and decision benchmarks.",
-      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with explicit tool planning and verifiable reasoning traces. Experiments show gains on coding, retrieval and decision benchmarks.",
+      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
       "published_at": "2026-04-01T00:00:00Z",
       "updated_at": "2026-04-01T00:00:00Z",
       "categories": [
@@ -54,6 +54,438 @@
       "abs_url": "http://arxiv.org/abs/2604.00002v1",
       "pdf_url": "http://arxiv.org/pdf/2604.00002v1",
       "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00002v1"
+    },
+    {
+      "paper_id": "2604.00003v1",
+      "title": "World-Model Guided Policy Learning Variant 3",
+      "authors": [
+        "Alice Chen",
+        "Bo Wang"
+      ],
+      "affiliations": [],
+      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2604.00003v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00003v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00003v1"
+    },
+    {
+      "paper_id": "2604.00004v1",
+      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 4",
+      "authors": [
+        "David Li",
+        "Emma Zhou"
+      ],
+      "affiliations": [],
+      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2604.00004v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00004v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00004v1"
+    },
+    {
+      "paper_id": "2604.00005v1",
+      "title": "World-Model Guided Policy Learning Variant 5",
+      "authors": [
+        "Alice Chen",
+        "Bo Wang"
+      ],
+      "affiliations": [],
+      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2604.00005v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00005v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00005v1"
+    },
+    {
+      "paper_id": "2604.00006v1",
+      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 6",
+      "authors": [
+        "David Li",
+        "Emma Zhou"
+      ],
+      "affiliations": [],
+      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2604.00006v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00006v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00006v1"
+    },
+    {
+      "paper_id": "2604.00007v1",
+      "title": "World-Model Guided Policy Learning Variant 7",
+      "authors": [
+        "Alice Chen",
+        "Bo Wang"
+      ],
+      "affiliations": [],
+      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2604.00007v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00007v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00007v1"
+    },
+    {
+      "paper_id": "2604.00008v1",
+      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 8",
+      "authors": [
+        "David Li",
+        "Emma Zhou"
+      ],
+      "affiliations": [],
+      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2604.00008v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00008v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00008v1"
+    },
+    {
+      "paper_id": "2604.00009v1",
+      "title": "World-Model Guided Policy Learning Variant 9",
+      "authors": [
+        "Alice Chen",
+        "Bo Wang"
+      ],
+      "affiliations": [],
+      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2604.00009v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00009v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00009v1"
+    },
+    {
+      "paper_id": "2604.00010v1",
+      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 10",
+      "authors": [
+        "David Li",
+        "Emma Zhou"
+      ],
+      "affiliations": [],
+      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2604.00010v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00010v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00010v1"
+    },
+    {
+      "paper_id": "2604.00011v1",
+      "title": "World-Model Guided Policy Learning Variant 11",
+      "authors": [
+        "Alice Chen",
+        "Bo Wang"
+      ],
+      "affiliations": [],
+      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2604.00011v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00011v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00011v1"
+    },
+    {
+      "paper_id": "2604.00012v1",
+      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 12",
+      "authors": [
+        "David Li",
+        "Emma Zhou"
+      ],
+      "affiliations": [],
+      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2604.00012v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00012v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00012v1"
+    },
+    {
+      "paper_id": "2604.00013v1",
+      "title": "World-Model Guided Policy Learning Variant 13",
+      "authors": [
+        "Alice Chen",
+        "Bo Wang"
+      ],
+      "affiliations": [],
+      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2604.00013v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00013v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00013v1"
+    },
+    {
+      "paper_id": "2604.00014v1",
+      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 14",
+      "authors": [
+        "David Li",
+        "Emma Zhou"
+      ],
+      "affiliations": [],
+      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2604.00014v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00014v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00014v1"
+    },
+    {
+      "paper_id": "2604.00015v1",
+      "title": "World-Model Guided Policy Learning Variant 15",
+      "authors": [
+        "Alice Chen",
+        "Bo Wang"
+      ],
+      "affiliations": [],
+      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2604.00015v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00015v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00015v1"
+    },
+    {
+      "paper_id": "2604.00016v1",
+      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 16",
+      "authors": [
+        "David Li",
+        "Emma Zhou"
+      ],
+      "affiliations": [],
+      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2604.00016v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00016v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00016v1"
+    },
+    {
+      "paper_id": "2604.00017v1",
+      "title": "World-Model Guided Policy Learning Variant 17",
+      "authors": [
+        "Alice Chen",
+        "Bo Wang"
+      ],
+      "affiliations": [],
+      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2604.00017v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00017v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00017v1"
+    },
+    {
+      "paper_id": "2604.00018v1",
+      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 18",
+      "authors": [
+        "David Li",
+        "Emma Zhou"
+      ],
+      "affiliations": [],
+      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2604.00018v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00018v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00018v1"
+    },
+    {
+      "paper_id": "2604.00019v1",
+      "title": "World-Model Guided Policy Learning Variant 19",
+      "authors": [
+        "Alice Chen",
+        "Bo Wang"
+      ],
+      "affiliations": [],
+      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2604.00019v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00019v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00019v1"
+    },
+    {
+      "paper_id": "2604.00020v1",
+      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 20",
+      "authors": [
+        "David Li",
+        "Emma Zhou"
+      ],
+      "affiliations": [],
+      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2604.00020v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00020v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00020v1"
     }
   ]
 }

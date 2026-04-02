@@ -151,36 +151,23 @@ async function loadDetailPage() {
     <p><a href="${paper.pdf_url}" target="_blank" rel="noopener">查看原文 PDF</a></p>
   `;
 
-  injectGiscus(paperId || paper.paper_id);
+  injectComments(paperId || paper.paper_id);
 }
 
-function injectGiscus(term) {
+function injectComments(term) {
   const root = byId("giscus");
   if (!root) return;
 
-  const cfg = {
-    repo: "<YOUR_GITHUB_NAME>/ainewspaper",
-    repoId: "<YOUR_REPO_ID>",
-    category: "General",
-    categoryId: "<YOUR_CATEGORY_ID>",
-  };
-
+  // Default to utterances so comments can work with GitHub login
+  // without repo/category IDs. Install app: https://github.com/apps/utterances
   const script = document.createElement("script");
-  script.src = "https://giscus.app/client.js";
-  script.crossOrigin = "anonymous";
+  script.src = "https://utteranc.es/client.js";
+  script.setAttribute("repo", "gptliuyang-rgb/mgmt-ai-tutor");
+  script.setAttribute("issue-term", term || "pathname");
+  script.setAttribute("label", "comment");
+  script.setAttribute("theme", "github-light");
+  script.setAttribute("crossorigin", "anonymous");
   script.async = true;
-  script.setAttribute("data-repo", cfg.repo);
-  script.setAttribute("data-repo-id", cfg.repoId);
-  script.setAttribute("data-category", cfg.category);
-  script.setAttribute("data-category-id", cfg.categoryId);
-  script.setAttribute("data-mapping", "specific");
-  script.setAttribute("data-term", term);
-  script.setAttribute("data-strict", "0");
-  script.setAttribute("data-reactions-enabled", "1");
-  script.setAttribute("data-emit-metadata", "1");
-  script.setAttribute("data-input-position", "top");
-  script.setAttribute("data-theme", "light");
-  script.setAttribute("data-lang", "zh-CN");
   root.appendChild(script);
 }
 

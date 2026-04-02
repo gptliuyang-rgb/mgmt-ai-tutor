@@ -21,7 +21,7 @@ DATA_DIR = ROOT / "data"
 PAPERS_DIR = DATA_DIR / "papers"
 
 ARXIV_API = "https://export.arxiv.org/api/query"
-ARXIV_QUERY = "cat:cs.AI+OR+cat:cs.LG+OR+cat:cs.RO+OR+cat:cs.HC"
+ARXIV_QUERY = "cat:cs.AI OR cat:cs.LG OR cat:cs.RO OR cat:cs.HC"
 NS = {
     "atom": "http://www.w3.org/2005/Atom",
     "arxiv": "http://arxiv.org/schemas/atom",
@@ -141,6 +141,22 @@ def fetch_main_image(arxiv_id: str) -> str:
     return fallback
 
 
+
+
+def fetch_semantic_scholar_affiliations(arxiv_id: str) -> List[str]:
+    url = f"https://api.semanticscholar.org/graph/v1/paper/ARXIV:{arxiv_id}?fields=authors.affiliations"
+    try:
+        raw = http_get(url, timeout=18)
+        payload = json.loads(raw)
+        affs = set()
+        for author in payload.get("authors", []):
+            for aff in author.get("affiliations", []) or []:
+                if aff and isinstance(aff, str):
+                    affs.add(aff.strip())
+        return sorted(a for a in affs if a)[:8]
+    except Exception:
+        return []
+
 def parse_entries(xml_text: str) -> List[dict]:
     root = ET.fromstring(xml_text)
     entries = []
@@ -217,7 +233,7 @@ def build_digest(max_results: int) -> Dict[str, object]:
                 paper_id=arxiv_id,
                 title=" ".join(row["title"].split()),
                 authors=row["authors"],
-                affiliations=row["affiliations"],
+                affiliations=row["affiliations"] or fetch_semantic_scholar_affiliations(arxiv_id),
                 summary=" ".join(row["summary"].split()),
                 summary_sentence=naive_summarize(row["summary"], "摘要首句").replace("摘要首句：", ""),
                 method_summary=sums["method"],
