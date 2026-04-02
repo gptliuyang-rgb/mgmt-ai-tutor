@@ -21,6 +21,19 @@ function setStore(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
+function placeholderDataUri(paperId = "paper") {
+  const text = encodeURIComponent(paperId);
+  return `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'><rect width='100%25' height='100%25' fill='%23e2e8f0'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23475569' font-size='24' font-family='Arial'>${text}</text></svg>`;
+}
+
+function resolveImageUrl(rawUrl, paperId) {
+  const url = (rawUrl || "").trim();
+  if (!url) return placeholderDataUri(paperId);
+  if (url.startsWith("/static/")) return `https://arxiv.org${url}`;
+  if (url.startsWith("http://")) return `https://${url.slice(7)}`;
+  return url;
+}
+
 function applyFilter(papers) {
   const filterEl = byId("moduleFilter");
   const filter = filterEl ? filterEl.value : "all";
@@ -69,7 +82,12 @@ function makeCard(paper) {
   const likes = getStore("likes", {});
   const favs = getStore("favorites", {});
 
-  node.querySelector(".cover").src = paper.image_url;
+  const cover = node.querySelector(".cover");
+  cover.src = resolveImageUrl(paper.image_url, paper.paper_id);
+  cover.onerror = () => {
+    cover.onerror = null;
+    cover.src = placeholderDataUri(paper.paper_id);
+  };
   node.querySelector(".title").textContent = paper.title;
   node.querySelector(".aff").textContent = `作者：${paper.authors.join(", ")} | 单位：${paper.affiliations?.join("; ") || "未公开"}`;
   node.querySelector(".summary").textContent = paper.summary_sentence;
@@ -144,12 +162,20 @@ async function loadDetailPage() {
     <p><strong>作者：</strong>${paper.authors.join(", ")}</p>
     <p><strong>单位：</strong>${paper.affiliations?.join("; ") || "未公开"}</p>
     <p><strong>发布时间：</strong>${safeDate(paper.published_at)}</p>
-    <img class="cover-detail" src="${paper.image_url}" alt="${paper.title}" />
+    <img class="cover-detail" src="${resolveImageUrl(paper.image_url, paper.paper_id)}" alt="${paper.title}" />
     <section><h3>原始摘要</h3><p>${paper.summary}</p></section>
     <section class="highlight"><h3>方法总结</h3><p>${paper.method_summary}</p></section>
     <section class="highlight"><h3>结论总结</h3><p>${paper.conclusion_summary}</p></section>
     <p><a href="${paper.pdf_url}" target="_blank" rel="noopener">查看原文 PDF</a></p>
   `;
+
+  const detailCover = detailRoot.querySelector(".cover-detail");
+  if (detailCover) {
+    detailCover.onerror = () => {
+      detailCover.onerror = null;
+      detailCover.src = placeholderDataUri(paper.paper_id);
+    };
+  }
 
   injectComments(paperId || paper.paper_id);
 }

@@ -231,7 +231,7 @@ def extract_image_candidates(abs_url: str, arxiv_id: str) -> List[str]:
         html = http_get(abs_url, timeout=15)
         og = re.search(r'<meta\s+property="og:image"\s+content="([^"]+)"', html)
         if og:
-            candidates.append(unescape(og.group(1)))
+            candidates.append(urljoin(abs_url, unescape(og.group(1))))
 
         for src in re.findall(r'<img[^>]+src="([^"]+)"', html)[:3]:
             candidates.append(urljoin(abs_url, src))
