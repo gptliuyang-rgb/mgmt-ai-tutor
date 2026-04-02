@@ -1,125 +1,166 @@
-// TODO：部署完后端后，把这里换成你的真实 API 地址
-const API_URL = "https://mgmt-ai-tutor.onrender.com/api/chat";
+const DATA_INDEX_URL = "./data/index.json";
+const LATEST_URL = "./data/latest.json";
 
+const byId = (id) => document.getElementById(id);
 
-const chatWindow = document.getElementById("chatWindow");
-const notesContent = document.getElementById("notesContent");
-const chatForm = document.getElementById("chatForm");
-const userInput = document.getElementById("userInput");
-const startLessonBtn = document.getElementById("startLessonBtn");
-const caseText = document.getElementById("caseText");
+function safeDate(iso) {
+  return new Date(iso).toLocaleString("zh-CN", { hour12: false });
+}
 
-let conversation = [];
-
-// 工具：往窗口里追加一条消息
-function appendMessage(role, text, options = {}) {
-  const wrapper = document.createElement("div");
-  wrapper.className = `message message-${role}`;
-  if (options.loading) {
-    wrapper.classList.add("loading");
+function getStore(key, fallback = {}) {
+  try {
+    return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback));
+  } catch {
+    return fallback;
   }
-
-  const bubble = document.createElement("div");
-  bubble.className = "message-bubble";
-  bubble.textContent = text;
-
-  wrapper.appendChild(bubble);
-  chatWindow.appendChild(wrapper);
-  chatWindow.scrollTop = chatWindow.scrollHeight;
-
-  return wrapper;
 }
 
-// 读取当前 UI 上的设置
-function getTeachingConfig() {
-  const modeRadio = document.querySelector('input[name="mode"]:checked');
-  const mode = modeRadio ? modeRadio.value : "case";
-  const courseType = document.getElementById("courseType").value;
-  const level = document.getElementById("level").value;
-  const caseContent = caseText.value.trim();
-
-  return { mode, courseType, level, caseContent };
+function setStore(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
 }
 
-// 调用后端 AI 接口
-async function callTeachingAI() {
-  const { mode, courseType, level, caseContent } = getTeachingConfig();
+async function loadIndexPage() {
+  const meta = byId("meta");
+  if (!meta) return;
 
-  const loadingElem = appendMessage(
-    "assistant",
-    "正在思考教学步骤，请稍候……",
-    { loading: true }
-  );
+  const [indexRes, latestRes] = await Promise.all([fetch(DATA_INDEX_URL), fetch(LATEST_URL)]);
+  const index = await indexRes.json();
+  const latest = await latestRes.json();
 
-  const payload = {
-    conversation,
-    mode,
-    courseType,
-    level,
-    caseContent,
+  meta.textContent = `最近更新：${safeDate(latest.generated_at)} | 共 ${latest.stats.total} 篇`;
+
+  const dateSelect = byId("dateSelect");
+  index.forEach((entry) => {
+    const opt = document.createElement("option");
+    opt.value = entry.file;
+    opt.textContent = `${entry.date} (${entry.stats.total} 篇)`;
+    dateSelect.appendChild(opt);
+  });
+
+  const renderByFile = async (file) => {
+    const digest = await fetch(`./${file}`).then((r) => r.json());
+    renderPaperLists(digest.papers);
   };
 
-  try {
-    const res = await fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}`);
-    }
-
-    const data = await res.json();
-    const reply = data.reply || "（未收到有效回复）";
-
-    loadingElem.classList.remove("loading");
-    loadingElem.querySelector(".message-bubble").textContent = reply;
-
-    // 把 AI 回复加入对话上下文
-    conversation.push({ role: "assistant", content: reply });
-
-    // 如果后端有返回课堂小结，则更新右侧笔记
-    if (data.notes) {
-      notesContent.textContent = data.notes;
-    }
-  } catch (err) {
-    console.error(err);
-    loadingElem.classList.remove("loading");
-    loadingElem.querySelector(".message-bubble").textContent =
-      "调用 AI 接口失败，请稍后重试或检查服务器配置。";
-  }
+  await renderByFile(index[0].file);
+  dateSelect.addEventListener("change", (e) => renderByFile(e.target.value));
+  byId("moduleFilter").addEventListener("change", () => renderPaperLists(latest.papers, true));
 }
 
-// 发送用户消息（通用）
-function sendUserMessage(text) {
-  if (!text) return;
-  appendMessage("user", text);
-  conversation.push({ role: "user", content: text });
-  userInput.value = "";
-  callTeachingAI();
+function makeCard(paper) {
+  const tpl = byId("paperTpl");
+  const node = tpl.content.cloneNode(true);
+  const likes = getStore("likes", {});
+  const favs = getStore("favorites", {});
+
+  node.querySelector(".cover").src = paper.image_url;
+  node.querySelector(".title").textContent = paper.title;
+  node.querySelector(".aff").textContent = `作者：${paper.authors.join(", ")} | 单位：${paper.affiliations?.join("; ") || "未公开"}`;
+  node.querySelector(".summary").textContent = paper.summary_sentence;
+
+  const tags = node.querySelector(".tags");
+  [paper.module_label, ...paper.categories.slice(0, 3)].forEach((t) => {
+    const span = document.createElement("span");
+    span.className = "tag";
+    span.textContent = t;
+    tags.appendChild(span);
+  });
+
+  const detailLink = node.querySelector(".detail-link");
+  detailLink.href = `./paper.html?id=${paper.paper_id}`;
+  const pdfLink = node.querySelector(".pdf-link");
+  pdfLink.href = paper.pdf_url;
+
+  const likeBtn = node.querySelector(".like-btn");
+  const likeCount = likeBtn.querySelector("span");
+  likeCount.textContent = likes[paper.paper_id] || 0;
+  likeBtn.addEventListener("click", () => {
+    likes[paper.paper_id] = (likes[paper.paper_id] || 0) + 1;
+    setStore("likes", likes);
+    likeCount.textContent = likes[paper.paper_id];
+  });
+
+  const favBtn = node.querySelector(".fav-btn");
+  favBtn.textContent = favs[paper.paper_id] ? "⭐ 已收藏" : "⭐ 收藏";
+  favBtn.addEventListener("click", () => {
+    favs[paper.paper_id] = !favs[paper.paper_id];
+    setStore("favorites", favs);
+    favBtn.textContent = favs[paper.paper_id] ? "⭐ 已收藏" : "⭐ 收藏";
+  });
+
+  return node;
 }
 
-// 聊天表单提交
-chatForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const text = userInput.value.trim();
-  sendUserMessage(text);
-});
+function renderPaperLists(papers, filterFromLatest = false) {
+  const filter = byId("moduleFilter").value;
+  const targetPapers = filterFromLatest
+    ? papers.filter((p) => (filter === "all" ? true : p.module === filter))
+    : papers;
 
-// “基于该案例开始教学”按钮
-startLessonBtn.addEventListener("click", () => {
-  const caseContent = caseText.value.trim();
-  if (!caseContent) {
-    alert("请先粘贴或输入一个企业管理/工商管理案例。");
-    return;
-  }
+  const embodied = byId("embodiedList");
+  const llm = byId("llmList");
+  embodied.innerHTML = "";
+  llm.innerHTML = "";
 
-  // 重置对话（新的一节课）
-  conversation = [];
-  chatWindow.innerHTML = "";
+  targetPapers.forEach((p) => {
+    const card = makeCard(p);
+    if (p.module === "embodied") embodied.appendChild(card);
+    else llm.appendChild(card);
+  });
+}
 
-  const introPrompt =
-    "请围绕我提供的案例，像大学管理学老师一样，用结构化的方式上完整一节课。先简要复述案例，再提出引导性问题，然后讲授相关理论并应用到案例中，最后给出小结和思考题。";
-  sendUserMessage(introPrompt);
-});
+async function loadDetailPage() {
+  const detailRoot = byId("paperDetail");
+  if (!detailRoot) return;
+
+  const paperId = new URLSearchParams(location.search).get("id");
+  const latest = await fetch(LATEST_URL).then((r) => r.json());
+  const paper = latest.papers.find((p) => p.paper_id === paperId) || latest.papers[0];
+
+  detailRoot.innerHTML = `
+    <h1>${paper.title}</h1>
+    <p><strong>作者：</strong>${paper.authors.join(", ")}</p>
+    <p><strong>单位：</strong>${paper.affiliations?.join("; ") || "未公开"}</p>
+    <p><strong>发布时间：</strong>${safeDate(paper.published_at)}</p>
+    <img class="cover-detail" src="${paper.image_url}" alt="${paper.title}" />
+    <section><h3>原始摘要</h3><p>${paper.summary}</p></section>
+    <section class="highlight"><h3>方法总结</h3><p>${paper.method_summary}</p></section>
+    <section class="highlight"><h3>结论总结</h3><p>${paper.conclusion_summary}</p></section>
+    <p><a href="${paper.pdf_url}" target="_blank" rel="noopener">查看原文 PDF</a></p>
+  `;
+
+  injectGiscus(paperId || paper.paper_id, paper.title);
+}
+
+function injectGiscus(term, title) {
+  const root = byId("giscus");
+  if (!root) return;
+
+  const cfg = {
+    repo: "<YOUR_GITHUB_NAME>/<YOUR_REPO>",
+    repoId: "<YOUR_REPO_ID>",
+    category: "General",
+    categoryId: "<YOUR_CATEGORY_ID>",
+  };
+
+  const script = document.createElement("script");
+  script.src = "https://giscus.app/client.js";
+  script.crossOrigin = "anonymous";
+  script.async = true;
+  script.setAttribute("data-repo", cfg.repo);
+  script.setAttribute("data-repo-id", cfg.repoId);
+  script.setAttribute("data-category", cfg.category);
+  script.setAttribute("data-category-id", cfg.categoryId);
+  script.setAttribute("data-mapping", "specific");
+  script.setAttribute("data-term", term);
+  script.setAttribute("data-strict", "0");
+  script.setAttribute("data-reactions-enabled", "1");
+  script.setAttribute("data-emit-metadata", "1");
+  script.setAttribute("data-input-position", "top");
+  script.setAttribute("data-theme", "light");
+  script.setAttribute("data-lang", "zh-CN");
+  root.appendChild(script);
+}
+
+loadIndexPage();
+loadDetailPage();

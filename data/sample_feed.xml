@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+    <id>http://arxiv.org/abs/2604.00001v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>World-Model Guided Policy Learning for Embodied Navigation</title>
+    <summary>We present a world-model guided policy framework for embodied navigation. The method combines latent imagination and online correction to improve long-horizon control stability.</summary>
+    <author><name>Alice Chen</name></author>
+    <author><name>Bo Wang</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00001v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00001v1" rel="related"/>
+    <category term="cs.RO"/>
+    <category term="cs.AI"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.00002v1</id>
+    <updated>2026-04-01T00:00:00Z</updated>
+    <published>2026-04-01T00:00:00Z</published>
+    <title>Tool-Using LLM Agents with Verifiable Reasoning</title>
+    <summary>We introduce an LLM agent architecture with explicit tool planning and verifiable reasoning traces. Experiments show gains on coding, retrieval and decision benchmarks.</summary>
+    <author><name>David Li</name></author>
+    <author><name>Emma Zhou</name></author>
+    <link rel="alternate" href="http://arxiv.org/abs/2604.00002v1"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2604.00002v1" rel="related"/>
+    <category term="cs.LG"/>
+    <category term="cs.AI"/>
+  </entry>
+</feed>

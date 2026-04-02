@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-04-02T15:55:58.384867+00:00",
+  "date": "2026-04-02",
+  "stats": {
+    "total": 2,
+    "embodied": 1,
+    "llm_agent": 1
+  },
+  "papers": [
+    {
+      "paper_id": "2604.00001v1",
+      "title": "World-Model Guided Policy Learning for Embodied Navigation",
+      "authors": [
+        "Alice Chen",
+        "Bo Wang"
+      ],
+      "affiliations": [],
+      "summary": "We present a world-model guided policy framework for embodied navigation. The method combines latent imagination and online correction to improve long-horizon control stability.",
+      "summary_sentence": "We present a world-model guided policy framework for embodied navigation. The method combines latent imagination and online correction to improve long-horizon control stability.",
+      "method_summary": "方法总结：We present a world-model guided policy framework for embodied navigation. The method combines latent imagination and online correction to improve long-horizon control stability.",
+      "conclusion_summary": "结论总结：We present a world-model guided policy framework for embodied navigation. The method combines latent imagination and online correction to improve long-horizon control stability.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2604.00001v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00001v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00001v1"
+    },
+    {
+      "paper_id": "2604.00002v1",
+      "title": "Tool-Using LLM Agents with Verifiable Reasoning",
+      "authors": [
+        "David Li",
+        "Emma Zhou"
+      ],
+      "affiliations": [],
+      "summary": "We introduce an LLM agent architecture with explicit tool planning and verifiable reasoning traces. Experiments show gains on coding, retrieval and decision benchmarks.",
+      "summary_sentence": "We introduce an LLM agent architecture with explicit tool planning and verifiable reasoning traces. Experiments show gains on coding, retrieval and decision benchmarks.",
+      "method_summary": "方法总结：We introduce an LLM agent architecture with explicit tool planning and verifiable reasoning traces. Experiments show gains on coding, retrieval and decision benchmarks.",
+      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with explicit tool planning and verifiable reasoning traces. Experiments show gains on coding, retrieval and decision benchmarks.",
+      "published_at": "2026-04-01T00:00:00Z",
+      "updated_at": "2026-04-01T00:00:00Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2604.00002v1",
+      "pdf_url": "http://arxiv.org/pdf/2604.00002v1",
+      "image_url": "https://dummyimage.com/1200x630/111827/ffffff.png&text=2604.00002v1"
+    }
+  ]
+}
