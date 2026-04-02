@@ -7,6 +7,7 @@ import argparse
 import json
 import os
 import re
+from io import BytesIO
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from html import escape, unescape
@@ -249,6 +250,10 @@ def extract_image_candidates(abs_url: str, arxiv_id: str) -> List[str]:
 def persist_image_asset(arxiv_id: str, title: str, abs_url: str) -> str:
     IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
+    pdf_figure = extract_pdf_figure1_asset(arxiv_id)
+    if pdf_figure:
+        return pdf_figure
+
     for url in extract_image_candidates(abs_url, arxiv_id):
         try:
             body, ctype = http_get_bytes(url, timeout=20)
@@ -272,6 +277,60 @@ def persist_image_asset(arxiv_id: str, title: str, abs_url: str) -> str:
             continue
 
     return build_svg_placeholder(arxiv_id, title)
+
+
+def extract_pdf_figure1_asset(arxiv_id: str) -> str | None:
+    """Try extracting Figure 1-like image from first PDF pages and persist locally."""
+    try:
+        import pdfplumber  # type: ignore
+    except Exception:
+        return None
+
+    pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
+    try:
+        pdf_bytes, ctype = http_get_bytes(pdf_url, timeout=30)
+        if "pdf" not in ctype.lower() and not pdf_bytes.startswith(b"%PDF"):
+            return None
+
+        with pdfplumber.open(BytesIO(pdf_bytes)) as pdf:
+            for page_idx in range(min(3, len(pdf.pages))):
+                page = pdf.pages[page_idx]
+                images = page.images or []
+                if not images:
+                    continue
+
+                # Prefer the largest detected image region in the page.
+                images = sorted(
+                    images,
+                    key=lambda img: max(0, (img.get("x1", 0) - img.get("x0", 0)))
+                    * max(0, (img.get("bottom", 0) - img.get("top", 0))),
+                    reverse=True,
+                )
+                best = images[0]
+                x0, top, x1, bottom = (
+                    float(best.get("x0", 0)),
+                    float(best.get("top", 0)),
+                    float(best.get("x1", 0)),
+                    float(best.get("bottom", 0)),
+                )
+                if x1 <= x0 or bottom <= top:
+                    continue
+
+                cropped = page.crop((x0, top, x1, bottom)).to_image(resolution=120)
+                out = IMAGES_DIR / f"{arxiv_id}.jpg"
+
+                if hasattr(cropped, "save"):
+                    cropped.save(str(out), format="JPEG")
+                elif hasattr(cropped, "original"):
+                    cropped.original.save(str(out), format="JPEG", quality=85)
+                else:
+                    continue
+
+                return f"data/images/{out.name}"
+    except Exception:
+        return None
+
+    return None
 
 
 def fetch_semantic_scholar_affiliations(arxiv_id: str) -> List[str]:
