@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-04-10",
+    "generated_at": "2026-04-10T01:20:27.884208+00:00",
+    "stats": {
+      "total": 36,
+      "embodied": 14,
+      "llm_agent": 22
+    },
+    "file": "data/papers/2026-04-10.json"
+  },
+  {
     "date": "2026-04-09",
     "generated_at": "2026-04-09T01:10:44.955424+00:00",
     "stats": {
