@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+
+# Avoid committing generated binary images; keep SVG placeholders tracked.
+data/images/*.png
+data/images/*.jpg
+data/images/*.jpeg
+data/images/*.webp

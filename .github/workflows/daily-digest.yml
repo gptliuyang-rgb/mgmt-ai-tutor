@@ -1,0 +1,60 @@
+name: Build Arxiv Daily Digest
+
+on:
+  schedule:
+    # Primary run at UTC 00:00
+    - cron: '0 0 * * *'
+    # Retry window to reduce missed-run impact
+    - cron: '30 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-digest-update
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build digest
+        run: python scripts/build_digest.py --max-results 36
+
+      - name: Commit data update (if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Keep repository text-only for generated image assets.
+          find data/images -type f \( -name '*.png' -o -name '*.jpg' -o -name '*.jpeg' -o -name '*.webp' \) -delete || true
+          git rm --cached --ignore-unmatch data/images/*.png data/images/*.jpg data/images/*.jpeg data/images/*.webp
+          git add data
+
+          if git diff --cached --quiet; then
+            echo "No data changes detected."
+            exit 0
+          fi
+
+          git commit -m "chore: update arxiv daily digest ($(date -u +'%Y-%m-%d'))"
+
+          # Rebase to reduce push failures from concurrent updates.
+          git pull --rebase origin "${{ github.event.repository.default_branch }}"
+          git push origin "HEAD:${{ github.event.repository.default_branch }}"

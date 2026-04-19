@@ -1,0 +1,3 @@
+# Mark generated images as binary so Git won't try text diffs/patches on them.
+data/images/*.png binary
+data/images/*.jpg binary

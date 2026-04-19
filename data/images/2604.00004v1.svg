@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#1e293b"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#g)"/>
+<text x="70" y="180" fill="#93c5fd" font-size="36" font-family="Arial">Arxiv Daily Digest</text>
+<text x="70" y="270" fill="#f8fafc" font-size="44" font-family="Arial">2604.00004v1</text>
+<text x="70" y="360" fill="#cbd5e1" font-size="32" font-family="Arial">Tool-Using LLM Agents with Verifiable Reasoning Variant 4</text>
+</svg>

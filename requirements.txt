@@ -1,0 +1,2 @@
+# Stdlib-only pipeline by default.
+# Keep this file for future optional dependencies.
