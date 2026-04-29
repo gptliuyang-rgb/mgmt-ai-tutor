@@ -31,6 +31,14 @@ python -m http.server 8000
 
 打开 <http://localhost:8000>。
 
+如果你希望用 Node 启动静态服务（与 Render Docker 部署一致）：
+
+```bash
+node server.js
+```
+
+默认监听 `3000`，也可以通过 `PORT` 环境变量覆盖。
+
 ## GitHub Pages 发布流程（仓库名：`ainewspaper`）
 
 1. 在 GitHub 创建公开仓库 `ainewspaper`。
