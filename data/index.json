@@ -1,11 +1,11 @@
 [
   {
     "date": "2026-04-29",
-    "generated_at": "2026-04-29T01:54:07.966315+00:00",
+    "generated_at": "2026-04-29T15:20:03.375992+00:00",
     "stats": {
       "total": 36,
-      "embodied": 14,
-      "llm_agent": 22
+      "embodied": 18,
+      "llm_agent": 18
     },
     "file": "data/papers/2026-04-29.json"
   },
