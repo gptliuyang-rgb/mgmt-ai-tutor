@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-06-25",
+    "generated_at": "2026-06-25T02:08:50.632587+00:00",
+    "stats": {
+      "total": 20,
+      "embodied": 10,
+      "llm_agent": 10
+    },
+    "file": "data/papers/2026-06-25.json"
+  },
+  {
     "date": "2026-06-24",
     "generated_at": "2026-06-24T02:08:44.927293+00:00",
     "stats": {
@@ -288,15 +298,5 @@
       "llm_agent": 10
     },
     "file": "data/papers/2026-05-27.json"
-  },
-  {
-    "date": "2026-05-26",
-    "generated_at": "2026-05-26T02:05:18.102343+00:00",
-    "stats": {
-      "total": 20,
-      "embodied": 10,
-      "llm_agent": 10
-    },
-    "file": "data/papers/2026-05-26.json"
   }
 ]
