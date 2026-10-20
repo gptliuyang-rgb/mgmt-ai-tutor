@@ -1,490 +1,988 @@
 {
-  "generated_at": "2026-10-19T02:15:20.125904+00:00",
-  "date": "2026-10-19",
+  "generated_at": "2026-10-20T02:29:17.177846+00:00",
+  "date": "2026-10-20",
   "stats": {
-    "total": 20,
-    "embodied": 10,
-    "llm_agent": 10
+    "total": 36,
+    "embodied": 15,
+    "llm_agent": 21
   },
   "papers": [
     {
-      "paper_id": "2604.00001v1",
-      "title": "World-Model Guided Policy Learning Variant 1",
+      "paper_id": "2610.25981v1",
+      "title": "FR-VLA: Implicit Force Reasoning VLA for Contact-Rich Manipulation",
       "authors": [
-        "Alice Chen",
-        "Bo Wang"
+        "Jiaju He",
+        "Zhiyuan Yang",
+        "Ruyang Han",
+        "Jiahong Tang",
+        "Zhiping Lin",
+        "Haiyue Zhu"
       ],
       "affiliations": [],
-      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Integrating force awareness into Vision-Language-Action (VLA) models involves not merely encoding wrench measurements as an additional modality, but determining when and how strongly physical interaction should influence robot action generation. Existing VLAs that use force typically inject it through a fixed pathway, without explicitly determining when it is relevant to the current action. This calls for an intermediate force relevance mechanism inside the VLA, in which visual-language context estimates the relevance of physical feedback to the current task before force enters the action pathway. FR-VLA addresses this gap with a Vision-Language Force-Reasoning Model that uses learnable force query tokens to derive a force admission signal grounded in visual-language context, and uses this signal to modulate an external tokenized force pathway for action generation. In real-world experiments on five contact-rich tasks across two robotic platforms, FR-VLA achieves the highest mean success rate over six evaluated stages, and trajectory visualizations show that its force admission varies with the interaction phase.",
+      "summary_sentence": "Integrating force awareness into Vision-Language-Action (VLA) models involves not merely encoding wrench measurements as an additional modality, but determining when and how strongly physical interaction should influence robot action generation. Existing VLAs…",
+      "method_summary": "方法总结：Integrating force awareness into Vision-Language-Action (VLA) models involves not merely encoding wrench measurements as an additional modality, but determining when and how strongly physical interaction should influence robot action generation. Existing VLAs…",
+      "conclusion_summary": "结论总结：Integrating force awareness into Vision-Language-Action (VLA) models involves not merely encoding wrench measurements as an additional modality, but determining when and how strongly physical interaction should influence robot action generation. Existing VLAs…",
+      "published_at": "2026-10-19T08:08:41Z",
+      "updated_at": "2026-10-19T08:08:41Z",
+      "categories": [
+        "cs.RO"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2610.25981v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25981v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25980v1",
+      "title": "ClueFlow: Learning Long-Horizon Search through Attributed Research-State Transitions",
+      "authors": [
+        "Yicheng Wang",
+        "Wentao Tan",
+        "Yidan Huang",
+        "Yifei Liu",
+        "Qiong Cao"
+      ],
+      "affiliations": [],
+      "summary": "Long-horizon search requires agents to acquire relevant evidence and integrate it into an evolving research state. Existing methods maintain research states to guide exploration or assign turn-level progress signals, yet grounding these signals in explicit, attributable state changes remains underexplored. We introduce ClueFlow, which learns long-horizon search from attributed research-state transitions. ClueFlow constructs Source-State-Final attribution chains that connect evidence-acquiring browser actions, Evidence and Candidate updates, and the final answer supported by those updates. During search, ClueFlow records typed state changes and potentially supporting browser actions, then applies gold-conditioned semantic validation and source tracing after execution. We use this attribution to guide both supervised fine-tuning and reinforcement learning. During SFT, attribution selects which decisions receive supervision with their original interaction contexts. During Turn-PPO, the same attribution augments outcome-based turn advantages with credit assigned along the Source-State-Final chains. Transition-level validation also recovers useful supervision from gold-consistent state changes in trajectories with incorrect final answers. We evaluate ClueFlow across two Qwen backbones and four search benchmarks spanning live-web and fixed-corpus settings, observing consistent gains from SFT and further improvements from PPO. With Qwen3.5-35B-A3B, ClueFlow achieves 60.0% accuracy on BrowseComp and 72.0% on BrowseComp-Plus. In controlled BrowseComp-Plus experiments, attribution-guided SFT matches all-turn exact-context SFT using about 30% of the training tokens, while attribution-guided PPO outperforms outcome-only PPO by 4.1 pp. These results demonstrate that state-transition attribution enables efficient supervision and effective credit assignment for long-horizon search agents.",
+      "summary_sentence": "Long-horizon search requires agents to acquire relevant evidence and integrate it into an evolving research state. Existing methods maintain research states to guide exploration or assign turn-level progress signals, yet grounding these signals in explicit, a…",
+      "method_summary": "方法总结：Long-horizon search requires agents to acquire relevant evidence and integrate it into an evolving research state. Existing methods maintain research states to guide exploration or assign turn-level progress signals, yet grounding these signals in explicit, a…",
+      "conclusion_summary": "结论总结：Long-horizon search requires agents to acquire relevant evidence and integrate it into an evolving research state. Existing methods maintain research states to guide exploration or assign turn-level progress signals, yet grounding these signals in explicit, a…",
+      "published_at": "2026-10-19T08:07:35Z",
+      "updated_at": "2026-10-19T08:07:35Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2610.25980v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25980v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25978v1",
+      "title": "GraphEvoResearcher: Graph-Aware Training-Free Self-Reflective Reasoning for Cost-Bounded Multi-Hop Question Answering",
+      "authors": [
+        "Suxing Liu"
+      ],
+      "affiliations": [],
+      "summary": "Multi-hop question answering (QA) requires models to chain intermediate conclusions while remaining cost-aware. Existing training-free self-reflective protocols (generate -> critique -> revise) improve accuracy but operate on a flat token stream: revisions cannot identify which prior step is unreliable, and early stopping cannot exploit structural convergence. We introduce GraphEvoResearcher, a training-free protocol that lifts EvoResearcher's self-reflective meta-reward onto an explicit reasoning graph - nodes are intermediate conclusions/evidence and edges encode support, contradict, and depends_on. A graph-aware meta-reward combines correctness, efficiency, reflection, diversity, and four structural signals (connectivity, acyclicity, branch coverage, path convergence) to decide whether to revise, backtrack, or stop. A graph-convergence early-stop terminates when evidence branches converge on a single conclusion. On a real LLM (DeepSeek), over GSM8K, MATH, and BBH (n=50 each), GraphEvoResearcher reaches 98%, 92%, and 82% respectively, the highest of all baselines, with the largest gains on the hardest set (MATH: +24 pp over single-shot, +12 pp over flat reflection), while keeping construction cost bounded at ~2 steps / 4.5-5 nodes. Our results indicate the structural signal of a reasoning graph is most valuable exactly where single-step reasoning is unreliable.",
+      "summary_sentence": "Multi-hop question answering (QA) requires models to chain intermediate conclusions while remaining cost-aware. Existing training-free self-reflective protocols (generate -> critique -> revise) improve accuracy but operate on a flat token stream: revisions ca…",
+      "method_summary": "方法总结：Multi-hop question answering (QA) requires models to chain intermediate conclusions while remaining cost-aware. Existing training-free self-reflective protocols (generate -> critique -> revise) improve accuracy but operate on a flat token stream: revisions ca…",
+      "conclusion_summary": "结论总结：Multi-hop question answering (QA) requires models to chain intermediate conclusions while remaining cost-aware. Existing training-free self-reflective protocols (generate -> critique -> revise) improve accuracy but operate on a flat token stream: revisions ca…",
+      "published_at": "2026-10-19T08:06:10Z",
+      "updated_at": "2026-10-19T08:06:10Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2610.25978v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25978v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25977v1",
+      "title": "On the Benefits of Uncertainty Estimation for Species Classification: A Case Study on Optimizing Expert re-Annotation",
+      "authors": [
+        "Kamenan N'Gadi",
+        "Martin Laviale",
+        "C{é}dric Pradalier",
+        "J{é}r{é}my Fix"
+      ],
+      "affiliations": [
+        "LORIA,BISCUIT",
+        "LIEC,LTSER-ZAM",
+        "LORIA,BISCUIT",
+        "LORIA,BISCUIT"
+      ],
+      "summary": "Automated identification of diatoms from microscopic images is a cornerstone of large-scale freshwater biomonitoring, yet the high diversity of species and strong class imbalance pose significant challenges for reliable classification. In this study, we develop a ResNet-18 baseline for a 759-class diatom dataset and investigate how calibrated confidence estimates support selective classification to reduce expert workload without sacrificing taxonomic integrity. While the initial model exhibits overconfidence with an Expected Calibration Error (ECE) of 0.117, post-hoc temperature scaling (T = 2.12) dramatically improves reliability, lowering the ECE to 0.055.By leveraging these calibrated probabilities within a triage framework, we demonstrate that a Selective Macro-F1 score of 99.01% can be maintained at 66.2% coverage (rejection threshold $τ$ = 0.934). Qualitative analysis reveals that the system effectively functions as an intelligent filter, consistently deferring rare taxa-such as AAMB and AASI-and ambiguous morphologies for expert review. Our findings, supported by the torch-uncertainty framework, highlight the potential of simple calibration techniques to make automated diatom identification practical and robust, prioritizing the preservation of rare species metrics essential for ecological assessment. To support reproducibility, our code, environment specifications, and calibration results are available anonymously at https://anonymous.4open. science/r/greenprwksp-B53D/README.",
+      "summary_sentence": "Automated identification of diatoms from microscopic images is a cornerstone of large-scale freshwater biomonitoring, yet the high diversity of species and strong class imbalance pose significant challenges for reliable classification. In this study, we devel…",
+      "method_summary": "方法总结：Automated identification of diatoms from microscopic images is a cornerstone of large-scale freshwater biomonitoring, yet the high diversity of species and strong class imbalance pose significant challenges for reliable classification. In this study, we devel…",
+      "conclusion_summary": "结论总结：Automated identification of diatoms from microscopic images is a cornerstone of large-scale freshwater biomonitoring, yet the high diversity of species and strong class imbalance pose significant challenges for reliable classification. In this study, we devel…",
+      "published_at": "2026-10-19T08:04:42Z",
+      "updated_at": "2026-10-19T08:04:42Z",
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2610.25977v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25977v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25973v1",
+      "title": "Correctness-Dependent Asymmetric Target Distributions for Self-Distillation Policy Optimization",
+      "authors": [
+        "Suwan Yoon",
+        "Seongryong Jung",
+        "Changhee Lee"
+      ],
+      "affiliations": [],
+      "summary": "Self-distillation policy optimization provides dense token-level supervision for LLM post-training through feedback-conditioned self-teachers. However, directly matching the self-teacher can disrupt successful behaviors on correct rollouts while providing insufficient correction on incorrect ones. We propose Asymmetric Policy Optimization via Self-Distillation (APSD), which constructs correctness-dependent targets by mixing student and self-teacher distributions: interpolation preserves successful behaviors on correct rollouts, while extrapolation beyond the self-teacher strengthens correction on incorrect ones. We analyze APSD through divergence decomposition, reverse-KL barycentric geometry, and gradient analysis, highlighting the importance of gradient flow through student-dependent targets. Experiments under reinforcement learning with verifiable rewards and rich feedback show that APSD achieves strong overall performance against reinforcement-learning and self-distillation baselines and matches SDPO performance with 2.6x fewer training steps on average across Qwen3 model scales.",
+      "summary_sentence": "Self-distillation policy optimization provides dense token-level supervision for LLM post-training through feedback-conditioned self-teachers. However, directly matching the self-teacher can disrupt successful behaviors on correct rollouts while providing ins…",
+      "method_summary": "方法总结：Self-distillation policy optimization provides dense token-level supervision for LLM post-training through feedback-conditioned self-teachers. However, directly matching the self-teacher can disrupt successful behaviors on correct rollouts while providing ins…",
+      "conclusion_summary": "结论总结：Self-distillation policy optimization provides dense token-level supervision for LLM post-training through feedback-conditioned self-teachers. However, directly matching the self-teacher can disrupt successful behaviors on correct rollouts while providing ins…",
+      "published_at": "2026-10-19T08:03:09Z",
+      "updated_at": "2026-10-19T08:03:09Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2610.25973v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25973v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25970v1",
+      "title": "GLOBE: Geometry-Led Online Behavioral Early Exit via Unit-Sphere Trajectories",
+      "authors": [
+        "Xinyue Peng",
+        "Zhenlin Liang",
+        "Meng Cai",
+        "Hua Wang"
+      ],
+      "affiliations": [],
+      "summary": "Chain-of-thought (CoT) reasoning can improve problem solving, but models often keep generating after the correct answer is already reachable; the extra steps raise serving costs and may replace a correct intermediate result with an incorrect one. We propose GLOBE (Geometry-Led Online Behavioral Early Exit), an online, training-free algorithm that terminates the model's CoT process early. GLOBE embeds each completed reasoning segment as a point on a unit sphere and reads the shape of the resulting semantic trajectory. GLOBE first applies a trial phase that generates short trial answers in a separate branch, stopping the main stream on an accepted trial after checking confidence against a threshold. If generation continues, a trajectory phase stops the stream once this path repeatedly reverses direction with little net progress. On five benchmarks including mathematical reasoning, tool calling, and agent memory, GLOBE cuts output tokens by 49.7% and active end-to-end wall time (E2E) by 51.0% across two models, and achieves a five-task average of 80.58%, comparable to Full CoT.",
+      "summary_sentence": "Chain-of-thought (CoT) reasoning can improve problem solving, but models often keep generating after the correct answer is already reachable; the extra steps raise serving costs and may replace a correct intermediate result with an incorrect one. We propose G…",
+      "method_summary": "方法总结：Chain-of-thought (CoT) reasoning can improve problem solving, but models often keep generating after the correct answer is already reachable; the extra steps raise serving costs and may replace a correct intermediate result with an incorrect one. We propose G…",
+      "conclusion_summary": "结论总结：Chain-of-thought (CoT) reasoning can improve problem solving, but models often keep generating after the correct answer is already reachable; the extra steps raise serving costs and may replace a correct intermediate result with an incorrect one. We propose G…",
+      "published_at": "2026-10-19T08:01:32Z",
+      "updated_at": "2026-10-19T08:01:32Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2610.25970v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25970v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25967v1",
+      "title": "Reconstruction and Discrete-Event Simulation Assessment of an Analytical",
+      "authors": [
+        "Mohsen Reda Mahmoud Moursi",
+        "Ahmed Stohy"
+      ],
+      "affiliations": [],
+      "summary": "This article presents an analytical-DES benchmark for intra-aisle robotic picking in automated warehousing. The investigated cycle combines horizontal shuttle travel, tote handling and item picking at storage locations. Simulation results are compared with the analytical formulation of Lerher et al. under the same rack geometry, shuttle-motion, handling and picking conditions, and the same definitions of cycle time and derived item throughput. Reproducing the published analytical tables requires the distance interpretation dES = 1.5 m and dTB = 0 m. The analytical-DES benchmark comprises 180 scenarios formed from three rack lengths, two paired motion profiles and n = 1 to 30 visited picking locations, with ten simulation replications per scenario. The six n = 1 cases are reported separately because no travel-between component is present. Across the remaining 174 scenarios, the mean absolute relative cycle-time discrepancy is 0.8655%, the median is 0.6758%, and the maximum is 7.0370%. The mean absolute error is 2.411 s and the RMSE is 2.744 s. The simulated scenario-mean cycle time is below the analytical value in all 174 principal scenarios. The results therefore show close numerical correspondence under the tested conditions, but not exact agreement, formal statistical equivalence, or validation against an operating warehouse.",
+      "summary_sentence": "This article presents an analytical-DES benchmark for intra-aisle robotic picking in automated warehousing. The investigated cycle combines horizontal shuttle travel, tote handling and item picking at storage locations.",
+      "method_summary": "方法总结：This article presents an analytical-DES benchmark for intra-aisle robotic picking in automated warehousing. The investigated cycle combines horizontal shuttle travel, tote handling and item picking at storage locations.",
+      "conclusion_summary": "结论总结：This article presents an analytical-DES benchmark for intra-aisle robotic picking in automated warehousing. The investigated cycle combines horizontal shuttle travel, tote handling and item picking at storage locations.",
+      "published_at": "2026-10-19T08:00:21Z",
+      "updated_at": "2026-10-19T08:00:21Z",
       "categories": [
         "cs.RO",
         "cs.AI"
       ],
       "module": "embodied",
       "module_label": "具身智能（VLA / 世界模型 / 机器人）",
-      "abs_url": "http://arxiv.org/abs/2604.00001v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00001v1",
+      "abs_url": "http://arxiv.org/abs/2610.25967v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25967v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00002v1",
-      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 2",
+      "paper_id": "2610.25966v1",
+      "title": "Behavioral Probes for Information Flow in LLM Swarms",
       "authors": [
-        "David Li",
-        "Emma Zhou"
+        "Junhui Chen",
+        "Yu Zhang",
+        "Lantian Li",
+        "Dong Wang"
       ],
       "affiliations": [],
-      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Most existing approaches to LLM swarm optimization are utility-driven, focusing on final task utility while leaving the processing, integration, and reliance of information within individual interactions largely implicit. To address this, we study LLM swarm interactions from an information-flow-based view and introduce behavioral probes to quantify information flow patterns. Specifically, we repurpose External Context Score (ECS) and Parametric Knowledge Score (PKS)---originally designed for hallucination analysis---to measure a node's external-context dependence and parametric-knowledge dependence, respectively. Across controlled and realistic swarm settings, we observe consistent patterns: ECS increases with input relevance and distinguishes useful multi-source contributions, while PKS decreases as informative context accumulates. Building on this heuristic interpretation, we demonstrate how these probes can complement utility-driven structure optimization in two controlled applications. Probe-guided node pruning reduces redundant communication and token consumption, and probe-guided reasoning-path search accelerates convergence compared to utility-only baselines. Our empirical results suggest that behavioral probes can make the internal information flow of LLM swarms observable and serve as effective auxiliary signals for structure optimization.",
+      "summary_sentence": "Most existing approaches to LLM swarm optimization are utility-driven, focusing on final task utility while leaving the processing, integration, and reliance of information within individual interactions largely implicit. To address this, we study LLM swarm i…",
+      "method_summary": "方法总结：Most existing approaches to LLM swarm optimization are utility-driven, focusing on final task utility while leaving the processing, integration, and reliance of information within individual interactions largely implicit. To address this, we study LLM swarm i…",
+      "conclusion_summary": "结论总结：Most existing approaches to LLM swarm optimization are utility-driven, focusing on final task utility while leaving the processing, integration, and reliance of information within individual interactions largely implicit. To address this, we study LLM swarm i…",
+      "published_at": "2026-10-19T07:59:29Z",
+      "updated_at": "2026-10-19T07:59:29Z",
       "categories": [
-        "cs.LG",
+        "cs.MA",
         "cs.AI"
       ],
       "module": "llm_agent",
       "module_label": "大语言模型与 Agent",
-      "abs_url": "http://arxiv.org/abs/2604.00002v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00002v1",
+      "abs_url": "http://arxiv.org/abs/2610.25966v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25966v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00003v1",
-      "title": "World-Model Guided Policy Learning Variant 3",
+      "paper_id": "2610.25963v1",
+      "title": "ABACUS: Program-Guided Multistep Reasoning over Frozen Judgment Models",
       "authors": [
-        "Alice Chen",
-        "Bo Wang"
+        "Yuhao Wang",
+        "Zelin Zang"
       ],
       "affiliations": [],
-      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Judgment models answer semantic questions by scoring a finite set of candidate outcomes. Can reusable programs turn these local decisions into powerful multistep reasoning? We introduce \\method, a framework that jointly constructs judgment schemas and composition programs for frozen judgment models. A generative teacher designs the procedure offline; the judgment model resolves local semantic questions online, and the saved program composes its decisions into an answer. We study three allocations of design effort between humans and the teacher, focusing on construction through a shared interface. We instantiate the framework with Kev. On three selected BIG-Bench Hard tasks, nine independently constructed programs solve all 450 executions of 150 development inputs. A separate deployment study freezes three programs after development-set reference-agreement refinement and evaluates them on 600 held-out questions. These programs achieve near-perfect 99.67\\% macro accuracy, versus 64.00\\% for direct Kev and 68.80\\% for final-answer-only Qwen3.5-4B. They attain comparable observed accuracy to Qwen's unrestricted response policy (99.07\\%) with an \\textbf{8.43-fold online speedup}: 0.255 versus 2.150 seconds per question. These results show how reusable programs can substantially expand the reasoning capability of a compact judgment model while keeping its parameters fixed.",
+      "summary_sentence": "Judgment models answer semantic questions by scoring a finite set of candidate outcomes. Can reusable programs turn these local decisions into powerful multistep reasoning?",
+      "method_summary": "方法总结：Judgment models answer semantic questions by scoring a finite set of candidate outcomes. Can reusable programs turn these local decisions into powerful multistep reasoning?",
+      "conclusion_summary": "结论总结：Judgment models answer semantic questions by scoring a finite set of candidate outcomes. Can reusable programs turn these local decisions into powerful multistep reasoning?",
+      "published_at": "2026-10-19T07:57:48Z",
+      "updated_at": "2026-10-19T07:57:48Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2610.25963v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25963v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25962v1",
+      "title": "SkateNav: Learning Energy-Efficient Navigation through Adaptive Skating on Passive-Wheel Quadrupedal Robots",
+      "authors": [
+        "Jeil Jeong",
+        "Taeyun Kim",
+        "Sangjin Kim",
+        "Jinyoung Choi",
+        "Sung-Eui Yoon"
+      ],
+      "affiliations": [],
+      "summary": "Passive-wheel quadrupedal robots offer energy-efficient locomotion through leg-driven propulsion and momentum-driven gliding. However, navigation requires coordinating steering with intermittent propulsion and adapting push-glide timing to task demands. Velocity-tracking objectives may suppress the speed variations inherent in skating, discouraging efficient gliding. To address these challenges, we propose SkateNav, a unified skating-navigation framework based on reinforcement learning. A time-budgeted goal-reaching objective allows the policy to jointly learn steering, propulsion, and their temporal allocation. An adaptive skating cycle structures gliding, pushing, and recovery, while frequency modulation at every control step adjusts phase durations to navigation demands. Simulation experiments demonstrate higher average success rates and lower cost of transport than the evaluated planner-controller baselines, with ablations confirming the contributions of cycle structure and frequency adaptation. Real-world experiments demonstrate zero-shot transfer from simulation to a passive-wheel Mini Cheetah across cluttered indoor spaces, slopes, and paved outdoor surfaces. Supplementary videos are available on the project page: https://ktw1404.github.io/SkateNav/",
+      "summary_sentence": "Passive-wheel quadrupedal robots offer energy-efficient locomotion through leg-driven propulsion and momentum-driven gliding. However, navigation requires coordinating steering with intermittent propulsion and adapting push-glide timing to task demands.",
+      "method_summary": "方法总结：Passive-wheel quadrupedal robots offer energy-efficient locomotion through leg-driven propulsion and momentum-driven gliding. However, navigation requires coordinating steering with intermittent propulsion and adapting push-glide timing to task demands.",
+      "conclusion_summary": "结论总结：Passive-wheel quadrupedal robots offer energy-efficient locomotion through leg-driven propulsion and momentum-driven gliding. However, navigation requires coordinating steering with intermittent propulsion and adapting push-glide timing to task demands.",
+      "published_at": "2026-10-19T07:55:46Z",
+      "updated_at": "2026-10-19T07:55:46Z",
+      "categories": [
+        "cs.RO"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2610.25962v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25962v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25961v1",
+      "title": "PaceVLA: Adaptive Temporal Action Quantization in Vision-Language-Action Models",
+      "authors": [
+        "Hojin Jeon",
+        "Jimin Lee",
+        "Taekwan Kim",
+        "Nayoung Oh",
+        "Taeyoung Kim",
+        "Myungkyu Koo",
+        "Jinmo Koo",
+        "Joonwoo Ahn",
+        "Jinwoo Shin"
+      ],
+      "affiliations": [],
+      "summary": "Fast and reliable manipulation is crucial for practical robot deployment. Although Vision-Language-Action (VLA) models have recently shown remarkable progress as generalist robot policies, their execution often remains temporally inefficient. A key source of this inefficiency is that policies learn fine-grained temporal patterns from teleoperated demonstrations, requiring many low-level action steps. Temporal action quantization offers a simple way to accelerate execution by aggregating consecutive low-level actions into temporally coarser actions. However, applying action quantization without considering when fine-grained control is required introduces a speed-accuracy trade-off: accelerated actions may efficiently reduce redundant steps in some phases, while discarding critical motion details in precision-sensitive interactions. To address this, we propose PaceVLA, a unified framework for adaptive temporal execution in VLAs that integrates two coupled components: (1) mode-specific action decoders built on a shared action expert, supporting multiple temporal granularities and prediction horizons, and (2) a quantizability-guided mode selection scheme which decides whether coarse execution is appropriate, and a context-conditioned router that selects an execution mode at each inference step. Experiments across three multi-task simulation benchmarks and six real-world tasks show that PaceVLA improves execution efficiency while maintaining task success rate across multiple embodiments, including long-horizon and dexterous manipulation.",
+      "summary_sentence": "Fast and reliable manipulation is crucial for practical robot deployment. Although Vision-Language-Action (VLA) models have recently shown remarkable progress as generalist robot policies, their execution often remains temporally inefficient.",
+      "method_summary": "方法总结：Fast and reliable manipulation is crucial for practical robot deployment. Although Vision-Language-Action (VLA) models have recently shown remarkable progress as generalist robot policies, their execution often remains temporally inefficient.",
+      "conclusion_summary": "结论总结：Fast and reliable manipulation is crucial for practical robot deployment. Although Vision-Language-Action (VLA) models have recently shown remarkable progress as generalist robot policies, their execution often remains temporally inefficient.",
+      "published_at": "2026-10-19T07:54:13Z",
+      "updated_at": "2026-10-19T07:54:13Z",
       "categories": [
         "cs.RO",
         "cs.AI"
       ],
       "module": "embodied",
       "module_label": "具身智能（VLA / 世界模型 / 机器人）",
-      "abs_url": "http://arxiv.org/abs/2604.00003v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00003v1",
+      "abs_url": "http://arxiv.org/abs/2610.25961v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25961v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00004v1",
-      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 4",
+      "paper_id": "2610.25959v1",
+      "title": "EmbodiedWorld-200K: Toward Embodied World Agents via Embodied-Planning Dataset and Interactive World Models",
       "authors": [
-        "David Li",
-        "Emma Zhou"
+        "X. Feng",
+        "J. Tang",
+        "Z. Lin",
+        "L. Chen",
+        "S. Shao",
+        "Q. Lu",
+        "K. Huang"
       ],
       "affiliations": [],
-      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Building embodied agents that can perceive, reason, and act across diverse 3D worlds is a central research direction toward artificial general intelligence. Yet most existing work remains confined to specific tasks in a single scene and transfers poorly to new environments, leaving general embodied agents for open-world settings under-explored. We refer to such agents as Embodied World Agents (EWAs), whose defining property is the ability to understand diverse visual environments and execute general actions in open-world conditions. To advance EWA research, we study open-world embodied navigation-planning and release EmbodiedWorld-200K, a large-scale dataset of over 200K samples spanning diverse scenes. Each example is equipped with multi-level annotations, ranging from low-level camera-motion trajectories to high-level semantic instructions. The dataset also provides unified evaluation splits and task-specific metrics, supporting offline pretraining and fair evaluation of EWAs. Beyond offline supervision, a defining characteristic of an EWA is its interaction with the environment; training solely on offline data is therefore insufficient, especially for generalizing to scenes not covered in the training distribution. Building dedicated real interactive environments, however, is often prohibitively expensive. To address this, we propose a novel training scheme that employs a video world model as a low-cost environment proxy and performs interactive reinforcement-learning (RL) post-training of the EWA within it. Empirically, pretraining on EmbodiedWorld-200K substantially improves the open-world embodied planning ability of the EWA, and further RL post-training inside a world model yields clear gains on out-of-distribution scenes. The dataset, baseline checkpoints, and training and evaluation code are available at https://xiaokunfeng.github.io/EmbodiedWorld-200K/.",
+      "summary_sentence": "Building embodied agents that can perceive, reason, and act across diverse 3D worlds is a central research direction toward artificial general intelligence. Yet most existing work remains confined to specific tasks in a single scene and transfers poorly to ne…",
+      "method_summary": "方法总结：Building embodied agents that can perceive, reason, and act across diverse 3D worlds is a central research direction toward artificial general intelligence. Yet most existing work remains confined to specific tasks in a single scene and transfers poorly to ne…",
+      "conclusion_summary": "结论总结：Building embodied agents that can perceive, reason, and act across diverse 3D worlds is a central research direction toward artificial general intelligence. Yet most existing work remains confined to specific tasks in a single scene and transfers poorly to ne…",
+      "published_at": "2026-10-19T07:52:01Z",
+      "updated_at": "2026-10-19T07:52:01Z",
       "categories": [
-        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2610.25959v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25959v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25957v1",
+      "title": "Productive State-Space Exploration for Multi-turn RL in LLM Agents",
+      "authors": [
+        "Mohammed Haroon Dupty",
+        "Yong Liang Goh",
+        "Song Guo",
+        "Wee Sun Lee"
+      ],
+      "affiliations": [],
+      "summary": "Reinforcement Learning (RL) for Large Language Model (LLM) agents in multi-turn, long-horizon environments remains challenging due to inefficient action selection and repetitive behavioral patterns. In particular, agents often become trapped in high-confidence yet unproductive behaviors, repeatedly executing invalid actions or entering action loops that hinder task completion. We observe that these frequently violate environment preconditions, revealing a mismatch between the agent's representation of the internal state and the dynamics of the underlying environment. In addition, repetitive high-confidence actions lead to cyclical behaviors that provide little to no progress towards the goal. We argue that addressing these challenges requires more productive task-aligned exploration to improve the agent's understanding of environment dynamics. Motivated by intrinsic curiosity-driven exploration, we propose a conditional state-space exploration framework that balances task completion with intrinsic information-seeking behavior. Specifically, we introduce an intrinsic reward that penalizes actions whose observation duplicates prior state memory. This provides the benefit of reducing redundant behaviors and encouraging state-space coverage without relying on a general information-theoretic measure. Strong experimental results demonstrate that our approach substantially improves policy learning in multi-turn environments, mitigating invalid actions and repetitive loops.",
+      "summary_sentence": "Reinforcement Learning (RL) for Large Language Model (LLM) agents in multi-turn, long-horizon environments remains challenging due to inefficient action selection and repetitive behavioral patterns. In particular, agents often become trapped in high-confidenc…",
+      "method_summary": "方法总结：Reinforcement Learning (RL) for Large Language Model (LLM) agents in multi-turn, long-horizon environments remains challenging due to inefficient action selection and repetitive behavioral patterns. In particular, agents often become trapped in high-confidenc…",
+      "conclusion_summary": "结论总结：Reinforcement Learning (RL) for Large Language Model (LLM) agents in multi-turn, long-horizon environments remains challenging due to inefficient action selection and repetitive behavioral patterns. In particular, agents often become trapped in high-confidenc…",
+      "published_at": "2026-10-19T07:49:35Z",
+      "updated_at": "2026-10-19T07:49:35Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2610.25957v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25957v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25954v1",
+      "title": "CXBench: A Benchmark for Process-Compliant LLM Agents in Regulated Customer-Experience Workflows",
+      "authors": [
+        "Boxi Yu",
+        "Yuzhong Zhang",
+        "Zhenfeng Su",
+        "Linfu Xi",
+        "Yinghan Yao",
+        "Shitao Chen",
+        "Yang Cao",
+        "Liting Lin",
+        "Lionel Briand",
+        "Emir Muñoz"
+      ],
+      "affiliations": [],
+      "summary": "Tool-using language agents increasingly perform regulated customer-service workflows, where a correct final state is insufficient: agents must also provide disclosures, obtain consent, and follow required procedures. Existing tool-agent benchmarks largely score final business states, accepting trajectories that reach correct outcomes through non-compliant processes. We introduce cxbench, a benchmark that evaluates outcome and process compliance separately across six regulated domains. Each task combines a customer request, a tool-based environment, and explicit process requirements. Rule cards link cited regulatory obligations to observable trace evidence. A hybrid grader combines deterministic checks for ordering and authority with an LLM judge for semantic requirements. We define a false-pass as an outcome-pass run that fails process checks. Across seven models and 120 tasks, 55.5% of the 840 retained executions are false-passes, representing 80.1% of outcome-passing runs; only 13.8% pass both checks. Process-inclusive evaluation changes the observed model ordering and exposes differences hidden by outcome-only scoring. cxbench makes these failures inspectable through trace-linked criteria.",
+      "summary_sentence": "Tool-using language agents increasingly perform regulated customer-service workflows, where a correct final state is insufficient: agents must also provide disclosures, obtain consent, and follow required procedures. Existing tool-agent benchmarks largely sco…",
+      "method_summary": "方法总结：Tool-using language agents increasingly perform regulated customer-service workflows, where a correct final state is insufficient: agents must also provide disclosures, obtain consent, and follow required procedures. Existing tool-agent benchmarks largely sco…",
+      "conclusion_summary": "结论总结：Tool-using language agents increasingly perform regulated customer-service workflows, where a correct final state is insufficient: agents must also provide disclosures, obtain consent, and follow required procedures. Existing tool-agent benchmarks largely sco…",
+      "published_at": "2026-10-19T07:46:04Z",
+      "updated_at": "2026-10-19T07:46:04Z",
+      "categories": [
         "cs.AI"
       ],
       "module": "llm_agent",
       "module_label": "大语言模型与 Agent",
-      "abs_url": "http://arxiv.org/abs/2604.00004v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00004v1",
+      "abs_url": "http://arxiv.org/abs/2610.25954v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25954v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00005v1",
-      "title": "World-Model Guided Policy Learning Variant 5",
+      "paper_id": "2610.25950v1",
+      "title": "AdaExploreBench: Benchmarking LLM Agents for Proactive Exploration and Test-time Adaptation in Evolving Environments",
       "authors": [
-        "Alice Chen",
-        "Bo Wang"
+        "Rui Wang",
+        "Zishen Lai",
+        "Jiayu Liu",
+        "Cheng Qian",
+        "Jeonghwan Kim",
+        "Heng Wang",
+        "Xuejun Zhang",
+        "Jiateng Liu",
+        "Bingxuan Li",
+        "Shujin Wu",
+        "Qing Zong",
+        "Tianshi Zheng",
+        "Chunyang Li",
+        "Qihan Lin",
+        "Chen Li",
+        "Dadi Guo",
+        "Xiusi Chen",
+        "Yangqiu Song"
       ],
       "affiliations": [],
-      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Large Language Model (LLM) agents are increasingly deployed in unfamiliar and evolving environments, requiring them to proactively explore, understand, and adapt to environmental dynamics. However, existing benchmarks rarely test whether agents can proactively discover how an environment works and adapt as it evolves. To address this gap, we introduce AdaExploreBench, a benchmark for proactive exploration and test-time adaptation in evolving environments. By instantiating environmental dynamics as hidden rules, AdaExploreBench requires agents to actively acquire evidence and infer the rules. Under implicit rule drift, the latent rule changes without announcement, requiring agents to detect from degraded performance that prior knowledge is stale and re-explore. Experiments on eight leading LLMs show that proactive and adaptive exploration remain challenging: GPT-6 Sol achieves only 61.9% calibrated accuracy, while providing sufficient evidence or removing rule drift improves average performance significantly by close to 10%. These results reveal a critical bottleneck in current LLM agents: they can often reason effectively from informative evidence once it is available, but struggle to actively acquire the right evidence and recognize when previously acquired evidence is no longer valid.",
+      "summary_sentence": "Large Language Model (LLM) agents are increasingly deployed in unfamiliar and evolving environments, requiring them to proactively explore, understand, and adapt to environmental dynamics. However, existing benchmarks rarely test whether agents can proactivel…",
+      "method_summary": "方法总结：Large Language Model (LLM) agents are increasingly deployed in unfamiliar and evolving environments, requiring them to proactively explore, understand, and adapt to environmental dynamics. However, existing benchmarks rarely test whether agents can proactivel…",
+      "conclusion_summary": "结论总结：Large Language Model (LLM) agents are increasingly deployed in unfamiliar and evolving environments, requiring them to proactively explore, understand, and adapt to environmental dynamics. However, existing benchmarks rarely test whether agents can proactivel…",
+      "published_at": "2026-10-19T07:41:50Z",
+      "updated_at": "2026-10-19T07:41:50Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2610.25950v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25950v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25949v1",
+      "title": "OrderGPT: Generation Order as a Learnable Modeling Choice",
+      "authors": [
+        "Chenhe Yang",
+        "Yuhuan Lyu",
+        "Tianyang Hu"
+      ],
+      "affiliations": [],
+      "summary": "Generative modeling of discrete data has two popular paradigms: autoregressive models such as GPT, which factorize a sequence in a left-to-right (L2R) order, and masked diffusion models, which are essentially any-order autoregressive modeling. Rather than competing methods, these are the two extreme points of a single axis -- the generation order. For structured discrete domains without a natural traversal, both extremes may be suboptimal, yet the intermediate choice -- a single well-adapted order -- remains largely unexplored. We introduce OrderGPT, which builds on Any-Order GPT to learn a task-level generation order without canonical-order supervision. Our key observation is that predicting variables from randomly sampled reveal prefixes produces recurring attention patterns in the backbone that provide a model-dependent signal of predictive dependencies. We aggregate this signal into a reciprocal dependency graph and use a spectral teacher to derive continuous generation priorities. A lightweight OrderMLP integrated into the GPT backbone learns to predict these priorities from attention, incorporating order learning into the architecture within a single training run. Training gradually shifts toward the learned order, which is then frozen for subsequent autoregressive training and generation. The same mechanism adapts across modalities: adaptively it recovers near-L2R dependency structure in language, learns anatomically organized factorizations on human pose, and discovers a factorization on tabular data that places statistically and semantically related fields nearby, while improving downstream modeling metrics across all domains. The code is available at https://github.com/Chenhe-yang/OrderGPT/.",
+      "summary_sentence": "Generative modeling of discrete data has two popular paradigms: autoregressive models such as GPT, which factorize a sequence in a left-to-right (L2R) order, and masked diffusion models, which are essentially any-order autoregressive modeling. Rather than com…",
+      "method_summary": "方法总结：Generative modeling of discrete data has two popular paradigms: autoregressive models such as GPT, which factorize a sequence in a left-to-right (L2R) order, and masked diffusion models, which are essentially any-order autoregressive modeling. Rather than com…",
+      "conclusion_summary": "结论总结：Generative modeling of discrete data has two popular paradigms: autoregressive models such as GPT, which factorize a sequence in a left-to-right (L2R) order, and masked diffusion models, which are essentially any-order autoregressive modeling. Rather than com…",
+      "published_at": "2026-10-19T07:41:24Z",
+      "updated_at": "2026-10-19T07:41:24Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2610.25949v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25949v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25947v1",
+      "title": "Claim Laundering: When Agent Decision Models Trust Records Over Reality",
+      "authors": [
+        "Tina Khezresmaeilzadeh",
+        "Seyedarmin Azizi",
+        "Erfan Baghaei Potraghloo",
+        "Mehdi Kamal",
+        "Massoud Pedram"
+      ],
+      "affiliations": [],
+      "summary": "Agent decision models select actions in a single forward pass from inputs that combine environmental observations with the agent's own record of previous actions. When an action fails silently, these sources can conflict: the record reports success, but the environment shows that the step did not take effect. We ask which source determines the next decision. Across Android screen traces, ALFWorld, and WebShop, we construct paired states that independently vary the observation, the logged action, and an explicit success claim. In all 12 configurations of four decision models and three domains, records have a larger average effect on commitment decisions than observations; after claimed-but-failed steps, the models still stop, advance, or purchase in 53-100% of cases. Yet the relevant evidence is often represented internally: linear probes on intermediate hidden states distinguish successful from failed steps on held-out apps, tasks, and goals (AUROC 0.77-1.00), and activation patching reveals increasing influence from records in later layers. We use this signal in EVIGATE, an intermediate-layer veto that requires no additional forward pass and adds 0.04-2.0% serving latency. Under injected silent failures, EVIGATE improves task success by 18.7 points in live ALFWorld agents, 5.0 in WebShop, and 5.1 in a phone simulator, and in WebShop and the simulator it also outperforms random vetoes at the same rate. Its effectiveness depends on representative calibration states: gates calibrated on offline counterfactual states do not transfer reliably to live agent trajectories.",
+      "summary_sentence": "Agent decision models select actions in a single forward pass from inputs that combine environmental observations with the agent's own record of previous actions. When an action fails silently, these sources can conflict: the record reports success, but the e…",
+      "method_summary": "方法总结：Agent decision models select actions in a single forward pass from inputs that combine environmental observations with the agent's own record of previous actions. When an action fails silently, these sources can conflict: the record reports success, but the e…",
+      "conclusion_summary": "结论总结：Agent decision models select actions in a single forward pass from inputs that combine environmental observations with the agent's own record of previous actions. When an action fails silently, these sources can conflict: the record reports success, but the e…",
+      "published_at": "2026-10-19T07:40:19Z",
+      "updated_at": "2026-10-19T07:40:19Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2610.25947v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25947v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25946v1",
+      "title": "Policy Search in Code Space for Multi-Agent Pathfinding",
+      "authors": [
+        "Matthias Eder",
+        "Pantelis Emmanouil",
+        "Vivek Farias",
+        "Fabian Fischer",
+        "Adam Jozefiak",
+        "Tianyi Peng",
+        "Thomas Ulz",
+        "Raphael Watschinger",
+        "Fangyu Wu",
+        "Andrew Zheng"
+      ],
+      "affiliations": [],
+      "summary": "Developing coordination policies for complex multi-agent systems relies on either labor-intensive algorithm design or opaque task-specific reinforcement learning. With recent advances in autonomous coding agents, we show that policy search directly in code space offers a compelling third path that combines automated optimization with explicit interpretability. We investigate a human-directed workflow in which coding agents iteratively propose, implement, evaluate, diagnose, and eventually refine algorithms guided by simulation feedback and explicit correctness verification. We conducted two case studies and found that this workflow robustly outperformed any manually engineered solutions. On a challenging map in the 2024 League of Robot Runners competition, a two-day search discovered a policy that exceeds the stronger locally reproduced competition entry by 35.0% on the densest instance and generalizes to unseen map instances. In simulated real-world warehouses with irregular lanes, continuous robot geometry, and asynchronous motion, a week-long search discovered an entirely new class of multi-agent pathfinding algorithm that outperforms a calibrated proprietary solution in throughput by 58.9%. Under stated assumptions, we further prove that the new algorithm is collision-free and completes, in finite time, every accepted goal that is not withdrawn or replaced. Together, the studies show that policy search in code space powered by state-of-the-art coding agents offers a highly competitive path to building real engineering solutions that are both effective and analytically tractable.",
+      "summary_sentence": "Developing coordination policies for complex multi-agent systems relies on either labor-intensive algorithm design or opaque task-specific reinforcement learning. With recent advances in autonomous coding agents, we show that policy search directly in code sp…",
+      "method_summary": "方法总结：Developing coordination policies for complex multi-agent systems relies on either labor-intensive algorithm design or opaque task-specific reinforcement learning. With recent advances in autonomous coding agents, we show that policy search directly in code sp…",
+      "conclusion_summary": "结论总结：Developing coordination policies for complex multi-agent systems relies on either labor-intensive algorithm design or opaque task-specific reinforcement learning. With recent advances in autonomous coding agents, we show that policy search directly in code sp…",
+      "published_at": "2026-10-19T07:39:25Z",
+      "updated_at": "2026-10-19T07:39:25Z",
       "categories": [
         "cs.RO",
         "cs.AI"
       ],
       "module": "embodied",
       "module_label": "具身智能（VLA / 世界模型 / 机器人）",
-      "abs_url": "http://arxiv.org/abs/2604.00005v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00005v1",
+      "abs_url": "http://arxiv.org/abs/2610.25946v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25946v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00006v1",
-      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 6",
+      "paper_id": "2610.25941v1",
+      "title": "Global probabilistic forecasting of air pollution",
       "authors": [
-        "David Li",
-        "Emma Zhou"
+        "Ammar Kheder",
+        "Michael Boy",
+        "Zhi-song Liu"
       ],
       "affiliations": [],
-      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Fine particulate matter (PM2.5) refers to particulate matter with an aerodynamic diameter of 2.5 micrometre or less. It comes from human activities, such as traffic and industry, and from wildfires, desert dust and gases emitted by vegetation. Short-term exposure to it accounts for about a million deaths a year. Operational forecasts run on grids tens of kilometres wide, which hide the pollution breathed by nearly two hundred million people a day. Machine learning has transformed weather forecasting, but data-driven forecasts of air pollution still blur extremes and lose skill as the air travels. Here we introduce Foehn, a generative model that learns from global kilometre-scale estimates of PM2.5 and computes where the air comes from. Over a year of retrospective forecasts, it outperforms the operational forecast at three stations in four and forecasts at the scale of this hidden exposure. Its ensembles are calibrated, and their mean detects local pollution extremes four days ahead as well as the operational forecast does one day ahead. Such forecasts could warn the millions whom coarse maps miss, once kilometre-scale data are available in real time.",
+      "summary_sentence": "Fine particulate matter (PM2.5) refers to particulate matter with an aerodynamic diameter of 2.5 micrometre or less. It comes from human activities, such as traffic and industry, and from wildfires, desert dust and gases emitted by vegetation.",
+      "method_summary": "方法总结：Fine particulate matter (PM2.5) refers to particulate matter with an aerodynamic diameter of 2.5 micrometre or less. It comes from human activities, such as traffic and industry, and from wildfires, desert dust and gases emitted by vegetation.",
+      "conclusion_summary": "结论总结：Fine particulate matter (PM2.5) refers to particulate matter with an aerodynamic diameter of 2.5 micrometre or less. It comes from human activities, such as traffic and industry, and from wildfires, desert dust and gases emitted by vegetation.",
+      "published_at": "2026-10-19T07:36:10Z",
+      "updated_at": "2026-10-19T07:36:10Z",
       "categories": [
-        "cs.LG",
-        "cs.AI"
-      ],
-      "module": "llm_agent",
-      "module_label": "大语言模型与 Agent",
-      "abs_url": "http://arxiv.org/abs/2604.00006v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00006v1",
-      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
-    },
-    {
-      "paper_id": "2604.00007v1",
-      "title": "World-Model Guided Policy Learning Variant 7",
-      "authors": [
-        "Alice Chen",
-        "Bo Wang"
-      ],
-      "affiliations": [],
-      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
-      "categories": [
-        "cs.RO",
         "cs.AI"
       ],
       "module": "embodied",
       "module_label": "具身智能（VLA / 世界模型 / 机器人）",
-      "abs_url": "http://arxiv.org/abs/2604.00007v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00007v1",
+      "abs_url": "http://arxiv.org/abs/2610.25941v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25941v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00008v1",
-      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 8",
+      "paper_id": "2610.25934v1",
+      "title": "MITRA-lexicon: Lexica of attested translations from Sanskrit into English, Tibetan and Chinese",
       "authors": [
-        "David Li",
-        "Emma Zhou"
+        "Sebastian Nehrdich",
+        "Kengo Harimoto",
+        "Sven Sellmer",
+        "Oliver Hellwig"
       ],
       "affiliations": [],
-      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "The standard Sanskrit lexica are monumental and indispensable, but they cite their attestations as abbreviated references to editions, without links to the digitized texts now widely available and without a translation of the passage, and they naturally do not reflect translations made after them. To address these gaps, we present MITRA-lexicon, a family of corpus-grounded lexica based on span annotations of translation equivalents with Sanskrit as the pivot: Sanskrit-English, derived from the Mitrasamgraha corpus, as well as Sanskrit-Tibetan and Sanskrit-Chinese, derived from the MITRA-parallel corpus of Buddhist literature. In total, the resource comprises 2.18 million headword entries in six directional lexica. Headwords are lemmas and compounds from silver annotations that follow the Digital Corpus of Sanskrit (DCS). Senses are ranked by frequency, and each of the 10.4 million attestations includes its sentence pair, with character offsets of the word and its equivalent. We propose a multi-step pipeline based on grammatical annotation models, fine-tuned large language models, and a teacher-student setup to produce the alignments. We evaluate the lexica against reference dictionaries and manually corrected gold alignments. We release the lexica and the fine-tuned span annotation model, together with a web interface for looking up headwords and their attested senses.",
+      "summary_sentence": "The standard Sanskrit lexica are monumental and indispensable, but they cite their attestations as abbreviated references to editions, without links to the digitized texts now widely available and without a translation of the passage, and they naturally do no…",
+      "method_summary": "方法总结：The standard Sanskrit lexica are monumental and indispensable, but they cite their attestations as abbreviated references to editions, without links to the digitized texts now widely available and without a translation of the passage, and they naturally do no…",
+      "conclusion_summary": "结论总结：The standard Sanskrit lexica are monumental and indispensable, but they cite their attestations as abbreviated references to editions, without links to the digitized texts now widely available and without a translation of the passage, and they naturally do no…",
+      "published_at": "2026-10-19T07:31:42Z",
+      "updated_at": "2026-10-19T07:31:42Z",
       "categories": [
-        "cs.LG",
-        "cs.AI"
+        "cs.CL",
+        "cs.LG"
       ],
       "module": "llm_agent",
       "module_label": "大语言模型与 Agent",
-      "abs_url": "http://arxiv.org/abs/2604.00008v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00008v1",
+      "abs_url": "http://arxiv.org/abs/2610.25934v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25934v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00009v1",
-      "title": "World-Model Guided Policy Learning Variant 9",
+      "paper_id": "2610.25933v1",
+      "title": "The KV-Surgeon: Compensation-Aware Offline KV-Cache Compaction",
       "authors": [
-        "Alice Chen",
-        "Bo Wang"
+        "Moritz Wagner",
+        "Christophe Roux",
+        "Max Zimmer",
+        "Sebastian Pokutta"
       ],
       "affiliations": [],
-      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Offline compaction of the key--value cache (KV-cache) reduces the cost of repeatedly querying a fixed context by constructing a smaller cache once and reusing it subsequently. The central challenge of compaction is deciding which cache entries to delete and which to retain. Existing methods score each candidate for deletion on its own, with the rest of the cache being held fixed. However, softmax renormalization of the attention operation couples these decisions in a nonlinear manner: removing one entry changes the attention weights of every remaining one. In this work, we introduce KV-Surgeon, which uses calibration data to take interactions into account in a tractable way. We derive a quadratic surrogate that admits closed-form expressions for jointly making the optimal greedy removal decision as well as compensation within the remaining entries. On QuALITY, LongHealth, and Long Code Arena, and at every evaluated compaction ratio, KV-Surgeon substantially advances the cost--accuracy Pareto frontier of dense and mixture-of-experts models from 4B to 30B parameters. At $50\\times$ compaction, KV-Surgeon improves question-answering accuracy by up to four points over attention matching (Zweiger et al., 2026), the state of the art, at comparable cost. Lastly, we introduce an even faster variant, which also exceeds the state of the art while requiring only two fifths of its cost.",
+      "summary_sentence": "Offline compaction of the key--value cache (KV-cache) reduces the cost of repeatedly querying a fixed context by constructing a smaller cache once and reusing it subsequently. The central challenge of compaction is deciding which cache entries to delete and w…",
+      "method_summary": "方法总结：Offline compaction of the key--value cache (KV-cache) reduces the cost of repeatedly querying a fixed context by constructing a smaller cache once and reusing it subsequently. The central challenge of compaction is deciding which cache entries to delete and w…",
+      "conclusion_summary": "结论总结：Offline compaction of the key--value cache (KV-cache) reduces the cost of repeatedly querying a fixed context by constructing a smaller cache once and reusing it subsequently. The central challenge of compaction is deciding which cache entries to delete and w…",
+      "published_at": "2026-10-19T07:31:36Z",
+      "updated_at": "2026-10-19T07:31:36Z",
       "categories": [
-        "cs.RO",
+        "cs.LG",
         "cs.AI"
       ],
       "module": "embodied",
       "module_label": "具身智能（VLA / 世界模型 / 机器人）",
-      "abs_url": "http://arxiv.org/abs/2604.00009v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00009v1",
+      "abs_url": "http://arxiv.org/abs/2610.25933v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25933v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00010v1",
-      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 10",
+      "paper_id": "2610.25932v1",
+      "title": "Keep the Lineages Alive: Diversity-Preserving SMC for Diffusion LLM Decoding",
       "authors": [
-        "David Li",
-        "Emma Zhou"
+        "Minoo Ahmadi",
+        "Seyedarmin Azizi",
+        "Mehdi Kamal",
+        "Massoud Pedram"
       ],
       "affiliations": [],
-      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Inference-time sequential Monte Carlo (SMC) decoding can improve the reasoning accuracy of masked diffusion language models (diffusion LLMs) without post-training by resampling a population of partial generations according to a reward. Its effectiveness therefore depends on the resampling step, which must concentrate computation on promising candidates while retaining enough diversity to explore alternative reasoning paths. The reward can be internal, the decoder's own confidence on the committed prefix, or external, a process reward model scoring that prefix. Under either reward, multinomial resampling can disrupt this balance by duplicating high-weight particles and discarding lineages that may still reach a correct solution. The effective sample size (ESS) does not register this loss: multinomial resampling resets it to its maximum even as distinct lineages disappear. To retain such lineages, we introduce lineage-preserving SMC (LP-SMC), which combines Chopthin resampling with an input weight floor. Instead of equalizing weights, Chopthin bounds the ratio between the largest and smallest weights it returns and carries the unequal weights forward. The floor limits how far below the maximum a weight may fall before resampling so that lineages with low early weight keep a chance to recover. Across mathematical-reasoning and code-generation benchmarks on two base models, LP-SMC raises oracle coverage, the fraction of problems with at least one correct particle, in every setting, by 1.8 to 25.6 points, and raises end-to-end accuracy under a common reward-model selector in eleven of twelve settings, by up to 7.9 points on LLaDA-1.5 and 18.3 on Dream-7B. The coverage gain persists under the external reward model, which suggests that diversity-preserving resampling and the guidance signal contribute separately to inference-time search.",
+      "summary_sentence": "Inference-time sequential Monte Carlo (SMC) decoding can improve the reasoning accuracy of masked diffusion language models (diffusion LLMs) without post-training by resampling a population of partial generations according to a reward. Its effectiveness there…",
+      "method_summary": "方法总结：Inference-time sequential Monte Carlo (SMC) decoding can improve the reasoning accuracy of masked diffusion language models (diffusion LLMs) without post-training by resampling a population of partial generations according to a reward. Its effectiveness there…",
+      "conclusion_summary": "结论总结：Inference-time sequential Monte Carlo (SMC) decoding can improve the reasoning accuracy of masked diffusion language models (diffusion LLMs) without post-training by resampling a population of partial generations according to a reward. Its effectiveness there…",
+      "published_at": "2026-10-19T07:30:07Z",
+      "updated_at": "2026-10-19T07:30:07Z",
       "categories": [
         "cs.LG",
+        "cs.AI",
+        "cs.CL",
+        "stat.AP",
+        "stat.ML"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2610.25932v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25932v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25931v1",
+      "title": "EvoSkill v2: Fully Agentic Skill Evolution from Benchmark Adaptation to a Stateful Evolver",
+      "authors": [
+        "Dastin Huang",
+        "Baran Nama",
+        "Salaheddin Alzubi"
+      ],
+      "affiliations": [],
+      "summary": "EvoSkill v2 is a three-agent system that edits the instructions (skills) an agent is given, leaving its model and harness intact. The user starts a run by describing a benchmark and supplying a grader, which a benchmark adaptor turns into a benchmark-specific plugin. A solver attempts the tasks, and an evolver reads the solver's training rollouts and rewrites the skills at each epoch. We implement the evolver as one stateful coding agent with a bash tool for the whole run, unlike the two most common designs among the skill optimizers we surveyed: a sequence of single model calls, as in SkillOpt, and an agent that starts afresh each round, as in SkillBoost. We also measure how much the solver's rollouts vary from one attempt to the next, give the evolver several attempts per training task, and accept every epoch's skills instead of selecting among them on noisy scores. With fine-grained ground truth, EvoSkill v2's skills raised the held-out pass rate above the stronger of SkillOpt and SkillBoost by 7.7 percentage points on SpreadsheetBench v2 and by 5.4 on $τ^3$-bench banking. In both benchmarks and both feedback settings, EvoSkill v2's evolver cost less per percentage point of held-out pass rate gained than either baseline's optimizer. EvoSkill v2 also enables a less capable model to improve its own skills, demonstrated by a gain of up to 21.5 percentage points in the $τ^3$-bench banking experiment where Claude Haiku 5.5 powers both solver and evolver.",
+      "summary_sentence": "EvoSkill v2 is a three-agent system that edits the instructions (skills) an agent is given, leaving its model and harness intact. The user starts a run by describing a benchmark and supplying a grader, which a benchmark adaptor turns into a benchmark-specific…",
+      "method_summary": "方法总结：EvoSkill v2 is a three-agent system that edits the instructions (skills) an agent is given, leaving its model and harness intact. The user starts a run by describing a benchmark and supplying a grader, which a benchmark adaptor turns into a benchmark-specific…",
+      "conclusion_summary": "结论总结：EvoSkill v2 is a three-agent system that edits the instructions (skills) an agent is given, leaving its model and harness intact. The user starts a run by describing a benchmark and supplying a grader, which a benchmark adaptor turns into a benchmark-specific…",
+      "published_at": "2026-10-19T07:29:21Z",
+      "updated_at": "2026-10-19T07:29:21Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2610.25931v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25931v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25930v1",
+      "title": "TESS: LLM-guided Translation, Exploration, Simulation, and Search for Embodied Task Planning",
+      "authors": [
+        "Peiran Xu",
+        "Yixiang Yang",
+        "Jinghan Li",
+        "Fei Li",
+        "Cao Sheng",
+        "JiaZhong Yu",
+        "Yadong Mu"
+      ],
+      "affiliations": [],
+      "summary": "In this work we focus on the problem of embodied task planning, which requires an agent to accomplish a complex task by separating it into atomic actions. Recent studies have developed LLM-based methods to address this problem. However, the executability and correctness of the generated plans remain suboptimal in complex environments and tasks. On the other hand, classical search algorithms have the potential to solve the planning problems perfectly, yet they require fully observable environments, known state transitions and goal state, which are often unattainable in general task domains. Therefore, we propose to implement an LLM-guided search algorithm that makes the search process possible and efficient by incorporating LLMs' commonsense knowledge. Our method leverages LLMs to (1) translate natural language instructions into formatted goal conditions, (2) facilitate efficient exploration in partially observable environments, (3) implement a rule-based world simulator, and (4) prune the space of candidate actions to improve search efficiency. Experimental results on VirtualHome and ALFWorld demonstrate its superior performance.",
+      "summary_sentence": "In this work we focus on the problem of embodied task planning, which requires an agent to accomplish a complex task by separating it into atomic actions. Recent studies have developed LLM-based methods to address this problem.",
+      "method_summary": "方法总结：In this work we focus on the problem of embodied task planning, which requires an agent to accomplish a complex task by separating it into atomic actions. Recent studies have developed LLM-based methods to address this problem.",
+      "conclusion_summary": "结论总结：In this work we focus on the problem of embodied task planning, which requires an agent to accomplish a complex task by separating it into atomic actions. Recent studies have developed LLM-based methods to address this problem.",
+      "published_at": "2026-10-19T07:27:23Z",
+      "updated_at": "2026-10-19T07:27:23Z",
+      "categories": [
         "cs.AI"
       ],
       "module": "llm_agent",
       "module_label": "大语言模型与 Agent",
-      "abs_url": "http://arxiv.org/abs/2604.00010v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00010v1",
+      "abs_url": "http://arxiv.org/abs/2610.25930v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25930v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00011v1",
-      "title": "World-Model Guided Policy Learning Variant 11",
+      "paper_id": "2610.25927v1",
+      "title": "CondenseVLA: Learnable History Condensation for Efficient Multi-Frame VLA",
       "authors": [
-        "Alice Chen",
-        "Bo Wang"
+        "Feiyang Hong",
+        "Yujie Wei",
+        "Bo Zhao",
+        "Xiu Su",
+        "Hongxun Yao",
+        "Shuo Yang"
       ],
       "affiliations": [],
-      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Robot manipulation often depends on short-term cues - such as brief contacts, temporary occlusions, and intermediate object states - that are ambiguous in a single frame and can only be resolved by integrating observations over time. However, injecting historical information solely by enlarging the history window is computationally costly and frequently yields limited gains due to substantial redundancy and task-agnostic, inflexible sampling of observations. We propose CondenseVLA, a multi-frame VLA policy with a learnable decoder-side history condensation module for using short-term visual context in action decoding. Given a sequence of cached per-frame features from the VLM backbone, CondenseVLA distills observation history into a fixed set of slot tokens using learnable queries and multi-head cross-attention. Simple auxiliary regularization penalizes overlap among slot attention maps and decorrelates slot embeddings, encouraging complementary attention and reducing slot redundancy. Across the evaluated tasks, CondenseVLA improves Simpler-WidowX success from 58.7% to 69.8% (+11.1 percentage points), achieves 97.2% on LIBERO, and reaches 52.8% on real-world tasks. It achieves 21.6% success on memory-dependent RMBench tasks. These results support selective condensation of bounded recent visual evidence for action decoding, while harder multi-observation tasks expose the limits of a finite history window. Project page: https://github.com/FeiyangHong/CondenseVLA",
+      "summary_sentence": "Robot manipulation often depends on short-term cues - such as brief contacts, temporary occlusions, and intermediate object states - that are ambiguous in a single frame and can only be resolved by integrating observations over time. However, injecting histor…",
+      "method_summary": "方法总结：Robot manipulation often depends on short-term cues - such as brief contacts, temporary occlusions, and intermediate object states - that are ambiguous in a single frame and can only be resolved by integrating observations over time. However, injecting histor…",
+      "conclusion_summary": "结论总结：Robot manipulation often depends on short-term cues - such as brief contacts, temporary occlusions, and intermediate object states - that are ambiguous in a single frame and can only be resolved by integrating observations over time. However, injecting histor…",
+      "published_at": "2026-10-19T07:26:13Z",
+      "updated_at": "2026-10-19T07:26:13Z",
       "categories": [
-        "cs.RO",
-        "cs.AI"
+        "cs.CV",
+        "cs.RO"
       ],
       "module": "embodied",
       "module_label": "具身智能（VLA / 世界模型 / 机器人）",
-      "abs_url": "http://arxiv.org/abs/2604.00011v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00011v1",
+      "abs_url": "http://arxiv.org/abs/2610.25927v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25927v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00012v1",
-      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 12",
+      "paper_id": "2610.25924v1",
+      "title": "UtilityBench: Measuring Language Model Utility When Errors Have Different Costs",
       "authors": [
-        "David Li",
-        "Emma Zhou"
+        "Qifeng Lei",
+        "Zhiyong Yang",
+        "Zitai Wang",
+        "Shilong Bao",
+        "Linchao Zhang",
+        "Qianqian Xu",
+        "Qingming Huang"
       ],
       "affiliations": [],
-      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "As language models are increasingly deployed in real-world scenarios with important outcomes, the impact of their mistakes often extends far beyond what correctness can capture. In domains like medicine, a single error can lead to serious consequences and put patient safety at risk. However, mainstream evaluation protocols still treat all errors as equal, overlooking the spectrum of real-world costs. To address this, we propose a utility-based evaluation paradigm that explicitly incorporates the varying consequences of errors. Guided by this principle, we develop UtilityBench, a large-scale benchmark of 15,000 instances with verifiable answers, quantifying error severity using Best-Worst Scaling to elicit meaningful, data-driven cost estimates. These quantified utilities shape when a model should answer or abstain, guiding it to make decisions that align with the true importance of each scenario. As another merit, we introduce UtilityAUC, a metric that measures the area under the utility curve determined by a model's response ordering, thereby enabling utility preference alignment beyond error frequency. Our theoretical analysis demonstrates that UtilityAUC can distinguish between models where standard accuracy and AURC fall short. Empirically, evaluating 20 state-of-the-art models, we find that greater accuracy or more advanced architectures do not reliably translate to higher UtilityAUC, highlighting a gap between problem-solving ability and responsible decision-making in language model evaluation.",
+      "summary_sentence": "As language models are increasingly deployed in real-world scenarios with important outcomes, the impact of their mistakes often extends far beyond what correctness can capture. In domains like medicine, a single error can lead to serious consequences and put…",
+      "method_summary": "方法总结：As language models are increasingly deployed in real-world scenarios with important outcomes, the impact of their mistakes often extends far beyond what correctness can capture. In domains like medicine, a single error can lead to serious consequences and put…",
+      "conclusion_summary": "结论总结：As language models are increasingly deployed in real-world scenarios with important outcomes, the impact of their mistakes often extends far beyond what correctness can capture. In domains like medicine, a single error can lead to serious consequences and put…",
+      "published_at": "2026-10-19T07:23:43Z",
+      "updated_at": "2026-10-19T07:23:43Z",
       "categories": [
         "cs.LG",
         "cs.AI"
       ],
       "module": "llm_agent",
       "module_label": "大语言模型与 Agent",
-      "abs_url": "http://arxiv.org/abs/2604.00012v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00012v1",
+      "abs_url": "http://arxiv.org/abs/2610.25924v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25924v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00013v1",
-      "title": "World-Model Guided Policy Learning Variant 13",
+      "paper_id": "2610.25920v1",
+      "title": "Maestro: Agentic Formal Proof Development by Coordination",
       "authors": [
-        "Alice Chen",
-        "Bo Wang"
+        "Haoyu Li",
+        "Zeren Shui",
+        "Yuhao Zhang",
+        "Ferhat Erata",
+        "Benjamin Mikek",
+        "Murali Krishna Ramanathan",
+        "Hao Zhou"
       ],
       "affiliations": [],
-      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Lean is increasingly used to verify mathematical proofs and software produced by LLM agents, but writing formal proofs remains hard. Existing prover systems take a divide-and-conquer approach that recursively decomposes hard proof obligations into easier lemmas and splits again any lemma that resists proof. However, a lemma can resist proof for different reasons, including insufficient guidance, a false statement, or a flaw in the decomposition that produced it. Existing systems cannot tell these apart as a failed attempt reports little beyond its failure, and responses are confined to the failing node without considering the rest of the proof or revising the plan above it. The system may thus keep decomposing obligations along a flawed proof direction until the budget runs out, causing the whole proof attempt to fail. We introduce Maestro, a Lean prover harness that handles failures through global coordination. Provers report why they failed, not just that they failed, and a coordinator that sees the whole proof chooses an appropriate response, such as guiding a stuck prover, correcting a false lemma, or retracting a flawed subtree and replanning it. The same harness extends to verified code synthesis, where a checked counterexample sends the code back for repair. We evaluate Maestro with four frontier LLMs on seven mathematics and three software verification benchmarks. It proves more targets than each model's native coding agent (Claude Code or Codex) on every benchmark the agent has not already saturated, with the largest gains on research-level mathematics. With Claude Opus 5, it discovers its own proofs of 34 of the 48 theorems in the June 2026 release of arXivLean, against 19 for the native agent. It also outperforms all published prover systems on every benchmark they share, solving 669/672 PutnamBench, 59/60 Lean-IMO-Bench, and 6/6 IMO 2026.",
+      "summary_sentence": "Lean is increasingly used to verify mathematical proofs and software produced by LLM agents, but writing formal proofs remains hard. Existing prover systems take a divide-and-conquer approach that recursively decomposes hard proof obligations into easier lemm…",
+      "method_summary": "方法总结：Lean is increasingly used to verify mathematical proofs and software produced by LLM agents, but writing formal proofs remains hard. Existing prover systems take a divide-and-conquer approach that recursively decomposes hard proof obligations into easier lemm…",
+      "conclusion_summary": "结论总结：Lean is increasingly used to verify mathematical proofs and software produced by LLM agents, but writing formal proofs remains hard. Existing prover systems take a divide-and-conquer approach that recursively decomposes hard proof obligations into easier lemm…",
+      "published_at": "2026-10-19T07:21:10Z",
+      "updated_at": "2026-10-19T07:21:10Z",
       "categories": [
-        "cs.RO",
+        "cs.LG"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2610.25920v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25920v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25916v1",
+      "title": "Secure Agentic Coding through Counterexample-Grounded Feedback",
+      "authors": [
+        "Tue Le",
+        "Anh Nguyen Hoang",
+        "Gabriel Sasseville",
+        "Doseok Jang",
+        "Pierre-Luc Bacon",
+        "Nghi D. Q. Bui"
+      ],
+      "affiliations": [],
+      "summary": "As coding models and agent harnesses become more capable, reliable security verification is becoming a central bottleneck. Improving secure code generation requires a signal whose reported progress remains aligned with actual program behavior under optimization; otherwise, an optimizer can improve the signal's verdict without removing the underlying vulnerability. Existing model-based approaches require models to either infer program behavior from source code or specify correct outcomes for adversarial tests, placing substantial reasoning demands on the security signal. We introduce \\falcon{}, a counterexample-grounded verification framework that separates attack exploration from behavioral verification and connects them through execution traces of the program under test. In test-time repair, \\falcon{} yields substantially stronger held-out functional-security gains than alternative security signals across secure code generation benchmarks, while preserving or improving functionality. As an RL reward, \\falcon{} also outperforms static-analysis and learned rewards on held-out functional-security, even when all policies successfully optimize their respective training rewards. Combining \\falcon{} with either proxy reward further improves held-out performance, suggesting that execution-grounded feedback can mitigate reward overoptimization while preserving useful guidance from existing security signals.",
+      "summary_sentence": "As coding models and agent harnesses become more capable, reliable security verification is becoming a central bottleneck. Improving secure code generation requires a signal whose reported progress remains aligned with actual program behavior under optimizati…",
+      "method_summary": "方法总结：As coding models and agent harnesses become more capable, reliable security verification is becoming a central bottleneck. Improving secure code generation requires a signal whose reported progress remains aligned with actual program behavior under optimizati…",
+      "conclusion_summary": "结论总结：As coding models and agent harnesses become more capable, reliable security verification is becoming a central bottleneck. Improving secure code generation requires a signal whose reported progress remains aligned with actual program behavior under optimizati…",
+      "published_at": "2026-10-19T07:18:34Z",
+      "updated_at": "2026-10-19T07:18:34Z",
+      "categories": [
+        "cs.CR",
         "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2610.25916v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25916v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25906v1",
+      "title": "An Analysis of Semantic and Spatio-Temporal Co-evolution for Edge Classification on Dynamic Text-Attributed Graphs",
+      "authors": [
+        "Tyler Bonnet",
+        "Marek Rei"
+      ],
+      "affiliations": [],
+      "summary": "Dynamic edge classification on text-attributed Web graphs, such as review networks, community forums, and news-derived knowledge graphs, requires high quality, adaptive semantic representations in the context of network evolution. Existing dynamic graph architectures typically initialize text feature vectors with pretrained language models and hold them static during training to preserve their semantic structure, forgoing the potential benefits of allowing them to co-evolve with network topology. In this work, we investigate the effects of enabling such co-evolution with a unified text-graph alignment framework that integrates a lightweight Transformer adapter to update token-level text representations via spatio-temporal gradients from a contrastive pretraining objective. To prevent detrimental semantic distortion, a language model maintenance objective anchors the evolving text embeddings to their original semantic structure. Evaluations on the Dynamic Text-Attributed Graph Benchmark demonstrate that this anchored text-graph co-evolution consistently improves upon the edge classification performance of frozen-text baselines across diverse Web-related domains. Representational analyses reveal that the framework reduces anisotropy, improving the linear separability of text embeddings, and effectively encodes structural and temporal information into the semantic space. A computational efficiency analysis confirms that this beneficial semantic and spatio-temporal co-evolution is achieved without incurring the prohibitive computational overhead typical of end-to-end joint training.",
+      "summary_sentence": "Dynamic edge classification on text-attributed Web graphs, such as review networks, community forums, and news-derived knowledge graphs, requires high quality, adaptive semantic representations in the context of network evolution. Existing dynamic graph archi…",
+      "method_summary": "方法总结：Dynamic edge classification on text-attributed Web graphs, such as review networks, community forums, and news-derived knowledge graphs, requires high quality, adaptive semantic representations in the context of network evolution. Existing dynamic graph archi…",
+      "conclusion_summary": "结论总结：Dynamic edge classification on text-attributed Web graphs, such as review networks, community forums, and news-derived knowledge graphs, requires high quality, adaptive semantic representations in the context of network evolution. Existing dynamic graph archi…",
+      "published_at": "2026-10-19T07:07:04Z",
+      "updated_at": "2026-10-19T07:07:04Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2610.25906v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25906v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25901v1",
+      "title": "Out-of-Distribution Detection in Continual Learning",
+      "authors": [
+        "Nimeshika Udayangani",
+        "Flora D. Salim",
+        "Christopher Leckie",
+        "Sarah Erfani"
+      ],
+      "affiliations": [],
+      "summary": "Out-of-distribution detection in continual learning (OOD-CL) is highly challenging, as it requires (i) learning a sequence of tasks without catastrophic forgetting, and (ii) identifying unknown samples (OOD) without access to known (in-distribution (ID)) data from past tasks, where standard confidence-based OOD scores tend to degrade. Existing methods largely rely on a rehearsal buffer of past data or assume closed-world settings, limiting their scalability and reliability in real-world scenarios. In this paper, we propose a novel OOD detection framework for rehearsal-free continual learning, inspired by Kolmogorov-Arnold Networks (KAN), which mitigate catastrophic forgetting via their inherent local neuroplasticity. To better leverage KAN in OOD-CL, we introduce a task-adaptive classifier architecture, TA-KAN, which mitigates recency bias and enhances ID--OOD separability through task-specific control of activation locality. Furthermore, we propose a geometry-guided OOD score that complements TA-KAN classifier confidence without relying on past ID data. Our method significantly improves OOD detection while maintaining strong ID classification performance, achieving state-of-the-art results in OOD-CL.",
+      "summary_sentence": "Out-of-distribution detection in continual learning (OOD-CL) is highly challenging, as it requires (i) learning a sequence of tasks without catastrophic forgetting, and (ii) identifying unknown samples (OOD) without access to known (in-distribution (ID)) data…",
+      "method_summary": "方法总结：Out-of-distribution detection in continual learning (OOD-CL) is highly challenging, as it requires (i) learning a sequence of tasks without catastrophic forgetting, and (ii) identifying unknown samples (OOD) without access to known (in-distribution (ID)) data…",
+      "conclusion_summary": "结论总结：Out-of-distribution detection in continual learning (OOD-CL) is highly challenging, as it requires (i) learning a sequence of tasks without catastrophic forgetting, and (ii) identifying unknown samples (OOD) without access to known (in-distribution (ID)) data…",
+      "published_at": "2026-10-19T07:02:38Z",
+      "updated_at": "2026-10-19T07:02:38Z",
+      "categories": [
+        "cs.LG",
+        "cs.CV"
       ],
       "module": "embodied",
       "module_label": "具身智能（VLA / 世界模型 / 机器人）",
-      "abs_url": "http://arxiv.org/abs/2604.00013v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00013v1",
+      "abs_url": "http://arxiv.org/abs/2610.25901v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25901v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00014v1",
-      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 14",
+      "paper_id": "2610.25896v1",
+      "title": "When Should AI Chime In? Benchmarking Timely Contribution of Proactive Agents in Multi-Party Chat",
       "authors": [
-        "David Li",
-        "Emma Zhou"
+        "Ruotong Wang",
+        "Brian S. Yu",
+        "Xinyi Zhou",
+        "Joseph Chee Chang",
+        "Pao Siangliulue",
+        "Jonathan Bragg",
+        "Liwei Jiang",
+        "Amy X Zhang"
       ],
       "affiliations": [],
-      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Proactive agents can support group collaboration by surfacing useful information without waiting to be asked, but even relevant contributions can be disruptive if poorly timed. In this work, we isolate the timing question: given a fixed candidate contribution such as a clarification or relevant fact, when should an AI agent chime in? We introduce PITCH (Proactive Intervention Timing in CHat), to our knowledge the first benchmark with large-scale human judgments of proactive agent timing collected from participants in the same unscripted multi-party conversations they took part in. To collect high-quality judgments, we design a novel interface in which 2-4 people chat synchronously, author candidate AI contribution messages, place their own and others' contributions into the chat history, and then deliberate as a group about the best placement for each message. PITCH contains 384 candidate contributions and 1,091 judgments, each marking an ideal turn, an acceptable window, or that a contribution should not appear, from 89 participants engaged in 35 conversations. Evaluating 15 models across 28 configurations, we find that while models can place contributions well when given the entire conversation history, they systematically chime in too early when asked to decide live as the conversation unfolds: best-turn accuracy falls from 57.8% to 19.0%, with nearly half of placements occurring before every participant's acceptable window. In comparison, lay humans deciding live are more accurate (23.7% vs 19.0%), and fewer of their placements are premature (39.7% vs 46.4%). Model reasoning traces show that 93% of intervention justifications cite relevance, while almost none consider waiting. By providing a human-grounded benchmark, our work reveals gaps in agents' ability to integrate into group settings and points towards proactive agents that can reason explicitly about appropriate timing.",
+      "summary_sentence": "Proactive agents can support group collaboration by surfacing useful information without waiting to be asked, but even relevant contributions can be disruptive if poorly timed. In this work, we isolate the timing question: given a fixed candidate contribution…",
+      "method_summary": "方法总结：Proactive agents can support group collaboration by surfacing useful information without waiting to be asked, but even relevant contributions can be disruptive if poorly timed. In this work, we isolate the timing question: given a fixed candidate contribution…",
+      "conclusion_summary": "结论总结：Proactive agents can support group collaboration by surfacing useful information without waiting to be asked, but even relevant contributions can be disruptive if poorly timed. In this work, we isolate the timing question: given a fixed candidate contribution…",
+      "published_at": "2026-10-19T06:54:04Z",
+      "updated_at": "2026-10-19T06:54:04Z",
       "categories": [
-        "cs.LG",
         "cs.AI"
       ],
       "module": "llm_agent",
       "module_label": "大语言模型与 Agent",
-      "abs_url": "http://arxiv.org/abs/2604.00014v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00014v1",
+      "abs_url": "http://arxiv.org/abs/2610.25896v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25896v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00015v1",
-      "title": "World-Model Guided Policy Learning Variant 15",
+      "paper_id": "2610.25893v1",
+      "title": "Motor compound fault diagnosis using an attention-based cross-talk architecture",
       "authors": [
-        "Alice Chen",
-        "Bo Wang"
+        "Wonjun Yi",
+        "Wonho Jung",
+        "Junho Kim",
+        "Rismaya Kumar Mishra",
+        "Yong-Hwa Park"
       ],
       "affiliations": [],
-      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "As physical AI increasingly relies on sensing to understand physical systems, reliable condition monitoring of industrial machinery has become more important. Motors are ubiquitous in industrial systems, and increasing system complexity raises the likelihood of simultaneous faults. Accordingly, compound fault diagnosis that identifies multiple fault components and their severities is increasingly required. Because different fault components jointly affect the same vibration signal, their severity classification can be formulated as related tasks, making multi-task learning (MTL) suitable for exploiting shared information. However, conventional shared-trunk architectures force tasks to share a common representation, potentially causing negative transfer because fault components are characterized by different time-frequency regions. To address this issue, this study proposes a Residual Neural Dimension Reductor with Time-Frequency Channel Attention (RNDR-TFCA), an attention-enhanced cross-talk architecture for multi-output compound fault diagnosis. RNDR-TFCA preserves task-specific feature extractors while selectively exchanging information across tasks. Time-frequency attention emphasizes informative intra-task regions, while channel attention enhances useful inter-task information after nonlinear feature fusion. Experiments on a rotor-bearing system with inner-race fault, outer-race fault, misalignment, and unbalance showed that RNDR-TFCA achieved a macro F1 score of 0.898, outperforming single-task, multi-class, shared-trunk, and cross-talk baselines. Ablation experiments confirmed the benefit of jointly applying both attention mechanisms. RNDR-TFCA required 713 K parameters and 170.42 MMACs, only slightly higher than RNDR. Channel-expanded baselines still underperformed RNDR-TFCA, indicating that the gain was not simply attributable to increased model capacity.",
+      "summary_sentence": "As physical AI increasingly relies on sensing to understand physical systems, reliable condition monitoring of industrial machinery has become more important. Motors are ubiquitous in industrial systems, and increasing system complexity raises the likelihood…",
+      "method_summary": "方法总结：As physical AI increasingly relies on sensing to understand physical systems, reliable condition monitoring of industrial machinery has become more important. Motors are ubiquitous in industrial systems, and increasing system complexity raises the likelihood…",
+      "conclusion_summary": "结论总结：As physical AI increasingly relies on sensing to understand physical systems, reliable condition monitoring of industrial machinery has become more important. Motors are ubiquitous in industrial systems, and increasing system complexity raises the likelihood…",
+      "published_at": "2026-10-19T06:49:21Z",
+      "updated_at": "2026-10-19T06:49:21Z",
       "categories": [
-        "cs.RO",
-        "cs.AI"
+        "cs.AI",
+        "cs.LG"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2610.25893v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25893v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2610.25892v1",
+      "title": "Manifold-Constrained Residual Adaptation with Frame-Adaptive Layer Aggregation for Speaker Verification",
+      "authors": [
+        "Zezhong Jin",
+        "Xiaoyu Wang",
+        "Zhe Li",
+        "Chong-Xin Gan",
+        "Siqing Qin",
+        "Man-Wai Mak",
+        "Kong Aik Lee"
+      ],
+      "affiliations": [],
+      "summary": "Large self-supervised speech models provide powerful representations for speaker verification, but full fine-tuning is expensive. Most conventional adapters insert small trainable modules to modify the output of each layer, while keeping the original residual connections unchanged. Building on our preliminary study of manifold-constrained Hyper-Connections in speaker encoders, we explore parameter-efficient adaptation of both residual paths and feature selection across layers. We first propose a Manifold-Constrained Residual Adapter (MCRA), which splits the hidden dimensions of each Transformer residual state into N groups and uses a small Sinkhorn-normalized matrix to exchange information among them. A learnable gate controls the balance between the original and mixed residual paths. The gate adds only one scalar parameter at each residual connection and initially favors the original path, allowing gradual adaptation. We further propose Frame-Adaptive Layer Aggregation (FALA), an attention-based aggregation method that uses a single learned query shared across all utterances to compute layer weights separately for each speech frame. Because the layer representations depend on the input, the resulting weights vary across both utterances and frames, unlike the fixed weights of a conventional layer-weighted sum. Compared with a frozen WavLM baseline using a fixed layer-weighted sum, our method achieves relative EER reductions of 22.4% on VoxCeleb1-O and 2.9% on CN-Celeb, with trainable adaptation parameters equivalent to only 0.0009% and 0.0016% of the WavLM-Large parameters, respectively.",
+      "summary_sentence": "Large self-supervised speech models provide powerful representations for speaker verification, but full fine-tuning is expensive. Most conventional adapters insert small trainable modules to modify the output of each layer, while keeping the original residual…",
+      "method_summary": "方法总结：Large self-supervised speech models provide powerful representations for speaker verification, but full fine-tuning is expensive. Most conventional adapters insert small trainable modules to modify the output of each layer, while keeping the original residual…",
+      "conclusion_summary": "结论总结：Large self-supervised speech models provide powerful representations for speaker verification, but full fine-tuning is expensive. Most conventional adapters insert small trainable modules to modify the output of each layer, while keeping the original residual…",
+      "published_at": "2026-10-19T06:47:48Z",
+      "updated_at": "2026-10-19T06:47:48Z",
+      "categories": [
+        "cs.SD",
+        "cs.AI",
+        "eess.AS"
       ],
       "module": "embodied",
       "module_label": "具身智能（VLA / 世界模型 / 机器人）",
-      "abs_url": "http://arxiv.org/abs/2604.00015v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00015v1",
+      "abs_url": "http://arxiv.org/abs/2610.25892v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25892v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00016v1",
-      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 16",
+      "paper_id": "2610.25881v1",
+      "title": "Learn the Interface, Not the Implementation: Output Representation Dominates Training Regime in LLM-Based RTL Generation",
       "authors": [
-        "David Li",
-        "Emma Zhou"
+        "Siddharth Patel",
+        "Vikram Singh",
+        "Siddharth Savyasachi Malu",
+        "Rohit Singh"
       ],
       "affiliations": [],
-      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Large-language-model register-transfer-level (RTL) generation has concentrated on how to train the model: fine-tuning, continued pre-training, and reinforcement learning from a verifier. We argue this is the second-order question. On a bounded, formally specifiable task of generating single-error-correcting, double-error-detecting (SECDED) ECC memory wrappers, we hold the task, data, and correctness oracle fixed and vary two axes independently: the training regime (seven settings) and the output representation (four levels, from fully expanded flat Verilog to an eight-field configuration expanded by a deterministic generator). Because a reference generator exists, correctness is decided by formal equivalence over a design space of approximately ten million points, rather than sampled from a hand-written testbench. Two results follow. First, representation dominates: every representation close to raw RTL reaches a pass rate of at most 0.17, while the configuration reaches 0.83 with no training at all. Once the model emits the configuration, every training regime achieves a pass rate between 0.89 and 1.00. Second, raw RTL hits a hard output-length limit: a 512-bit design requires 44,237 tokens of flat Verilog compared with just 69 tokens for the configuration. Consequently, raw generation becomes infeasible above 32-bit data words rather than merely inaccurate. A model trained from scratch with fewer than 50 million parameters, combined with the verified generator, achieves 0.89 formal equivalence, compared with 1.00 for a 32-billion-parameter fine-tuned model, while using approximately 1600 times less inference energy per correct design. Inference energy also dominates amortized training energy. The lesson is to learn the interface, not the implementation.",
+      "summary_sentence": "Large-language-model register-transfer-level (RTL) generation has concentrated on how to train the model: fine-tuning, continued pre-training, and reinforcement learning from a verifier. We argue this is the second-order question.",
+      "method_summary": "方法总结：Large-language-model register-transfer-level (RTL) generation has concentrated on how to train the model: fine-tuning, continued pre-training, and reinforcement learning from a verifier. We argue this is the second-order question.",
+      "conclusion_summary": "结论总结：Large-language-model register-transfer-level (RTL) generation has concentrated on how to train the model: fine-tuning, continued pre-training, and reinforcement learning from a verifier. We argue this is the second-order question.",
+      "published_at": "2026-10-19T06:38:16Z",
+      "updated_at": "2026-10-19T06:38:16Z",
       "categories": [
         "cs.LG",
-        "cs.AI"
+        "cs.AR"
       ],
       "module": "llm_agent",
       "module_label": "大语言模型与 Agent",
-      "abs_url": "http://arxiv.org/abs/2604.00016v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00016v1",
+      "abs_url": "http://arxiv.org/abs/2610.25881v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25881v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00017v1",
-      "title": "World-Model Guided Policy Learning Variant 17",
+      "paper_id": "2610.25880v1",
+      "title": "Asynchronous On-Policy Self-Distillation",
       "authors": [
-        "Alice Chen",
-        "Bo Wang"
+        "Xidong Wu",
+        "Qi Qi",
+        "Yuqiong Ji",
+        "Shangqian Gao"
       ],
       "affiliations": [],
-      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Unlike on-policy distillation (OPD), which depends on a separate teacher model, on-policy self-distillation (OPSD) leverages a single language model acting simultaneously as the student and the teacher, with the teacher conditioned on privileged information. Despite this architectural simplicity, synchronous rollout generation dominates overall training time, creating a severe systems bottleneck when scaling OPSD. To address this, we introduce Asynchronous On-Policy Self-Distillation (AsyncOPSD), a framework that decouples rollout generation from learner updates to improve training throughput. Since the teacher and student share parameters, AsyncOPSD eliminates the multi-model coordination overhead inherent to OPD architectures in asynchronous training. As the student policy evolves, buffered trajectories generated by older policies become stale, potentially degrading performance. To mitigate this, we introduce a distillation objective based on staleness-aware policy control and token-level entropy weighting. Across three model sizes and mathematical reasoning benchmarks, AsyncOPSD improves the training throughput by $1.96$--$2.25\\times$ over synchronous OPSD while increasing average benchmark accuracy.",
+      "summary_sentence": "Unlike on-policy distillation (OPD), which depends on a separate teacher model, on-policy self-distillation (OPSD) leverages a single language model acting simultaneously as the student and the teacher, with the teacher conditioned on privileged information.…",
+      "method_summary": "方法总结：Unlike on-policy distillation (OPD), which depends on a separate teacher model, on-policy self-distillation (OPSD) leverages a single language model acting simultaneously as the student and the teacher, with the teacher conditioned on privileged information.…",
+      "conclusion_summary": "结论总结：Unlike on-policy distillation (OPD), which depends on a separate teacher model, on-policy self-distillation (OPSD) leverages a single language model acting simultaneously as the student and the teacher, with the teacher conditioned on privileged information.…",
+      "published_at": "2026-10-19T06:38:04Z",
+      "updated_at": "2026-10-19T06:38:04Z",
       "categories": [
-        "cs.RO",
-        "cs.AI"
-      ],
-      "module": "embodied",
-      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
-      "abs_url": "http://arxiv.org/abs/2604.00017v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00017v1",
-      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
-    },
-    {
-      "paper_id": "2604.00018v1",
-      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 18",
-      "authors": [
-        "David Li",
-        "Emma Zhou"
-      ],
-      "affiliations": [],
-      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
+        "cs.LG"
       ],
       "module": "llm_agent",
       "module_label": "大语言模型与 Agent",
-      "abs_url": "http://arxiv.org/abs/2604.00018v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00018v1",
+      "abs_url": "http://arxiv.org/abs/2610.25880v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25880v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
-      "paper_id": "2604.00019v1",
-      "title": "World-Model Guided Policy Learning Variant 19",
+      "paper_id": "2610.25879v1",
+      "title": "Cling: Supporting Cross-Page Coordination with Human-Directed, In-Situ, and Small-Step Automation",
       "authors": [
-        "Alice Chen",
-        "Bo Wang"
+        "Zhicheng Huang",
+        "Yining Cao",
+        "Haijun Xia"
       ],
       "affiliations": [],
-      "summary": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "summary_sentence": "We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "method_summary": "方法总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "conclusion_summary": "结论总结：We present an embodied world-model policy for robot navigation and manipulation with improved long-horizon stability.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
+      "summary": "Web-based information work spans independently developed pages, with goals and coordination needs often emerging through browsing. Manual coordination requires repeated low-level actions, yet explicitly specifying operations for automation can interrupt engagement with information that shapes users' next steps. Our approach constructs reusable, schema-based page representations and identifies coordination actions through correspondences across schemas. We instantiate this approach in Cling, which surfaces coordination opportunities in situ for users to select, configure, and execute incrementally while directing the broader task. A technical evaluation demonstrates accurate identification of useful opportunities across diverse domains. A 12-participant study found that Cling reduced task durations by more than half compared with both manual interaction and an end-to-end AI agent, while requiring 61% fewer clicks and 80% fewer tab switches than manual interaction. Its small-step automation supported control and verification as actions unfolded, while accommodating intent as it emerged and evolved through information encountered on the page.",
+      "summary_sentence": "Web-based information work spans independently developed pages, with goals and coordination needs often emerging through browsing. Manual coordination requires repeated low-level actions, yet explicitly specifying operations for automation can interrupt engag…",
+      "method_summary": "方法总结：Web-based information work spans independently developed pages, with goals and coordination needs often emerging through browsing. Manual coordination requires repeated low-level actions, yet explicitly specifying operations for automation can interrupt engag…",
+      "conclusion_summary": "结论总结：Web-based information work spans independently developed pages, with goals and coordination needs often emerging through browsing. Manual coordination requires repeated low-level actions, yet explicitly specifying operations for automation can interrupt engag…",
+      "published_at": "2026-10-19T06:37:54Z",
+      "updated_at": "2026-10-19T06:37:54Z",
       "categories": [
-        "cs.RO",
-        "cs.AI"
-      ],
-      "module": "embodied",
-      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
-      "abs_url": "http://arxiv.org/abs/2604.00019v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00019v1",
-      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
-    },
-    {
-      "paper_id": "2604.00020v1",
-      "title": "Tool-Using LLM Agents with Verifiable Reasoning Variant 20",
-      "authors": [
-        "David Li",
-        "Emma Zhou"
-      ],
-      "affiliations": [],
-      "summary": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "summary_sentence": "We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "method_summary": "方法总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "conclusion_summary": "结论总结：We introduce an LLM agent architecture with tool planning and verifiable reasoning traces for coding and retrieval tasks.",
-      "published_at": "2026-04-01T00:00:00Z",
-      "updated_at": "2026-04-01T00:00:00Z",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
+        "cs.HC"
       ],
       "module": "llm_agent",
       "module_label": "大语言模型与 Agent",
-      "abs_url": "http://arxiv.org/abs/2604.00020v1",
-      "pdf_url": "http://arxiv.org/pdf/2604.00020v1",
+      "abs_url": "http://arxiv.org/abs/2610.25879v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.25879v1",
       "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     }
   ]
