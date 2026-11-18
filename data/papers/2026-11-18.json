@@ -1,0 +1,936 @@
+{
+  "generated_at": "2026-11-18T04:59:24.705439+00:00",
+  "date": "2026-11-18",
+  "stats": {
+    "total": 36,
+    "embodied": 16,
+    "llm_agent": 20
+  },
+  "papers": [
+    {
+      "paper_id": "2611.23229v1",
+      "title": "Ambient LLMs: Data-Efficient Supervised Fine-tuning via Temperature Matching",
+      "authors": [
+        "Giannis Daras",
+        "Marios Papachristou",
+        "Adam Klivans",
+        "Antonio Torralba",
+        "Constantinos Daskalakis"
+      ],
+      "affiliations": [],
+      "summary": "Collecting large-scale, diverse, and high-quality post-training datasets for autoregressive language models is challenging. Consequently, Supervised Fine-Tuning (SFT) is typically applied to datasets significantly smaller than those used for pre-training, which leads to overfitting and the catastrophic forgetting of the tails of the data distribution. To prevent this collapse, we introduce Ambient SFT, a principled framework for leveraging imperfect predictions to augment the fine-tuning set. In our method, a \"frozen\" version of the pre-trained model serves as a noisy teacher that the fine-tuned model must match at a coarse level. In particular, we require that the high-temperature versions of the conditional distributions produced by the post-training model should match the high-temperature versions of the pre-training ones. The temperature hyperparameter controls the level of trust in the pre-trained model, with the limit $T\\to \\infty$ reverting back to regular SFT and $T=1$ to knowledge distillation. We demonstrate that our approach outperforms standard SFT across domain adaptation, instruction-tuning, and reasoning, leading for up to $21\\%$ average relative improvement to standard SFT.",
+      "summary_sentence": "Collecting large-scale, diverse, and high-quality post-training datasets for autoregressive language models is challenging. Consequently, Supervised Fine-Tuning (SFT) is typically applied to datasets significantly smaller than those used for pre-training, whi…",
+      "method_summary": "方法总结：Collecting large-scale, diverse, and high-quality post-training datasets for autoregressive language models is challenging. Consequently, Supervised Fine-Tuning (SFT) is typically applied to datasets significantly smaller than those used for pre-training, whi…",
+      "conclusion_summary": "结论总结：Collecting large-scale, diverse, and high-quality post-training datasets for autoregressive language models is challenging. Consequently, Supervised Fine-Tuning (SFT) is typically applied to datasets significantly smaller than those used for pre-training, whi…",
+      "published_at": "2026-11-17T18:59:37Z",
+      "updated_at": "2026-11-17T18:59:37Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23229v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23229v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23228v1",
+      "title": "Spool: Low-Latency Streaming Inference for Hybrid Vision-Language Models",
+      "authors": [
+        "Rui Ning",
+        "Om Chabra",
+        "Hari Balakrishnan"
+      ],
+      "affiliations": [],
+      "summary": "Applications such as visual accessibility agents and robotics require answering questions about recent video content promptly, over a bounded window of past frames (e.g., the last two minutes). Hybrid vision-language models (VLMs), which interleave attention with linear recurrent layers such as Gated DeltaNet (GDN), are attractive for this setting, but maintaining a sliding window is expensive. The reason is that recurrent layers combine all past frames into a shared state, so expiring old frames normally requires re-running the entire window through the model. We observe that the recurrent update is affine in the state with input-dependent coefficients, so the effect of each frame can be captured as a transformation that composes associatively. We present Spool, a training-free framework that caches per-frame state transformations and composes them efficiently as the window advances, removing expired frames from each recurrent layer's state without replaying frames through the backbone. Removal is exact within each layer; as with key-value eviction in attention, expired frames can retain residual influence through the cached inputs computed by earlier layers. We design a dedicated data structure and GPU kernels to achieve low caching and composition overhead. Across five open-source hybrid VLMs and four video reasoning benchmarks, Spool achieves the lowest p95 time-to-first-token in all 20 model-benchmark tests, reducing it by a geometric mean of $6.6\\times$ over the faster of two recent vLLM baselines, while improving accuracy by 2.3 percentage points on average.",
+      "summary_sentence": "Applications such as visual accessibility agents and robotics require answering questions about recent video content promptly, over a bounded window of past frames (e.g., the last two minutes). Hybrid vision-language models (VLMs), which interleave attention…",
+      "method_summary": "方法总结：Applications such as visual accessibility agents and robotics require answering questions about recent video content promptly, over a bounded window of past frames (e.g., the last two minutes). Hybrid vision-language models (VLMs), which interleave attention…",
+      "conclusion_summary": "结论总结：Applications such as visual accessibility agents and robotics require answering questions about recent video content promptly, over a bounded window of past frames (e.g., the last two minutes). Hybrid vision-language models (VLMs), which interleave attention…",
+      "published_at": "2026-11-17T18:59:27Z",
+      "updated_at": "2026-11-17T18:59:27Z",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23228v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23228v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23225v1",
+      "title": "StringQFT: A Multiuse Textbook Resource for AI-Assisted Theoretical Physics",
+      "authors": [
+        "Xingyang Yu"
+      ],
+      "affiliations": [],
+      "summary": "We present StringQFT as a textbook collection for string constructions of quantum field theory and as infrastructure for AI-assisted theoretical physics. The collection comprises 18 volumes, 190 chapters and 3,795 pages, covering brane probes, brane webs, geometric engineering, F-theory constructions, wrapped M5-branes and exact worldsheet constructions. Its open-book benchmark inventory contains 1,073 items, including 499 with automatic finite-answer checking. For retrieval-augmented generation, it provides 1,371 section records linked to textbook sources and PDF locations, together with a local lexical retriever. Training-data preparation is illustrated by 21 private, source-linked examples. For agents, it exposes 19 calculation tools with specified inputs and finite domains, connecting tool use to textbook derivations. We illustrate these uses through specific questions, retrieved passages and finite calculations. The textbook collection and accompanying resources are available at https://github.com/xingyang-yu/StringQFT.",
+      "summary_sentence": "We present StringQFT as a textbook collection for string constructions of quantum field theory and as infrastructure for AI-assisted theoretical physics. The collection comprises 18 volumes, 190 chapters and 3,795 pages, covering brane probes, brane webs, geo…",
+      "method_summary": "方法总结：We present StringQFT as a textbook collection for string constructions of quantum field theory and as infrastructure for AI-assisted theoretical physics. The collection comprises 18 volumes, 190 chapters and 3,795 pages, covering brane probes, brane webs, geo…",
+      "conclusion_summary": "结论总结：We present StringQFT as a textbook collection for string constructions of quantum field theory and as infrastructure for AI-assisted theoretical physics. The collection comprises 18 volumes, 190 chapters and 3,795 pages, covering brane probes, brane webs, geo…",
+      "published_at": "2026-11-17T18:58:40Z",
+      "updated_at": "2026-11-17T18:58:40Z",
+      "categories": [
+        "hep-th",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23225v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23225v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23221v1",
+      "title": "An inexact stochastic variance-reduced gradient method for constrained convex finite-sum optimization",
+      "authors": [
+        "Zhaosong Lu",
+        "Yifeng Xiao"
+      ],
+      "affiliations": [],
+      "summary": "In this paper, we study a class of constrained convex finite-sum optimization problems. In many practical applications, all or some of the constraints are hard constraints that represent imperative requirements. Consequently, any desirable approximate solution must (nearly) satisfy these constraints. Motivated by this, we focus on computing an $ε$-$surely\\ feasible\\ stochastic\\ optimal$ ($ε$-SFSO) solution, in which the constraint violation is deterministically bounded by $ε$, and the expected optimality gap is at most $ε$. While a recently proposed stochastic variance-reduced first-order penalty method can compute an $ε$-SFSO solution, there remains a significant gap between its first-order oracle complexity for computing an $ε$-SFSO solution and that for computing an $ε$-$expected\\ feasible\\ stochastic\\ optimal$ solution, where both the expected constraint violation and the expected optimality gap are bounded by $ε$. To narrow this gap, we propose an inexact stochastic variance-reduced gradient (SVRG) method that significantly improves the previously best-known first-order oracle complexity for computing an $ε$-SFSO solution. Furthermore, when the objective consists of a single function, the proposed method reduces to a novel deterministic first-order method for solving standard convex conic optimization. It achieves a significantly lower gradient evaluation complexity with respect to the objective function compared to existing methods, and can outperform them when computing constraint gradients and projections onto the associated cone is cheaper than evaluating the objective gradient. Preliminary numerical results are presented to illustrate the performance of the proposed method.",
+      "summary_sentence": "In this paper, we study a class of constrained convex finite-sum optimization problems. In many practical applications, all or some of the constraints are hard constraints that represent imperative requirements.",
+      "method_summary": "方法总结：In this paper, we study a class of constrained convex finite-sum optimization problems. In many practical applications, all or some of the constraints are hard constraints that represent imperative requirements.",
+      "conclusion_summary": "结论总结：In this paper, we study a class of constrained convex finite-sum optimization problems. In many practical applications, all or some of the constraints are hard constraints that represent imperative requirements.",
+      "published_at": "2026-11-17T18:57:16Z",
+      "updated_at": "2026-11-17T18:57:16Z",
+      "categories": [
+        "math.OC",
+        "cs.LG"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23221v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23221v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23219v1",
+      "title": "Do LLM Agents Still Need to Be Told How to Self-Improve?",
+      "authors": [
+        "Shobhita Sundaram",
+        "Cansu Sancaktar",
+        "Phillip Isola"
+      ],
+      "affiliations": [],
+      "summary": "LLM agents increasingly drive their own learning. Self-improvement methods delegate various components of model optimization to the models themselves. As models become more capable, this motivates a basic question: do these increasingly capable models still need us to specify how they should self-improve? In this paper we study an autonomous paradigm in which, given basic primitives, resources, and a general goal for self-improvement, agents construct their own self-learning algorithm for context-based optimization. Using the setting of gameplay as a testbed, a frozen LLM agent is given a compute budget and tools for collecting experience and updating text documents, and allowed to freely experiment without an externally imposed loop or access to real-world data. We find that sufficiently capable models do self-improve under these conditions, demonstrating strategies that align with classic cognitive frameworks for self-regulated learning and constructs from machine learning literature on self-generated curricula. Furthermore, we study the extent to which the learned text artifacts transfer to external benchmarks, observing improvement across different game horizons, mechanics, and 3D navigation.",
+      "summary_sentence": "LLM agents increasingly drive their own learning. Self-improvement methods delegate various components of model optimization to the models themselves.",
+      "method_summary": "方法总结：LLM agents increasingly drive their own learning. Self-improvement methods delegate various components of model optimization to the models themselves.",
+      "conclusion_summary": "结论总结：LLM agents increasingly drive their own learning. Self-improvement methods delegate various components of model optimization to the models themselves.",
+      "published_at": "2026-11-17T18:57:10Z",
+      "updated_at": "2026-11-17T18:57:10Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23219v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23219v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23218v1",
+      "title": "What Does a Bias Head Measure? Non-Identifiability in Head-Level Bias Attribution",
+      "authors": [
+        "S. M Seefat Alam"
+      ],
+      "affiliations": [],
+      "summary": "Methods that localise social bias in large language models to individual attention heads and remove it by ablation are validated by their effect on a fairness metric, never by evidence that the statistic selecting the heads measures bias. We audit this on Qwen-2.5-7B-Instruct and Llama-3.1-8B-Instruct. The head map correlates at $ρ= -0.950$ and $-0.768$ with a label-blind response-length map, apparently identifying a surface confound. An intervention that breaks the length-label coupling rejects this reading: with the prompt held fixed, response length explains 1% of the statistic's variance. What does explain it is prompt identity, at 64% of variance, in an ordering that is not monotonic in length. Within any fixed prompt the fairness label, response length and the presence of a protected-group token are collinear at $φ= 0.95$, partly by definition of the labelling rule, so no observational analysis can attribute the map to any of them, and no method in this family performs an experiment that could. The substantive claims fail independently: bias selectivity is not late-layer-concentrated on either model under either reference reading, and no head set we tested reduces the unfairness rate when ablated. Its complement, scored on the opposite label, reliably destroys refusal behaviour ($p = 2.7\\times10^{-5}$), demonstrating that the pipeline detects effects at this scale.",
+      "summary_sentence": "Methods that localise social bias in large language models to individual attention heads and remove it by ablation are validated by their effect on a fairness metric, never by evidence that the statistic selecting the heads measures bias. We audit this on Qwe…",
+      "method_summary": "方法总结：Methods that localise social bias in large language models to individual attention heads and remove it by ablation are validated by their effect on a fairness metric, never by evidence that the statistic selecting the heads measures bias. We audit this on Qwe…",
+      "conclusion_summary": "结论总结：Methods that localise social bias in large language models to individual attention heads and remove it by ablation are validated by their effect on a fairness metric, never by evidence that the statistic selecting the heads measures bias. We audit this on Qwe…",
+      "published_at": "2026-11-17T18:57:08Z",
+      "updated_at": "2026-11-17T18:57:08Z",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23218v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23218v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23216v1",
+      "title": "Higher-Scoring Coding Models Did Not Get More Work Done",
+      "authors": [
+        "Yining Hua"
+      ],
+      "affiliations": [],
+      "summary": "New coding models advertise themselves on score improvements of coding benchmarks. Yet no study has tested if a model that scores higher on these benchmarks gets more real work done. On June 12, 2026, a U.S. export control directive banned access to Claude Fable 5 for 19 days, which forced users to switch to other models. During this time, most former Fable 5 users switched to Opus 4.8 (11 points lower on SWE-Bench Pro compared to Fable 5). We treat this suspension as a natural experiment, where the people and projects stayed the same and only the model changed, so we could isolate the effect of Fable 5 on user productivity. We tracked GitHub pull requests of 297 Fable 5 users before, during, and after the suspension. We used 8,908 developers who stayed on Opus 4.8 all the time as the control group. We also repeated the comparison across five model upgrades before and after the suspension in 2026 (1,208 developers, 15,442 pull requests). Fitting a difference-in-differences model with developer and date fixed effects, we found that having access to Fable 5 increased the 7-day merge rate of pull requests by only 1.4 percentage points [-1.4; +4.3], which was not statistically significant. Similarly, no significant increases of merge rates were found with the upgrades (weighted mean: -0.9 percentage points [-1.9; +0.2]); all five estimates were negative (95% intervals included 0, did not differ from each other). We also did not observe a significant increase in the number of pull requests merged per week (+2.4% [-4.9%; +10.2%]).",
+      "summary_sentence": "New coding models advertise themselves on score improvements of coding benchmarks. Yet no study has tested if a model that scores higher on these benchmarks gets more real work done.",
+      "method_summary": "方法总结：New coding models advertise themselves on score improvements of coding benchmarks. Yet no study has tested if a model that scores higher on these benchmarks gets more real work done.",
+      "conclusion_summary": "结论总结：New coding models advertise themselves on score improvements of coding benchmarks. Yet no study has tested if a model that scores higher on these benchmarks gets more real work done.",
+      "published_at": "2026-11-17T18:56:42Z",
+      "updated_at": "2026-11-17T18:56:42Z",
+      "categories": [
+        "cs.SE",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23216v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23216v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23215v1",
+      "title": "Feedback-Linearised Trajectory Tracking via Model-Informed Robust Geometric DDPC",
+      "authors": [
+        "Pranav Gupta",
+        "Deepan Muthirayan",
+        "Ravi Banavar"
+      ],
+      "affiliations": [],
+      "summary": "Data-driven predictive control (DDPC) predicts system responses from recorded trajectories, but nonlinear dynamics can limit the accuracy of fixed linear predictors. This paper studies geometric robust DDPC for trajectory tracking of a fully actuated manipulator using model-based feedback linearisation. A mechanical model maps virtual acceleration commands into joint torques, while recorded data capture residual dynamics arising from imperfect model parameters. The controller minimises worst-case prediction error over an open Grassmannian ball centred at the fitted trajectory subspace. Simulations on a planar 2R manipulator under gravity compare the proposed method with double-integrator model predictive control (MPC) and direct regularised data-enabled predictive control (DeePC). Results show improved tracking over double-integrator MPC despite increased torque effort, while performance relative to DeePC depends on the reference trajectory.",
+      "summary_sentence": "Data-driven predictive control (DDPC) predicts system responses from recorded trajectories, but nonlinear dynamics can limit the accuracy of fixed linear predictors. This paper studies geometric robust DDPC for trajectory tracking of a fully actuated manipula…",
+      "method_summary": "方法总结：Data-driven predictive control (DDPC) predicts system responses from recorded trajectories, but nonlinear dynamics can limit the accuracy of fixed linear predictors. This paper studies geometric robust DDPC for trajectory tracking of a fully actuated manipula…",
+      "conclusion_summary": "结论总结：Data-driven predictive control (DDPC) predicts system responses from recorded trajectories, but nonlinear dynamics can limit the accuracy of fixed linear predictors. This paper studies geometric robust DDPC for trajectory tracking of a fully actuated manipula…",
+      "published_at": "2026-11-17T18:56:09Z",
+      "updated_at": "2026-11-17T18:56:09Z",
+      "categories": [
+        "cs.RO",
+        "eess.SY"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23215v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23215v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23211v1",
+      "title": "Multimodal Masked Diffusion Autoencoder for Modeling Impaired Driving",
+      "authors": [
+        "John Gideon",
+        "Anshul Gupta",
+        "Megan Applegate-Kenton",
+        "Kayli Battel",
+        "Todd J Rowell",
+        "Patricio Reyes Gomez",
+        "Laporsha Dees",
+        "Emily Sumner",
+        "Avinash Balachandran",
+        "Guy Rosman"
+      ],
+      "affiliations": [],
+      "summary": "Human cognitive state (e.g., distraction, stress), gaze, and behavior interact with the driving environment in subtle ways that AI could use to assist drivers, but ground-truth labels for human cognitive state levels are costly to obtain at scale. We propose a multimodal masked-diffusion autoencoder, ID-MAE, that adds a self-supervised objective to impairment prediction: alongside predicting the impairment label as a masked token, it reconstructs masked gaze and trajectory. To probe the effects of different modalities and types of impairments on model inference, we introduce DIVERT, a driving-simulator dataset containing 103 hours of driving data (n = 109) with ten impairment inductions spanning cognitive, visual, and emotional states, recorded with gaze, vehicle state, and scene video. We demonstrate how ID-MAE affords significant improvements in impairment inference results on both the DIVERT dataset and existing datasets, and enables strong results in additional tasks, such as trajectory and gaze prediction. For location-matched pairs, our model achieves a paired AUC of 0.706 for impairment detection on DIVERT, compared to 0.590 without reconstruction loss, improving over existing baselines. We probe the design space in terms of input modalities, masking scheme, positional encoding, attention mechanism, and decoding. We also investigate the interaction between various impairments in training and inference, demonstrating that visually demanding distractions are separable from cognitive distractions. Code and data will be available upon acceptance.",
+      "summary_sentence": "Human cognitive state (e.g., distraction, stress), gaze, and behavior interact with the driving environment in subtle ways that AI could use to assist drivers, but ground-truth labels for human cognitive state levels are costly to obtain at scale. We propose…",
+      "method_summary": "方法总结：Human cognitive state (e.g., distraction, stress), gaze, and behavior interact with the driving environment in subtle ways that AI could use to assist drivers, but ground-truth labels for human cognitive state levels are costly to obtain at scale. We propose…",
+      "conclusion_summary": "结论总结：Human cognitive state (e.g., distraction, stress), gaze, and behavior interact with the driving environment in subtle ways that AI could use to assist drivers, but ground-truth labels for human cognitive state levels are costly to obtain at scale. We propose…",
+      "published_at": "2026-11-17T18:50:22Z",
+      "updated_at": "2026-11-17T18:50:22Z",
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23211v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23211v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23208v1",
+      "title": "Distortion-Free Semantic Watermarks for Black-Box Generative Models",
+      "authors": [
+        "Aviv Yossef",
+        "Or Patashnik",
+        "Or Zamir"
+      ],
+      "affiliations": [],
+      "summary": "We present a provably distortion-free semantic watermarking algorithm that requires only black-box sampling access to a generative model and black-box access to a semantic embedding. A watermark is called distortion-free if, averaged over its secret detection key, it leaves the generator's output distribution unchanged; this provides a formal guarantee that watermarking does not reduce output quality. Conventional such watermarks are often brittle to transformations. This is especially problematic for images, where benign operations such as compression, cropping, or resizing change the entire pixel representation. Semantic watermarks therefore require detection to be robust to content-preserving transformations. Previous methods combining these properties rely heavily on specific white-box properties of the underlying model: either to autoregressive text generation or to diffusion-specific access, such as control of the initial noise or diffusion inversion. In contrast, our construction is fully generic: It only interacts with the generative model and the semantic embedding, a function that determines the notion of \"preserving content\" under which detection should be robust, via sample and query access. We then instantiate this framework for image generation. We characterize the two competing properties required of the semantic embedding: it should remain stable under transformations that preserve an image's content, but should distinguish independent generations from the same prompt. We train an image encoder directly for this tradeoff. The resulting encoder improves separation while maintaining stability over off-the-shelf alternatives and enables strong aggregate detection while remaining robust to various transformations. We demonstrate the effectiveness of our watermark scheme on both open-source and closed models, which is possible only due to restriction to black-box access.",
+      "summary_sentence": "We present a provably distortion-free semantic watermarking algorithm that requires only black-box sampling access to a generative model and black-box access to a semantic embedding. A watermark is called distortion-free if, averaged over its secret detection…",
+      "method_summary": "方法总结：We present a provably distortion-free semantic watermarking algorithm that requires only black-box sampling access to a generative model and black-box access to a semantic embedding. A watermark is called distortion-free if, averaged over its secret detection…",
+      "conclusion_summary": "结论总结：We present a provably distortion-free semantic watermarking algorithm that requires only black-box sampling access to a generative model and black-box access to a semantic embedding. A watermark is called distortion-free if, averaged over its secret detection…",
+      "published_at": "2026-11-17T18:49:17Z",
+      "updated_at": "2026-11-17T18:49:17Z",
+      "categories": [
+        "cs.LG",
+        "cs.CR",
+        "cs.CV"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23208v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23208v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23206v1",
+      "title": "Reading Scene States: Uncovering Safety Failures in Vision-Language Models",
+      "authors": [
+        "Tongxi Wu",
+        "Yuyang Cheng",
+        "Jiacheng Xian",
+        "Menglin Yang",
+        "Kai Chen",
+        "Jian Zhang",
+        "Yang Gao"
+      ],
+      "affiliations": [],
+      "summary": "Vision-language models (VLMs) can provide harmful assistance by interpreting visual events, even without an explicit request for the underlying harmful objective. We identify this \\textbf{scene-state safety vulnerability} and introduce \\textbf{SceneSafetyBench}, comprising 375 image--question pairs spanning Initial, Medium, and Ultimate scene states and five visual presentations. Across eight VLMs, scene-state inputs elicit harmful assistance with attack success rates (ASRs) of 45.6--72.3\\%. Comparative analysis across three VLMs shows that scene-state inputs most closely resemble QR-related images in their layer-wise safety-related signal profiles, while exhibiting lower average late-layer readouts and distinct signal dynamics during generation. To turn this vulnerability into a systematic attack, we propose \\textbf{S3TA}, which translates harmful objectives into scene states, queries image--question pairs independently, and assembles the responses. On seven MM-SafetyBench categories across eight open-weight and commercial VLMs, S3TA achieves a model-average ASR of \\textbf{71.2\\%, exceeding the strongest baseline by 6.1 percentage points}. Text-side filters and visual moderation provide limited protection. These findings highlight the need to safeguard the assistance models infer through scene-grounded reasoning, beyond screening input content.",
+      "summary_sentence": "Vision-language models (VLMs) can provide harmful assistance by interpreting visual events, even without an explicit request for the underlying harmful objective. We identify this \\textbf{scene-state safety vulnerability} and introduce \\textbf{SceneSafetyBenc…",
+      "method_summary": "方法总结：Vision-language models (VLMs) can provide harmful assistance by interpreting visual events, even without an explicit request for the underlying harmful objective. We identify this \\textbf{scene-state safety vulnerability} and introduce \\textbf{SceneSafetyBenc…",
+      "conclusion_summary": "结论总结：Vision-language models (VLMs) can provide harmful assistance by interpreting visual events, even without an explicit request for the underlying harmful objective. We identify this \\textbf{scene-state safety vulnerability} and introduce \\textbf{SceneSafetyBenc…",
+      "published_at": "2026-11-17T18:48:02Z",
+      "updated_at": "2026-11-17T18:48:02Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23206v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23206v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23205v1",
+      "title": "Fine-Tuning Gemma 4 Edge Models for MATLAB Signal-Processing Code with SFT and QLoRA on a Laptop iGPU",
+      "authors": [
+        "Mehmet Altan Toksöz"
+      ],
+      "affiliations": [],
+      "summary": "Small language models that run on a laptop are attractive for writing signal-processing code offline, but they make systematic errors on digital signal processing (DSP) conventions. We apply supervised fine-tuning (SFT) to the Gemma 4 edge models E2B and E4B with 66 checked examples covering 11 signal-processing MATLAB subtasks, using low-rank adaptation (LoRA) and quantized LoRA (QLoRA) on the integrated GPU (iGPU) of a laptop, and deploy the 8-bit integer (int8) models with the adapters through OpenVINO. On held-out variants scored by deterministic checkers, the pass rate rises from 18/66 to 37/66 (LoRA) and 37/66 (QLoRA) for E2B and from 32/66 to 47/66 for E4B (QLoRA). Reading all 159 failing programs shows that the adapters remove most errors of convention, such as the sign of a lag, units and array shapes, but few errors in building signals and noise. Applied at run time, the adapter costs 17-19% of the generation speed.",
+      "summary_sentence": "Small language models that run on a laptop are attractive for writing signal-processing code offline, but they make systematic errors on digital signal processing (DSP) conventions. We apply supervised fine-tuning (SFT) to the Gemma 4 edge models E2B and E4B…",
+      "method_summary": "方法总结：Small language models that run on a laptop are attractive for writing signal-processing code offline, but they make systematic errors on digital signal processing (DSP) conventions. We apply supervised fine-tuning (SFT) to the Gemma 4 edge models E2B and E4B…",
+      "conclusion_summary": "结论总结：Small language models that run on a laptop are attractive for writing signal-processing code offline, but they make systematic errors on digital signal processing (DSP) conventions. We apply supervised fine-tuning (SFT) to the Gemma 4 edge models E2B and E4B…",
+      "published_at": "2026-11-17T18:47:37Z",
+      "updated_at": "2026-11-17T18:47:37Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.SE",
+        "eess.SP"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23205v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23205v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23202v1",
+      "title": "Agent Trust Infrastructure (ATI): A Federated Identity, Trust, Attestation, and Accountability Architecture for Cross-Organization Autonomous AI Agents",
+      "authors": [
+        "Viet K. Nguyen",
+        "Mohammad I. Husain"
+      ],
+      "affiliations": [],
+      "summary": "AI agents increasingly collaborate across organizational boundaries, invoking tools and interacting with agents operated by independent entities. Although existing agent frameworks support planning and coordination, they lack a common mechanism for verifying cross-organizational agent identity, execution integrity, and authorization. We propose the Agent Trust Infrastructure (ATI), a framework-independent security architecture built on Public Key Infrastructure (PKI), Zero Trust Architecture (ZTA), and remote attestation. ATI establishes federated trust through peer organizational certificate authorities (AgentCAs), eliminating the need for a shared root authority. Before executing requests, ATI validates agent certificates, verifies approved model, tool, and system-prompt configurations, and enforces authorization through three policy checks. We implement ATI as an external security enforcement layer that integrates with existing agent frameworks without modifying their underlying models. We evaluate ATI in a simulated federation of eight organizations using six agent frameworks, each deploying a five-agent team. Security experiments involve two organizations and assess 14 attack scenarios and six benign tasks across five agent models, using five attack variations and three repetitions per variation. A panel of judge models evaluates the experimental outcomes. With all enforcement mechanisms enabled, attack containment increases from 43% to 84% (40% to 80% for the 11 attack scenarios evaluated consistently across all configurations), while enforcement introduces approximately 174 microseconds of overhead per request. ATI is released as an open-source, framework-independent package that uses IETF WIMSE workload token formats for identity and request verification and Entity Attestation Tokens for model, tool, and system-prompt integrity verification.",
+      "summary_sentence": "AI agents increasingly collaborate across organizational boundaries, invoking tools and interacting with agents operated by independent entities. Although existing agent frameworks support planning and coordination, they lack a common mechanism for verifying…",
+      "method_summary": "方法总结：AI agents increasingly collaborate across organizational boundaries, invoking tools and interacting with agents operated by independent entities. Although existing agent frameworks support planning and coordination, they lack a common mechanism for verifying…",
+      "conclusion_summary": "结论总结：AI agents increasingly collaborate across organizational boundaries, invoking tools and interacting with agents operated by independent entities. Although existing agent frameworks support planning and coordination, they lack a common mechanism for verifying…",
+      "published_at": "2026-11-17T18:44:25Z",
+      "updated_at": "2026-11-17T18:44:25Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23202v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23202v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23198v1",
+      "title": "Learned versus Kinematic Trajectory Prediction under Reduced Observation Frequency",
+      "authors": [
+        "Nukhbala Gadzhiev",
+        "Alexander Morochko"
+      ],
+      "affiliations": [],
+      "summary": "Trajectory prediction models for automated driving are usually trained on data with a fixed sampling frequency, while positions received via vehicle-to-everything (V2X) communication arrive at 1-10 Hz. We study whether a learned predictor that uses only the observation history keeps its advantage over constant velocity (CV) and constant acceleration (CA) models when the history frequency drops. On the Argoverse 2 motion forecasting dataset, the 5 s history of the focal agent was downsampled from 10 Hz to 5, 2, and 1 Hz, and the 6 s future was predicted without maps or neighboring agents. An LSTM-based recurrent neural network (RNN) trained for each frequency was compared with the same network trained at 10 Hz and applied to sparse histories after linear interpolation. Hypotheses and thresholds were fixed before training, the main RNNs were trained with ten seeds each, and results on 24,984 test scenarios have bootstrap confidence intervals over scenarios and seeds. The average displacement error of the frequency-specific RNN grew by 3.1% at 5 Hz, 10.1% at 2 Hz, and 20.3% at 1 Hz. Contrary to our hypothesis, its advantage over the better kinematic model did not vanish on straight motion and was 24-30% on both straight motion and turns at every frequency, while for pedestrians CV was more accurate. The 10 Hz model with interpolation was at most 1.3% less accurate than the frequency-specific model down to 2 Hz but 11.5% less accurate at 1 Hz. Each hypothesis was only partly supported.",
+      "summary_sentence": "Trajectory prediction models for automated driving are usually trained on data with a fixed sampling frequency, while positions received via vehicle-to-everything (V2X) communication arrive at 1-10 Hz. We study whether a learned predictor that uses only the o…",
+      "method_summary": "方法总结：Trajectory prediction models for automated driving are usually trained on data with a fixed sampling frequency, while positions received via vehicle-to-everything (V2X) communication arrive at 1-10 Hz. We study whether a learned predictor that uses only the o…",
+      "conclusion_summary": "结论总结：Trajectory prediction models for automated driving are usually trained on data with a fixed sampling frequency, while positions received via vehicle-to-everything (V2X) communication arrive at 1-10 Hz. We study whether a learned predictor that uses only the o…",
+      "published_at": "2026-11-17T18:38:28Z",
+      "updated_at": "2026-11-17T18:38:28Z",
+      "categories": [
+        "cs.LG",
+        "cs.RO"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23198v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23198v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23197v1",
+      "title": "Structure--Residual Inductive Biases for Language Model Pretraining",
+      "authors": [
+        "Hai Huang",
+        "Bartosz Żuk",
+        "Rassul Magauin",
+        "Jiaxin Huang",
+        "Xue Liu"
+      ],
+      "affiliations": [],
+      "summary": "Next-token prediction is relied upon to learn both predictive behavior and internal representations. We ask whether representation structure itself should be an explicit inductive bias. Motivated by the two-part coding view of Kolmogorov complexity, we study a structure--residual principle in which a representation separates structure from realization detail. We instantiate this principle in two complementary ways. Boundary Bottleneck Concept (BBC) routes information from token segments through boundary carriers while preserving local autoregressive computation. Continuous Concept (CC) regularizes representation geometry and induces a spectral decomposition into low-frequency structure and high-frequency residual. We derive coding bounds for both views and show that multiplicity-corrected boundary attention becomes exact as the within-segment path energy vanishes. Empirically, BBC and CC exhibit strikingly different depth preferences: BBC works best in early layers, whereas CC is most effective in later layers. At 300M training tokens, combining BBC and CC improves NLL by 1.44\\% on GPT-2 Medium. These gains persist with training runs up to 20B tokens. Representation diagnostics show that BBC increases the relative predictive importance of boundary states, while CC reduces spectral residual energy. Together, these results suggest that structure--residual biases can improve language-model pretraining beyond next-token prediction. Code: https://github.com/haihuang-ml/structure-residual",
+      "summary_sentence": "Next-token prediction is relied upon to learn both predictive behavior and internal representations. We ask whether representation structure itself should be an explicit inductive bias.",
+      "method_summary": "方法总结：Next-token prediction is relied upon to learn both predictive behavior and internal representations. We ask whether representation structure itself should be an explicit inductive bias.",
+      "conclusion_summary": "结论总结：Next-token prediction is relied upon to learn both predictive behavior and internal representations. We ask whether representation structure itself should be an explicit inductive bias.",
+      "published_at": "2026-11-17T18:38:27Z",
+      "updated_at": "2026-11-17T18:38:27Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23197v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23197v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23192v1",
+      "title": "WoRD: Diffusion-Based Posterior Inference for Online Goal Recognition",
+      "authors": [
+        "Almog Anschel",
+        "Sarah Keren"
+      ],
+      "affiliations": [],
+      "summary": "Goal recognition is the task of inferring an agent's intended goal from its observed behavior. Most existing work focuses on high-level symbolic recognition, abstracting away the continuous motion through which agents reach their goal. Methods that do reason over continuous trajectories rely on an explicit dynamics model that is hard to acquire and rarely transfers across settings. Neither approach explicitly learns how agents move toward each candidate goal, limiting accuracy on ambiguous trajectory prefixes where such knowledge is most needed. We present WoRD (Waypoint Recognition with Diffusion), which uses a learned trajectory prior to infer the agent's goal from partial observations. At each step, WoRD runs one warm-started denoising chain per candidate goal, steers each chain toward the observed trajectory through a closed-form log-likelihood gradient, and reweights the resulting samples by Bayes' rule into a calibrated posterior over goals. We evaluate WoRD on simulated robot settings, pedestrian trajectories, and vehicle trajectories using four metrics targeting distinct failure modes. Across all three settings, the same inference procedure preserves calibrated multimodal beliefs through ambiguous prefixes where filter- and classifier-based observers collapse to a single mode or grow overconfident.",
+      "summary_sentence": "Goal recognition is the task of inferring an agent's intended goal from its observed behavior. Most existing work focuses on high-level symbolic recognition, abstracting away the continuous motion through which agents reach their goal.",
+      "method_summary": "方法总结：Goal recognition is the task of inferring an agent's intended goal from its observed behavior. Most existing work focuses on high-level symbolic recognition, abstracting away the continuous motion through which agents reach their goal.",
+      "conclusion_summary": "结论总结：Goal recognition is the task of inferring an agent's intended goal from its observed behavior. Most existing work focuses on high-level symbolic recognition, abstracting away the continuous motion through which agents reach their goal.",
+      "published_at": "2026-11-17T18:35:53Z",
+      "updated_at": "2026-11-17T18:35:53Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23192v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23192v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23190v1",
+      "title": "\"I Just Don't Want to Be a Burden\": Investigating AI Chatbot Emotional Support Among People with Suicidal Ideation and Other Mental Health Concerns",
+      "authors": [
+        "Vasudha Varadarajan",
+        "Nathan S. Fishbein",
+        "Andrew Aquilina",
+        "Jordan Taylor",
+        "Hong Shen",
+        "Maarten Sap"
+      ],
+      "affiliations": [],
+      "summary": "People experiencing high-acuity mental health concerns are turning to AI chatbots for emotional support, but little is known about what drives this use, their experiences, and their preferences. In a sequential mixed-methods study, we inductively analyzed Reddit posts and used the findings to develop a survey. We surveyed 202 adults with recent mental health concerns who had used AI for emotional support. Most participants were already receiving clinical care and reported turning to AI, most commonly because they did not want to burden others, rather than being driven by barriers to care. Benefits were broadly shared, but participants reporting past-year suicidal ideation described more harm-facilitating AI behavior and reliance than those without. Overall, participants ranked honesty above warmth, and preference for crisis escalation declined as clinical acuity rose. These findings motivate AI support that addresses perceived costs of disclosure, evaluates benefits alongside harms, and widens feasible paths to human connection.",
+      "summary_sentence": "People experiencing high-acuity mental health concerns are turning to AI chatbots for emotional support, but little is known about what drives this use, their experiences, and their preferences. In a sequential mixed-methods study, we inductively analyzed Red…",
+      "method_summary": "方法总结：People experiencing high-acuity mental health concerns are turning to AI chatbots for emotional support, but little is known about what drives this use, their experiences, and their preferences. In a sequential mixed-methods study, we inductively analyzed Red…",
+      "conclusion_summary": "结论总结：People experiencing high-acuity mental health concerns are turning to AI chatbots for emotional support, but little is known about what drives this use, their experiences, and their preferences. In a sequential mixed-methods study, we inductively analyzed Red…",
+      "published_at": "2026-11-17T18:34:59Z",
+      "updated_at": "2026-11-17T18:34:59Z",
+      "categories": [
+        "cs.HC",
+        "cs.CY"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23190v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23190v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23189v1",
+      "title": "Retrieval-Augmented Correction for Generalist Medical Image Segmentation",
+      "authors": [
+        "Vincenzo Marcianò",
+        "Xiaoming Zhang",
+        "Michela Antonelli",
+        "Sebastien Ourselin",
+        "Maria A Zuluaga"
+      ],
+      "affiliations": [],
+      "summary": "Automated segmentation is routinely used as the first step in quantitative image-based clinical workflows, where predicted masks are subsequently reviewed and corrected by human operators. Automated correction of the residual structural errors is currently addressed one anatomy at a time, so the number of trained correctors scales with the number of segmentation targets. We present GRACE, a retrieval-augmented refiner that edits an input mask under context drawn from a shared knowledge base of verified prior cases. The refiner is trained once on a multi-organ corpus spanning compact organs, cavities, branching vessels, and tumour lesions. In the held-out dataset-transfer evaluation, three held-out datasets query a fixed knowledge base built from training data only. A separate leave-one-anatomy-out experiment tests parameter-free index extension: verified cases of an unseen solid organ enter the knowledge base, and the refiner stays frozen. A light shape-aware projection head on a frozen multimodal encoder maps embedding similarity to the shape agreement of the masks, so the knowledge base returns cases that the refiner can use as a shape prior. We evaluate GRACE on 18 public datasets spanning CT, MRI and ultrasound, using nine refinement configurations and seven upstream segmentors that span weak, mid, and strong operating regimes. We report each change with the DSC of its input mask. On the weak tier, the input DSC is 0.386 and GRACE adds up to +0.35 DSC. On a strong segmentor, the input DSC is 0.932 and the mean change is small. Transfer to an imaging modality that is absent from training and from the index is partial and depends on the anatomy, and remains an open research direction. Our results suggest retrieval-conditioned refinement is a practical alternative to anatomy-specific correction models. Code: https://github.com/robustml-eurecom/grace",
+      "summary_sentence": "Automated segmentation is routinely used as the first step in quantitative image-based clinical workflows, where predicted masks are subsequently reviewed and corrected by human operators. Automated correction of the residual structural errors is currently ad…",
+      "method_summary": "方法总结：Automated segmentation is routinely used as the first step in quantitative image-based clinical workflows, where predicted masks are subsequently reviewed and corrected by human operators. Automated correction of the residual structural errors is currently ad…",
+      "conclusion_summary": "结论总结：Automated segmentation is routinely used as the first step in quantitative image-based clinical workflows, where predicted masks are subsequently reviewed and corrected by human operators. Automated correction of the residual structural errors is currently ad…",
+      "published_at": "2026-11-17T18:33:42Z",
+      "updated_at": "2026-11-17T18:33:42Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23189v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23189v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23179v1",
+      "title": "Say Less, Hallucinate Less? Diagnosing and Restoring Object Coverage in Preference-Optimized Vision-Language Models",
+      "authors": [
+        "Hansang Lee"
+      ],
+      "affiliations": [],
+      "summary": "Preference optimization (PO) is the standard way to reduce object hallucination in large vision-language models. We find that four public PO checkpoints of LLaVA-1.5-7B also lower object coverage. They name fewer object categories, and their lower hallucination rates bring no significant gain in set-level object F1 on CHAIR. We therefore ask how much of the PO gain the base model can reproduce by stopping earlier. A positive end-of-sequence (EOS) logit bias lets the base model reach the recall of each PO model, and this early stopping alone reproduces 58 to 86 percent of the CHAIRi gain of three checkpoints on two disjoint COCO sets. Writing longer does not bring the lost categories back. Under greedy decoding, a negative EOS bias recovers only 2 to 9 percent of the lost CHAIR recall of these checkpoints, and 94 to 96 percent of the added object mentions repeat categories already named. On CHAIR, the base caption of the same image still names about half of the missed object categories. We therefore propose base-guided object-category restoration, which appends high-confidence base-only categories to the PO caption without training. With thresholds fixed on a development set, it brings three checkpoints within one point of the base recall on a held-out COCO set with a lower distinct-object hallucination rate than the base model. Against the recall-matched base stopping curve, its gain holds for RLAIF-V near the base recall and for RLAIF-V and CHAIR-DPO at an intermediate recall. We will release the code of the recall-controlled evaluation.",
+      "summary_sentence": "Preference optimization (PO) is the standard way to reduce object hallucination in large vision-language models. We find that four public PO checkpoints of LLaVA-1.5-7B also lower object coverage.",
+      "method_summary": "方法总结：Preference optimization (PO) is the standard way to reduce object hallucination in large vision-language models. We find that four public PO checkpoints of LLaVA-1.5-7B also lower object coverage.",
+      "conclusion_summary": "结论总结：Preference optimization (PO) is the standard way to reduce object hallucination in large vision-language models. We find that four public PO checkpoints of LLaVA-1.5-7B also lower object coverage.",
+      "published_at": "2026-11-17T18:24:58Z",
+      "updated_at": "2026-11-17T18:24:58Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23179v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23179v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23177v1",
+      "title": "Déjà View: A Shared Working-Memory Model for Visual Tasks",
+      "authors": [
+        "Mranmay Shetty",
+        "Gabriel Kreiman"
+      ],
+      "affiliations": [],
+      "summary": "A working-memory model must remember stimuli and use its memory flexibly to perform different tasks. Here we introduce a model of working memory for images that combines dynamic activity with temporary associations between image features. We train the model on five tasks, including remembering a sample while other images are presented, categorizing distractor images while remembering the sample, and determining whether an image is new or has been presented before. The same trained model performs all tasks, guided by explicit cues about which response is required. We use this flexible memory model to ask how delay, distraction, and image history affect performance. Delays have little effect on sample-memory performance for the delays we tested, while seeing more images leads to more false alarms even when the target image appeared equally recently in all cases. On the sample-memory-plus-categorization task, the probability of correct responses on all questions decreases as more questions are asked, despite robust sample-memory performance. Finally, the model maintains stable performance across 40 brief trials of each task under the tested conditions. Together, these results demonstrate how a single working-memory system can be flexibly used to perform different tasks, and how its errors depend on both previous images and task demands.",
+      "summary_sentence": "A working-memory model must remember stimuli and use its memory flexibly to perform different tasks. Here we introduce a model of working memory for images that combines dynamic activity with temporary associations between image features.",
+      "method_summary": "方法总结：A working-memory model must remember stimuli and use its memory flexibly to perform different tasks. Here we introduce a model of working memory for images that combines dynamic activity with temporary associations between image features.",
+      "conclusion_summary": "结论总结：A working-memory model must remember stimuli and use its memory flexibly to perform different tasks. Here we introduce a model of working memory for images that combines dynamic activity with temporary associations between image features.",
+      "published_at": "2026-11-17T18:23:14Z",
+      "updated_at": "2026-11-17T18:23:14Z",
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "q-bio.NC"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23177v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23177v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23174v1",
+      "title": "Inference after coding agents",
+      "authors": [
+        "Florian Gunsilius",
+        "David Van Dijcke",
+        "Kaspar Wüthrich"
+      ],
+      "affiliations": [],
+      "summary": "Empirical research is changing rapidly as AI coding agents are becoming increasingly proficient in every step of it, from writing code to manipulating data. We argue that while the potential of coding agents for science is vast, their use in hypothesis testing poses a substantial threat to classical inference, as these agents enable a supercharged form of selective inference. In particular, we argue that coding agents carrying out empirical research introduce a new type of post-selection inference that combines human-like, open-ended search over an implicit space of estimators with programmatic replayability of both the selection and the estimation process. Indeed, we find that on simulated data with zero effects, four frontier agents report significant p-values between 54% and 98% of the time when asked to produce a compelling finding. We propose a simple procedure for detecting and correcting these distortions. After an agent has completed its analysis, we reset and replay it on subsamples of the data to estimate the agent's relative probability of selecting that analysis when it looks statistically favorable. For agents with stable selection behavior, the resulting corrected test is asymptotically valid and consistent conditional on selection. Importantly, the correction is learned from the black-box agent's actual choices rather than a model of how it searches, so it remains valid even as AI technology continues to evolve rapidly. In simulations, the correction robustly lowers the high false rejection rates to near the nominal 5%. We illustrate the method on applications from two published papers.",
+      "summary_sentence": "Empirical research is changing rapidly as AI coding agents are becoming increasingly proficient in every step of it, from writing code to manipulating data. We argue that while the potential of coding agents for science is vast, their use in hypothesis testin…",
+      "method_summary": "方法总结：Empirical research is changing rapidly as AI coding agents are becoming increasingly proficient in every step of it, from writing code to manipulating data. We argue that while the potential of coding agents for science is vast, their use in hypothesis testin…",
+      "conclusion_summary": "结论总结：Empirical research is changing rapidly as AI coding agents are becoming increasingly proficient in every step of it, from writing code to manipulating data. We argue that while the potential of coding agents for science is vast, their use in hypothesis testin…",
+      "published_at": "2026-11-17T18:22:01Z",
+      "updated_at": "2026-11-17T18:22:01Z",
+      "categories": [
+        "stat.ME",
+        "cs.AI",
+        "econ.EM"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23174v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23174v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23161v1",
+      "title": "Attribution Through the Decoder: Prediction-Space Explanations for Structured Outputs",
+      "authors": [
+        "Zaer Bin Zaqy",
+        "Brinnae Bent"
+      ],
+      "affiliations": [],
+      "summary": "Networks that predict angles, gaze directions, and rotations do not output these quantities directly: they emit raw coordinates that a fixed decoder, such as normalization, maps to the final prediction. Attribution methods are usually applied to the raw coordinates, so they can credit inputs for changes the decoder discards, such as rescaling a vector when only its direction matters. The resulting explanation can highlight inputs that have no effect on the prediction. We instead attribute through the decoder differential, which for normalization decoders reduces to a scaled tangent projection. We characterize invariance to output rescaling, show that every fixed smooth scalar target on a sphere has points of zero tangential sensitivity, and show that an endpoint-projected variant of Integrated Gradients can still attribute to scale-only inputs, whereas direct angular Integrated Gradients cannot. On synthetic tasks with analytically known relevance, ambient attribution assigns up to 72% of its mass to an irrelevant region. On MPIIGaze validation data, tangent Grad-CAM produces 44% greater prediction displacement under 10% pixel deletion. On PASCAL3D+ with a 6D rotation decoder, the full differential improves mean deletion displacement by 14.1 degrees over the ambient coordinate sum and by 13.8 degrees over a decoder-invariant scalar. Results for a two-polarity tangent LayerCAM variant are mixed: it exceeds ambient-sum LayerCAM on circular regression but no difference is detected on quaternion pose. These results separate two failure sources, radial contamination and scalarization loss. The approach uses existing attribution methods with decoder-aware targets, although some variants also require changes to attribution aggregation. An invariant attribution can still miss inputs that drive the prediction, so invariance and deletion performance should each be checked.",
+      "summary_sentence": "Networks that predict angles, gaze directions, and rotations do not output these quantities directly: they emit raw coordinates that a fixed decoder, such as normalization, maps to the final prediction. Attribution methods are usually applied to the raw coord…",
+      "method_summary": "方法总结：Networks that predict angles, gaze directions, and rotations do not output these quantities directly: they emit raw coordinates that a fixed decoder, such as normalization, maps to the final prediction. Attribution methods are usually applied to the raw coord…",
+      "conclusion_summary": "结论总结：Networks that predict angles, gaze directions, and rotations do not output these quantities directly: they emit raw coordinates that a fixed decoder, such as normalization, maps to the final prediction. Attribution methods are usually applied to the raw coord…",
+      "published_at": "2026-11-17T18:13:50Z",
+      "updated_at": "2026-11-17T18:13:50Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23161v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23161v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23158v1",
+      "title": "MoE--LoRA Methods for Multilingual Adaptation: A Systematic Empirical Study",
+      "authors": [
+        "Nikit Srivastava",
+        "Joel Dag",
+        "René Speck",
+        "Axel-Cyrille Ngonga Ngomo"
+      ],
+      "affiliations": [],
+      "summary": "Routed low-rank adapters offer a parameter-efficient means to improve the performance of large language models (LLMs) across tasks. Hence, it is assumed that they can also be used to improve the support of low-resource languages in LLMs, which currently serve English far better than the thousands of other languages spoken worldwide. However, this assumption has never been verified empirically under a shared multilingual evaluation protocol. We address exactly this gap by comparing eight low-rank adaptation (LoRA) methods on a frozen base model using 200 unique languages in more than 9{,}000 evaluation settings. Our results suggest that a reduced-scale search can identify viable configurations of LoRA methods but does not reliably predict their relative performance, as the top-ranking configuration is never best at scale. LoRA reliably improves language-model fit on translation data, consistently degrades reading comprehension, and benefits low-resource languages most. These findings suggest that LoRA methods should be regarded as targeted tools rather than general-purpose means for improving the multilingual capabilities of LLMs.",
+      "summary_sentence": "Routed low-rank adapters offer a parameter-efficient means to improve the performance of large language models (LLMs) across tasks. Hence, it is assumed that they can also be used to improve the support of low-resource languages in LLMs, which currently serve…",
+      "method_summary": "方法总结：Routed low-rank adapters offer a parameter-efficient means to improve the performance of large language models (LLMs) across tasks. Hence, it is assumed that they can also be used to improve the support of low-resource languages in LLMs, which currently serve…",
+      "conclusion_summary": "结论总结：Routed low-rank adapters offer a parameter-efficient means to improve the performance of large language models (LLMs) across tasks. Hence, it is assumed that they can also be used to improve the support of low-resource languages in LLMs, which currently serve…",
+      "published_at": "2026-11-17T18:11:42Z",
+      "updated_at": "2026-11-17T18:11:42Z",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23158v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23158v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23154v1",
+      "title": "Learning Stratified Policies for Inference-Time Objectives",
+      "authors": [
+        "Mridul Mahajan",
+        "Xuezhou Zhang",
+        "Aldo Pacchiano"
+      ],
+      "affiliations": [],
+      "summary": "Inference-time scaling improves the performance of large language models by sampling multiple responses and evaluating their collective utility. However, many existing approaches obtain these samples by repeatedly sampling from a single policy. In this work, we study if the sample budget at inference time can instead be allocated across a population of policies. We introduce stratified policies, where each of $k$ learned policies contributes one response to a $k$-sample inference-time objective. We realize this policy population using separate LoRA adapters on a shared language model backbone and optimize it for pass@$k$. We theoretically motivate the approach by analyzing the linear setting; a population of LoRAs can achieve zero best-of-$k$ approximation error in settings where every single LoRA has strictly positive prediction error. Empirically, we demonstrate that stratified policies consistently improve pass@$k$ over a single-policy baseline across multiple reasoning tasks. Overall, our results highlight how distributing samples across complementary policies can be a more effective use of sample budget than repeated i.i.d. sampling from a single policy at inference time.",
+      "summary_sentence": "Inference-time scaling improves the performance of large language models by sampling multiple responses and evaluating their collective utility. However, many existing approaches obtain these samples by repeatedly sampling from a single policy.",
+      "method_summary": "方法总结：Inference-time scaling improves the performance of large language models by sampling multiple responses and evaluating their collective utility. However, many existing approaches obtain these samples by repeatedly sampling from a single policy.",
+      "conclusion_summary": "结论总结：Inference-time scaling improves the performance of large language models by sampling multiple responses and evaluating their collective utility. However, many existing approaches obtain these samples by repeatedly sampling from a single policy.",
+      "published_at": "2026-11-17T18:06:12Z",
+      "updated_at": "2026-11-17T18:06:12Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23154v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23154v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23149v1",
+      "title": "Capability Composition in Heterogeneous Teams via Barrier-Guided Diffusion Sampling",
+      "authors": [
+        "Diana Laura Morales",
+        "Ruoyu Lin",
+        "Magnus Egerstedt",
+        "Fabio Pasqualetti"
+      ],
+      "affiliations": [],
+      "summary": "The agents in a heterogeneous team can cooperate to accomplish tasks that exceed their individual capabilities. The team trajectories for a cooperative task can be generated by a generative model, provided that the model has been trained on demonstrations of the agents cooperating. Yet, demonstrations of cooperation are costly and may not exist for tasks that the team has never performed. The conditions under which the agents can combine their capabilities, however, are physical properties of the team and are known before any demonstration is collected. We encode the conditions as constraints on the team trajectories, and we enforce the constraints while sampling from generative models trained on demonstrations of each agent alone. We prove that the proposed method can generate every team trajectory that satisfies the constraints, although the demonstrations contain no cooperation. Hence the constraints determine which team trajectories can be generated, and the demonstrations determine how likely each team trajectory is. Numerical results on two cooperative tasks show the effectiveness of the method, which generates cooperative team trajectories that satisfy the constraints and requires no retraining when agents join or leave the team. Finally, we implement the method on a multi-robot testbed.",
+      "summary_sentence": "The agents in a heterogeneous team can cooperate to accomplish tasks that exceed their individual capabilities. The team trajectories for a cooperative task can be generated by a generative model, provided that the model has been trained on demonstrations of…",
+      "method_summary": "方法总结：The agents in a heterogeneous team can cooperate to accomplish tasks that exceed their individual capabilities. The team trajectories for a cooperative task can be generated by a generative model, provided that the model has been trained on demonstrations of…",
+      "conclusion_summary": "结论总结：The agents in a heterogeneous team can cooperate to accomplish tasks that exceed their individual capabilities. The team trajectories for a cooperative task can be generated by a generative model, provided that the model has been trained on demonstrations of…",
+      "published_at": "2026-11-17T18:03:24Z",
+      "updated_at": "2026-11-17T18:03:24Z",
+      "categories": [
+        "cs.RO",
+        "cs.LG",
+        "cs.MA",
+        "eess.SY"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23149v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23149v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23147v1",
+      "title": "AI Companions for Young Adult Caregivers: Practical Advice, Emotional Depth, and the Limits of Metric Evaluation",
+      "authors": [
+        "Trizal Garg",
+        "Xuelong Fu",
+        "Dhruv Shah",
+        "Jin Huang",
+        "Shrigopal Maheshwari",
+        "Atiksh Aggarwal",
+        "Yash Sinha",
+        "Dhruv Kumar",
+        "Siddharth Mehrotra"
+      ],
+      "affiliations": [],
+      "summary": "Young adult caregivers (YACs) are individuals aged 18 to 25 currently taking care of a family member, partner, or friend facing chronic illness. AI companions designed specifically for YACs remain underexplored in prior works. We present Carebot, it uses an open-weight LLM (Gemma 3-27B) as its base model, on which we compared fine-tuning, retrieval-augmented generation (RAG), and a combination of both. The fine-tuning was performed based on an existing dataset of conversations with YACs and a psychologist. Three well-being experts evaluated these configurations and preferred the fine-tuned model for the warmth of its responses and its actionable advice tailored to YACs. Based on their choice, we adopted the fine-tuned model as Carebot's final configuration and used it for all subsequent evaluations. An LLM judge preferred this Carebot's responses over the base model's in 85% of evaluated pairs. We then conducted a user study with 90 YACs, half of whom interacted with the base model and half with Carebot. The user study revealed a discrepancy between metric evaluation and actual user perception. Participants who used Carebot were more likely to characterize its replies as overly practical and brief, noting that it favored advice over emotional support. Conversely, participants who used the base model indicated that its responses were more emotionally oriented than practical. Although, fine-tuning made Carebot's replies more practical, but they were not emotionally supportive for users. We argue that support tools for YACs require situation-sensitive emotional depth and aligned evaluation frameworks to study their effectiveness.",
+      "summary_sentence": "Young adult caregivers (YACs) are individuals aged 18 to 25 currently taking care of a family member, partner, or friend facing chronic illness. AI companions designed specifically for YACs remain underexplored in prior works.",
+      "method_summary": "方法总结：Young adult caregivers (YACs) are individuals aged 18 to 25 currently taking care of a family member, partner, or friend facing chronic illness. AI companions designed specifically for YACs remain underexplored in prior works.",
+      "conclusion_summary": "结论总结：Young adult caregivers (YACs) are individuals aged 18 to 25 currently taking care of a family member, partner, or friend facing chronic illness. AI companions designed specifically for YACs remain underexplored in prior works.",
+      "published_at": "2026-11-17T18:00:46Z",
+      "updated_at": "2026-11-17T18:00:46Z",
+      "categories": [
+        "cs.HC"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23147v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23147v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23143v1",
+      "title": "TCP4D: A Unified Tool-Center-Point Tracking and Generation Model for Robot Manipulation",
+      "authors": [
+        "Haosong Peng",
+        "Xiangyang Liu",
+        "Zhengshen Zhang",
+        "Yunfeng Fan",
+        "Tianyu Qi",
+        "Xin Xia",
+        "Yufeng Zhan",
+        "Wenchao Xu"
+      ],
+      "affiliations": [],
+      "summary": "Robot manipulation videos provide a rich visual experience, yet recovering robot action and gripper-state annotations from RGB observations still remains challenging. Using the embodiment-agnostic tool-center-point (TCP) pose as the action space, we present TCP4D, a unified model in which a shared 4D scene representation both tracks observed TCP motion and generates future TCP trajectories. Given a monocular video and initial 2D TCP queries, the tracker directly recovers metric TCP poses in SE(3) and gripper states alongside scene geometry and camera parameters. The generator samples local features from the same 4D representation along the recovered TCP tracks, then combines them with robot observations and language instructions to predict future TCP states. Our new cross-embodiment augmentation pipeline converts existing RGB videos into demonstrations for alternative embodiments by retargeting the recovered motion and synthesizing the corresponding observations, without recorded source-robot states. Experiments show that the tracker achieves absolute trajectory errors of 7.60 and 16.07 mm on DROID and RoboLab and adapts to a new embodiment with only ten demonstrations. The generator achieves 69.19% mean success on RoboTwin and outperforms well-established policy models on two real-world tasks, while joint training on source and augmented demonstrations improves target-robot success by 41.5% over augmented-only training.",
+      "summary_sentence": "Robot manipulation videos provide a rich visual experience, yet recovering robot action and gripper-state annotations from RGB observations still remains challenging. Using the embodiment-agnostic tool-center-point (TCP) pose as the action space, we present T…",
+      "method_summary": "方法总结：Robot manipulation videos provide a rich visual experience, yet recovering robot action and gripper-state annotations from RGB observations still remains challenging. Using the embodiment-agnostic tool-center-point (TCP) pose as the action space, we present T…",
+      "conclusion_summary": "结论总结：Robot manipulation videos provide a rich visual experience, yet recovering robot action and gripper-state annotations from RGB observations still remains challenging. Using the embodiment-agnostic tool-center-point (TCP) pose as the action space, we present T…",
+      "published_at": "2026-11-17T17:59:42Z",
+      "updated_at": "2026-11-17T17:59:42Z",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23143v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23143v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23142v1",
+      "title": "Mind the Gap: A Deployed Multi-Agent System for Documentation Maintenance",
+      "authors": [
+        "Lorenzo Masoero"
+      ],
+      "affiliations": [],
+      "summary": "The \"AI revolution\" has enabled teams across the technology industry to deliver software features at unprecedented velocity. While code evolves faster than ever, customer-facing documentation often struggles to stay up to speed. As users increasingly rely on LLM-based agents that consume documentation as their primary interface, the impact of this documentation gap worsens: stale information propagates and is treated as authoritative. Signals for identifying where documentation has fallen behind already exist in abundance, both explicit (e.g., resolved support tickets revealing what documentation lacks) and implicit (e.g., code-documentation discrepancies detectable from automated loops). We deploy a multi-agent system, built around a triage agent we call \"TriAgent,\" that continuously extracts these signals and repairs documentation drift. Over 43 days of shadow-mode operation, our system triaged 499 tickets and surfaced 92 gaps in the documentation. Using a panel of LLM judges from independent model families, 81.1% of TriAgent's verifiable assertions were correct (245 of the 302 assertions the human resolution addresses; majority of three judges); on length-comparable pairs the panel preferred TriAgent's response in 70.5% of pairs and the human engineer's in 23.2% (the rest had no judge majority). Importantly, agent- and human-sourced replies tended to be complementary, with the human often surfacing insights that were either buried within the existing documentation or missing from it entirely; our system turns each such insight into a documentation gap and, after human review, a fix. Repairing a gap measurably improved the agent's later answer: when the agent re-answered the same ticket after the repair, blinded judges preferred the post-repair answer over its own pre-repair answer 71.4% of the time (n=35). A blinded human audit confirms strong alignment on self-improvement.",
+      "summary_sentence": "The \"AI revolution\" has enabled teams across the technology industry to deliver software features at unprecedented velocity. While code evolves faster than ever, customer-facing documentation often struggles to stay up to speed.",
+      "method_summary": "方法总结：The \"AI revolution\" has enabled teams across the technology industry to deliver software features at unprecedented velocity. While code evolves faster than ever, customer-facing documentation often struggles to stay up to speed.",
+      "conclusion_summary": "结论总结：The \"AI revolution\" has enabled teams across the technology industry to deliver software features at unprecedented velocity. While code evolves faster than ever, customer-facing documentation often struggles to stay up to speed.",
+      "published_at": "2026-11-17T17:59:13Z",
+      "updated_at": "2026-11-17T17:59:13Z",
+      "categories": [
+        "cs.SE",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23142v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23142v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23138v1",
+      "title": "RSI-Prime: Training Models to Train Models",
+      "authors": [
+        "Dewu Zheng",
+        "Yang Ye",
+        "Hongyu Zhang",
+        "Jun Yu",
+        "Yanlin Wang"
+      ],
+      "affiliations": [],
+      "summary": "Enabling large language models (LLMs) to autonomously conduct training and improve target models is an important foundation for recursive self-improvement (RSI). As LLMs expand their role from being trained to conducting training, their model-training capability warrants dedicated study and systematic development. To this end, we construct RSI-Prime, a dataset for improving model-training capability, comprising 350 complete experimental trajectories across seven task categories. To help LLMs learn to make high-quality experimental decisions from training practice, we perform fine-grained decision identification and quality annotation, then apply decision-level loss masking to exclude supervision on low-quality behavior. Experiments with GLM-5.3 on PostTrainBench, a benchmark for autonomous post-training, show that training on RSI-Prime yields a 31.95% relative improvement in overall performance over the original GLM-5.3, highlighting a path toward future RSI systems in which models autonomously sustain their own advancement.",
+      "summary_sentence": "Enabling large language models (LLMs) to autonomously conduct training and improve target models is an important foundation for recursive self-improvement (RSI). As LLMs expand their role from being trained to conducting training, their model-training capabil…",
+      "method_summary": "方法总结：Enabling large language models (LLMs) to autonomously conduct training and improve target models is an important foundation for recursive self-improvement (RSI). As LLMs expand their role from being trained to conducting training, their model-training capabil…",
+      "conclusion_summary": "结论总结：Enabling large language models (LLMs) to autonomously conduct training and improve target models is an important foundation for recursive self-improvement (RSI). As LLMs expand their role from being trained to conducting training, their model-training capabil…",
+      "published_at": "2026-11-17T17:55:30Z",
+      "updated_at": "2026-11-17T17:55:30Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23138v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23138v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23134v1",
+      "title": "Correcting Flows with Marginal Matching",
+      "authors": [
+        "Meital Bojan",
+        "Nadav Bojan Sellam",
+        "Ev Zisselman",
+        "Aviv Tamar"
+      ],
+      "affiliations": [],
+      "summary": "Flow matching models, ODE-based generative models, generate samples by gradually morphing a simple source distribution into a target distribution. However, these models still face challenges in optimally balancing computational efficiency with generation fidelity. While predictor-corrector schemes have been proven to help address this issue in diffusion models effectively, their application to flow matching models remains under-explored. In this work we present a novel training-based predictor-corrector framework for flow matching, which exploits the fact that the ODE can be easily reversed. Our key idea, termed Marginal Matching, is to correct samples at a particular time step in the forward ODE towards a matching marginal distribution of the backward ODE. This scheme proves to reduce a bound on the distance between the data distribution and the learned distribution, motivating two different implementations for the correction function. We show that our proposed method improves sample quality on CIFAR-10 and ImageNet-64, with minimal overhead in computation time.",
+      "summary_sentence": "Flow matching models, ODE-based generative models, generate samples by gradually morphing a simple source distribution into a target distribution. However, these models still face challenges in optimally balancing computational efficiency with generation fide…",
+      "method_summary": "方法总结：Flow matching models, ODE-based generative models, generate samples by gradually morphing a simple source distribution into a target distribution. However, these models still face challenges in optimally balancing computational efficiency with generation fide…",
+      "conclusion_summary": "结论总结：Flow matching models, ODE-based generative models, generate samples by gradually morphing a simple source distribution into a target distribution. However, these models still face challenges in optimally balancing computational efficiency with generation fide…",
+      "published_at": "2026-11-17T17:53:38Z",
+      "updated_at": "2026-11-17T17:53:38Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23134v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23134v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23130v1",
+      "title": "A Neural Envelope Method for Rapid Gradient-based Optimum Takeoff Trajectory Design",
+      "authors": [
+        "Samuel Sisk",
+        "Xiaosong Du"
+      ],
+      "affiliations": [],
+      "summary": "Urban air mobility arises to mitigate ground traffic congestion. Multidisciplinary analysis and optimization (MDAO) has been introduced to reduce the energy consumption, thereby expanding aircraft performance. Surrogate-based MDAO lowers the cost of optimization, but multimodality disrupts global optimum search for both simulation-based and surrogate-based optimizations. Convex envelopes convert multimodal spaces into unimodal spaces, permitting efficient convex optimization; however, convexifying a design space may produce infeasible \"optimal\" designs due to complex design constraints. To address these challenges, this work proposes the coupling of a physics-constrained generative adversarial networks (physicsGAN) and neural envelope to transform original, constrained, non-convex optimizations into unconstrained, convex optimizations. Specifically, the physicsGAN discovers a feasible design space where all design candidates inherently satisfy all constraints, by penalizing surrogate-predicted constraint violations during training. Moreover, the neural envelope constructs a neural network-based convex envelope for the transformed objective function within the physicsGAN-discovered feasible space. Note that the neural envelope only needs to deal with objective function since constraints are inherently satisfied in the feasible space. The neural envelope is demonstrated on takeoff trajectory optimizations of the Airbus A3 Vahana eVTOL aircraft. Results show that neural envelopes achieve a 99.91% mean accuracy within a flight-condition space compared with reference convex envelopes. Neural-envelope-enabled optimizations achieve 99.84% accuracy on the global optimum design, costing only 0.04 seconds on average. The neural envelope accelerates the trajectory optimization by 53 and 162 times on average compared to the physicsGAN-enabled gradient-based and global optimizations, respectively.",
+      "summary_sentence": "Urban air mobility arises to mitigate ground traffic congestion. Multidisciplinary analysis and optimization (MDAO) has been introduced to reduce the energy consumption, thereby expanding aircraft performance.",
+      "method_summary": "方法总结：Urban air mobility arises to mitigate ground traffic congestion. Multidisciplinary analysis and optimization (MDAO) has been introduced to reduce the energy consumption, thereby expanding aircraft performance.",
+      "conclusion_summary": "结论总结：Urban air mobility arises to mitigate ground traffic congestion. Multidisciplinary analysis and optimization (MDAO) has been introduced to reduce the energy consumption, thereby expanding aircraft performance.",
+      "published_at": "2026-11-17T17:47:48Z",
+      "updated_at": "2026-11-17T17:47:48Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23130v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23130v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23129v1",
+      "title": "Where Should Physics Enter? Information, Identifiability and Calibration in Probabilistic Sea Surface Temperature Forecasting",
+      "authors": [
+        "Parmitha Vangapandu",
+        "Jonnakuti Pavan Kumar",
+        "Sathwik Narkedimilli",
+        "MSVPJ Sathvik",
+        "T. M. Balakrishnan Nair",
+        "Santanu Bhattacharya"
+      ],
+      "affiliations": [],
+      "summary": "Advection-diffusion priors are a common way to make neural sea surface temperature (SST) forecasts physics-informed. We test where such a prior must enter a heteroscedastic ConvLSTM to help, using daily NOAA OISST v2.1 for the Bay of Bengal (1982-2024) and a synthetic benchmark on the same grid with known currents of controlled strength. (i) On real data, a soft advection-diffusion residual with a learned velocity gives no reliable benefit (lead-15 CRPS -0.007 degrees C, 95% interval [-0.022, +0.008]); a plain temporal-smoothness penalty matches it, and equivalence within 3% is not established either. (ii) Learned velocities do not recover the currents, whether placed in the loss, in an explicit transport step, or in a transport step without neural correction: they correlate with the reference no better than a shuffled-date null, even on synthetic data where knowing the currents would improve day-15 forecasts by 16-23%. (iii) Supplied currents help on synthetic data, but mostly as information: giving them to the network as input channels, without transport, recovers 92% of the transport design's lead-5 gain, and a frozen-current numerical forecast does as well as either. (iv) With GLORYS12 reanalysis currents on real data, the transport design is 6% and 4% worse at leads 1 and 5; reanalysis advection explains essentially none of the daily OISST change (correlation 0.02), and frozen-current transport is worse than persistence. (v) The defect that matters is lead-dependent miscalibration shared by every model. One variance multiplier per lead, fitted on validation data, brings 90% coverage to 0.85-0.91 at all leads and lowers day-1 CRPS by 13-21%; fine-tuning on 15-day rollouts fixes long-lead coverage but costs short-lead skill. This version withdraws an earlier claim of an 81% CRPS reduction that came from an uncontrolled comparison.",
+      "summary_sentence": "Advection-diffusion priors are a common way to make neural sea surface temperature (SST) forecasts physics-informed. We test where such a prior must enter a heteroscedastic ConvLSTM to help, using daily NOAA OISST v2.1 for the Bay of Bengal (1982-2024) and a…",
+      "method_summary": "方法总结：Advection-diffusion priors are a common way to make neural sea surface temperature (SST) forecasts physics-informed. We test where such a prior must enter a heteroscedastic ConvLSTM to help, using daily NOAA OISST v2.1 for the Bay of Bengal (1982-2024) and a…",
+      "conclusion_summary": "结论总结：Advection-diffusion priors are a common way to make neural sea surface temperature (SST) forecasts physics-informed. We test where such a prior must enter a heteroscedastic ConvLSTM to help, using daily NOAA OISST v2.1 for the Bay of Bengal (1982-2024) and a…",
+      "published_at": "2026-11-17T17:46:47Z",
+      "updated_at": "2026-11-17T17:46:47Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23129v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23129v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23127v1",
+      "title": "The Illusion of Grounding: Do Vision-Language Models Weigh Retrieved Text and Images Like an Ideal Observer?",
+      "authors": [
+        "Basavaraj R M",
+        "Harshal Chandel"
+      ],
+      "affiliations": [],
+      "summary": "Retrieval-augmented vision-language models (VLMs) answer from two sources of evidence that can each fail: the retrieved text can be wrong or noisy, and the image can be degraded or contradicted. We introduce GIB-200K, 200,000 image-question items built from COCO and Visual Genome, each expanded into controlled stress conditions: hard-negative retrieval noise (1-20 documents), visual ambiguity (Gaussian and motion blur, low-resource crops) and cross-modal conflict with counterfactual flip pairs. Instead of only measuring degradation, we ask how models combine the two modalities. From ideal Bayesian cue combination we derive a testable prediction that yields formal definitions of Knowledge Inertia (text over-weighted relative to the model's own image evidence) and Sensory Capture (the reverse), and we estimate the weights with a measurement-error-corrected regression whose recovery of known weights we verify. A counterfactual flip decomposition separates modality bias from concept priors, and a Grounding Illusion Score measures how much clean accuracy is not grounded in the image. We evaluate 4 open models on one frozen, seeded evaluation split of 2,000 GIB-200K items. All models are accurate on clean inputs (92.5%-94.2%) but adverse accuracy falls to 41.3%-59.9%. The two LLaVA models over-weight the text (Knowledge Inertia, w_T/w_I = 1.229 and 1.322), whereas InternVL3 favours the image (w_T/w_I = 0.680); between 34.8% and 71.4% of the clean answers that are correct are abandoned when the document lies. A training-free consistency check that compares the answer with and without retrieval trades coverage for accuracy under misleading documents, while falling back to the image fails when the image is heavily degraded. All per-instance outputs, code, and an audit that recomputes every reported open-model number are released.",
+      "summary_sentence": "Retrieval-augmented vision-language models (VLMs) answer from two sources of evidence that can each fail: the retrieved text can be wrong or noisy, and the image can be degraded or contradicted. We introduce GIB-200K, 200,000 image-question items built from C…",
+      "method_summary": "方法总结：Retrieval-augmented vision-language models (VLMs) answer from two sources of evidence that can each fail: the retrieved text can be wrong or noisy, and the image can be degraded or contradicted. We introduce GIB-200K, 200,000 image-question items built from C…",
+      "conclusion_summary": "结论总结：Retrieval-augmented vision-language models (VLMs) answer from two sources of evidence that can each fail: the retrieved text can be wrong or noisy, and the image can be degraded or contradicted. We introduce GIB-200K, 200,000 image-question items built from C…",
+      "published_at": "2026-11-17T17:45:28Z",
+      "updated_at": "2026-11-17T17:45:28Z",
+      "categories": [
+        "cs.LG",
+        "cs.CL",
+        "cs.CV"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23127v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23127v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23126v1",
+      "title": "Which Past Matters? Training History and Multi-Forecast Horizon in Equity Transformers",
+      "authors": [
+        "Chariton Chalvatzis"
+      ],
+      "affiliations": [],
+      "summary": "More historical data can improve estimation while introducing relationships that transfer poorly to current market conditions. We therefore examine how training quantity and historical selection interact with forecast horizon in intraday equity prediction. We deploy twelve configurations which combine four sampling and validation policies with 6, 12 and 24 month training quantities under a fixed cross-sectional Transformer and feature set. A monthly walk-forward experiment produces 264 refits and eight cumulative return forecasts from 5 to 120 minutes. Evaluation covers January 2025 through 20 October 2026 and uses cross-sectional Spearman information coefficients against future five-factor residual returns. Six-month recency sampling leads individual models at 5-15 minutes, while multi recency configurations lead at 20-30 minutes and uniform configurations at 60-120 minutes. Increasing training quantity does not uniformly improve accuracy while an equal-weight ensemble of all twelve models exceeds every individual mean at 15, 20 and 25 minutes, but not at the remaining horizons. These findings support evaluating historical selection jointly with forecast horizon without identifying a universal policy or a causal benefit from recency.",
+      "summary_sentence": "More historical data can improve estimation while introducing relationships that transfer poorly to current market conditions. We therefore examine how training quantity and historical selection interact with forecast horizon in intraday equity prediction.",
+      "method_summary": "方法总结：More historical data can improve estimation while introducing relationships that transfer poorly to current market conditions. We therefore examine how training quantity and historical selection interact with forecast horizon in intraday equity prediction.",
+      "conclusion_summary": "结论总结：More historical data can improve estimation while introducing relationships that transfer poorly to current market conditions. We therefore examine how training quantity and historical selection interact with forecast horizon in intraday equity prediction.",
+      "published_at": "2026-11-17T17:44:41Z",
+      "updated_at": "2026-11-17T17:44:41Z",
+      "categories": [
+        "q-fin.ST",
+        "cs.LG",
+        "q-fin.CP"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23126v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23126v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23124v1",
+      "title": "Get Hint-Augmented GRPO Done Right Through Activation Steering",
+      "authors": [
+        "Khiem Le",
+        "Ting Hua",
+        "Nitesh V. Chawla"
+      ],
+      "affiliations": [],
+      "summary": "GRPO has become the dominant reinforcement learning method for eliciting reasoning capability in LLMs using verifiable rewards. However, it suffers from a fundamental failure mode: when a training question exceeds the base model's current capability, all generated responses fail and receive zero reward, yielding no gradient signal and stalling further capability expansion. An emerging class of GRPO extensions, termed Hint-Augmented GRPO (HA-GRPO), adds a \"hint\" to the context to reduce the difficulty of the question, thereby producing a usable gradient signal. Nevertheless, existing HA-GRPO methods share a key issue: no hint is available at inference time to append to the question, creating a training-inference context mismatch that leads to inconsistent performance gains. In this work, we reinterpret the function of hinting -- not as reducing question difficulty, but as steering model behavior -- and propose ASH (Activation Steering for Hinting), a novel HA-GRPO method built on this view. During training, the model is presented with both hinted and plain questions, while a trainable steering vector is optimized to widen the margins between the model's generation probabilities for responses to the hinted version relative to the plain version, thereby capturing the question-agnostic component of the behavioral shift induced by the hint. During inference, the trained steering vector is directly injected into the model's activation, reproducing the hint-conditioned behavior without requiring any hint in the context. Experiments with four LLMs (Qwen3-1.7B/4B-Base, Llama-3.2-1B/3B-Instruct) show that ASH consistently improves pass@$k$ on competition-level mathematics benchmarks (AMC, OlympiadBench, AIME24, AIME25) and out-of-distribution benchmarks (Minerva, GPQA-Diamond). Notably, it improves average pass@8 of Qwen3-1.7B-Base and Qwen3-4B-Base by \\textbf{2.60}\\% and \\textbf{2.21}\\%.",
+      "summary_sentence": "GRPO has become the dominant reinforcement learning method for eliciting reasoning capability in LLMs using verifiable rewards. However, it suffers from a fundamental failure mode: when a training question exceeds the base model's current capability, all gene…",
+      "method_summary": "方法总结：GRPO has become the dominant reinforcement learning method for eliciting reasoning capability in LLMs using verifiable rewards. However, it suffers from a fundamental failure mode: when a training question exceeds the base model's current capability, all gene…",
+      "conclusion_summary": "结论总结：GRPO has become the dominant reinforcement learning method for eliciting reasoning capability in LLMs using verifiable rewards. However, it suffers from a fundamental failure mode: when a training question exceeds the base model's current capability, all gene…",
+      "published_at": "2026-11-17T17:43:28Z",
+      "updated_at": "2026-11-17T17:43:28Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "module": "llm_agent",
+      "module_label": "大语言模型与 Agent",
+      "abs_url": "http://arxiv.org/abs/2611.23124v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23124v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "paper_id": "2611.23120v1",
+      "title": "Pressure Drop: Gravity Vector Estimation from a Distributed Barometric Pressure Sensor Array",
+      "authors": [
+        "William Dubois",
+        "Nicolas Lauzon",
+        "Johann Laconte",
+        "François Pomerleau"
+      ],
+      "affiliations": [],
+      "summary": "While gravity is often used in mobile robotics as a global constraint for Simultaneous Localization and Mapping (SLAM) algorithms, most estimation methods rely on indirect observation of the gravity vector. In this paper, we propose the use of altimeter measurements to directly observe the direction of the gravity vector. We provide a theoretical evaluation of the estimation noise and validate it through extensive experimental data, along with an evaluation of the impact of intersensor distance on our gravity vector estimates. Experimental results demonstrate that a median error of $0.87^\\circ$ on the tilt estimation can be achieved with our system in semi-static scenarios. Furthermore, we demonstrate the potential of this approach by comparing it with state-of-the-art methods based on Inertial Measurement Units (IMUs). We highlight that we achieve similar performance to that of IMU-based systems in highly dynamic scenarios and even outperform in specific cases of accelerometer measurement saturation. Finally, an additional experiment shows the potential use within a robotic system through the integration into an Iterative Closest Point (ICP) algorithm.",
+      "summary_sentence": "While gravity is often used in mobile robotics as a global constraint for Simultaneous Localization and Mapping (SLAM) algorithms, most estimation methods rely on indirect observation of the gravity vector. In this paper, we propose the use of altimeter measu…",
+      "method_summary": "方法总结：While gravity is often used in mobile robotics as a global constraint for Simultaneous Localization and Mapping (SLAM) algorithms, most estimation methods rely on indirect observation of the gravity vector. In this paper, we propose the use of altimeter measu…",
+      "conclusion_summary": "结论总结：While gravity is often used in mobile robotics as a global constraint for Simultaneous Localization and Mapping (SLAM) algorithms, most estimation methods rely on indirect observation of the gravity vector. In this paper, we propose the use of altimeter measu…",
+      "published_at": "2026-11-17T17:38:28Z",
+      "updated_at": "2026-11-17T17:38:28Z",
+      "categories": [
+        "cs.RO"
+      ],
+      "module": "embodied",
+      "module_label": "具身智能（VLA / 世界模型 / 机器人）",
+      "abs_url": "http://arxiv.org/abs/2611.23120v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.23120v1",
+      "image_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    }
+  ]
+}
